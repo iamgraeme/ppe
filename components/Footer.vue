@@ -6,12 +6,11 @@
           <Logo />
           <p class="text-gray-500 my-5">
             High quality beds and mattresses, designed to go easy on your wallet
-            <br />
-            and give you the best nights sleep.
+            <br />and give you the best nights sleep.
           </p>
           <ul class="flex items-center">
             <li class="mr-3">
-              <a href="">
+              <a href>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="9.368"
@@ -27,8 +26,8 @@
               </a>
             </li>
             <li class="mr-3">
-              <a href=""
-                ><svg
+              <a href>
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.5"
                   height="17.5"
@@ -50,12 +49,13 @@
                     ry="1.085"
                     transform="translate(12.2 3.173)"
                     fill="#c5c5c5"
-                  /></svg
-              ></a>
+                  />
+                </svg>
+              </a>
             </li>
             <li class="mr-3">
-              <a href=""
-                ><svg
+              <a href>
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18.504"
                   height="15.031"
@@ -67,12 +67,13 @@
                       transform="translate(-0.001 -57.441)"
                       fill="#c5c5c5"
                     />
-                  </g></svg
-              ></a>
+                  </g>
+                </svg>
+              </a>
             </li>
             <li class="mr-3">
-              <a href=""
-                ><svg
+              <a href>
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="19.519"
                   height="13.419"
@@ -84,38 +85,57 @@
                       transform="translate(0 -80)"
                       fill="#c5c5c5"
                     />
-                  </g></svg
-              ></a>
+                  </g>
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
         <div class="col col2">
-          <h6>Shopping online</h6>
+          <h6 class="font-semibold text-gray-600 text-lg">Shopping online</h6>
           <ul>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
           </ul>
         </div>
         <div class="col col3">
-          <h6>Information</h6>
+          <h6 class="font-semibold text-gray-600 text-lg">Information</h6>
           <ul>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
-            <li><a href="">Item</a></li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
+            <li>
+              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="bg-purple-400 text-white text-center">
-      <p class="text-sm py-2">
-        &copy; Purple People Eater
-      </p>
+      <p class="text-sm py-2">&copy; Purple People Eater</p>
     </div>
   </div>
 </template>

@@ -7,10 +7,16 @@
 module.exports = {
   theme: {
     extend: {
+      fontSize: {
+        xxs: "0.65rem"
+      },
       inset: {
         "2": "2px",
         "3": "3px",
         "5": "5px",
+        "10": "10px",
+        "20": "20px",
+        "25": "25px",
         "-10": "-10px"
       }
     }

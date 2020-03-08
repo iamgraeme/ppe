@@ -1,5 +1,10 @@
 /* purgecss start ignore */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
 /* purgecss end ignore */
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background: #b794f4 !important;
+}

@@ -1,11 +1,18 @@
 <template>
   <nav class="flex items-center justify-between">
-    <nuxt-link
-      class="text-purple-800 hover:text-purple-400 mr-10 text-lg font-semibold"
-      v-for="category in categories"
-      :key="category.id"
-      :to="'/category/' + category.id + '/' + category.slug"
-    >{{ category.name }}</nuxt-link>
+    <div v-if="isLoading">
+      <div class="item mr-8"></div>
+      <div class="item mr-8"></div>
+      <div class="item mr-8"></div>
+    </div>
+    <div v-else>
+      <nuxt-link
+        class="text-purple-800 hover:text-purple-400 mr-10 text-lg font-semibold"
+        v-for="category in categories"
+        :key="category.id"
+        :to="'/category/' + category.id + '/' + category.slug"
+      >{{ category.name }}</nuxt-link>
+    </div>
   </nav>
 </template>
 
@@ -18,12 +25,13 @@ import jQuery from "jquery";
 export default {
   name: "Nav",
   data: () => ({
-    categories: []
+    categories: [],
+    isLoading: true
   }),
   async created() {
-    const ck = "ck_867037a89995f3c21452a93e1d75b2b242b3c366";
-    const cs = "cs_5b2a1f355a6f92335ac006f671ce4984a030de45";
-    const url = "http://purple:8888/wp-json/wc/v2/products/categories";
+    const ck = process.env.WOOCOMMERCE_KEY;
+    const cs = process.env.WOOCOMMERCE_SECRET;
+    const url = process.env.WOOCOMMERCE_URL;
 
     const oauth = OAuth({
       consumer: {
@@ -56,11 +64,14 @@ export default {
           "?" +
           jQuery.param(oauth.authorize(requestData), config)
       );
+
       const { data } = response;
 
       this.categories = data.filter(function(category) {
         return category.id !== 15;
       });
+
+      this.isLoading = false;
 
       console.log(response.data);
     } catch (error) {
@@ -75,3 +86,28 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.item {
+  display: inline-block;
+  background-color: #444;
+  height: 12px;
+  border-radius: 100px;
+  min-width: 100px;
+  opacity: 0.1;
+  animation: fading 1.5s infinite;
+}
+@keyframes fading {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}
+</style>
