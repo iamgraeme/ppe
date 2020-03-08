@@ -20,7 +20,9 @@
     "jquery": "^3.4.1",
     "nuxt": "^2.0.0",
     "oauth-1.0a": "^2.2.6",
-    "v-owl-carousel": "^1.0.8"
+    "typeface-poppins": "^0.0.72",
+    "v-owl-carousel": "^1.0.8",
+    "vue-lazy-hydration": "^1.0.0-beta.12"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",

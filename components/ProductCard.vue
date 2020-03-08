@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mb-10 w-1/4">
+  <div class="relative mb-10" :class="{ 'w-1/4': noCarousel }">
     <div v-if="salePrice">
       <div
         class="absolute bg-purple-400 text-white rounded-full text-xxs uppercase top-10 left-25 font-semibold py-1 px-2"
@@ -8,9 +8,9 @@
       </div>
     </div>
 
-    <div class="mb-6">
-      <nuxt-link :to="'/products/' + id + '/' + slug">
-        <img class="pr-3" :src="image" :alt="productName" />
+    <div class="mb-6 w-full">
+      <nuxt-link :to="'/products/' + id + '/' + slug" class="">
+        <img class="pr-3 w-full" :src="image" :alt="productName" />
       </nuxt-link>
     </div>
     <div>
@@ -40,7 +40,8 @@ export default {
     productName: String,
     price: String,
     salePrice: String,
-    slug: String
+    slug: String,
+    noCarousel: Boolean
   }
 };
 </script>

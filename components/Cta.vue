@@ -22,7 +22,7 @@
             More Info
           </nuxt-link>
         </div>
-        <div class="w-5/12 absolute  -right-10">
+        <div class="w-5/12 absolute  -right-20">
           <img src="@/assets/images/mattress-hex-home.png" alt="" />
         </div>
       </div>

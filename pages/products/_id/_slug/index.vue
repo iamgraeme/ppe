@@ -1,49 +1,68 @@
 <template>
-  <div class="container mx-auto">
-    <div class="flex mt-16">
-      <div class="w-7/12 flex">
-        <div class="w-2/12 flex flex-col">
-          <div class="mb-3" v-for="image in product.images" :key="image.id">
+  <div>
+    <div class="mt-16">
+      <div class="container mx-auto flex">
+        <div class="w-7/12 flex">
+          <div class="w-2/12 flex flex-col">
+            <div class="mb-3" v-for="image in product.images" :key="image.id">
+              <img
+                class="w-full pr-3 cursor-pointer"
+                :src="image.src"
+                :alt="image.name"
+              />
+            </div>
+          </div>
+          <div class="w-10/12">
             <img
-              class="w-full pr-3 cursor-pointer"
-              :src="image.src"
-              :alt="image.name"
+              class="w-full pr-3"
+              :src="product.images[0].src"
+              :alt="product.name"
             />
           </div>
         </div>
-        <div class="w-10/12">
-          <img
-            class="w-full pr-3"
-            :src="product.images[0].src"
-            :alt="product.name"
-          />
-        </div>
-      </div>
-      <div class="h-64 w-5/12">
-        <h1 class="text-3xl font-light text-gray-600">{{ product.name }}</h1>
-        <p class="text-3xl font-normal text-purple-800 mb-2">
-          £{{ product.price }}.00
-        </p>
-        <div class="border-t border-b border-gray-300 py-1 mb-2">
-          <div class="flex items-center">
-            <span class="text-sm mr-2 text-gray-500">4.5</span>
-            <span>
-              <img src="@/assets/images/starz.svg" alt="" />
-            </span>
+        <div class="w-5/12 pl-3">
+          <h1 class="text-3xl font-light text-gray-600">{{ product.name }}</h1>
+          <p class="text-3xl font-normal text-purple-800 mb-2">
+            £{{ product.price }}.00
+          </p>
+          <div class="border-t border-b border-gray-300 py-1 mb-2">
+            <div class="flex items-center">
+              <span class="text-sm mr-2 text-gray-500">4.5</span>
+              <span>
+                <img src="@/assets/images/starz.svg" alt="" />
+              </span>
+            </div>
+          </div>
+          <div>
+            <div
+              v-html="product.description"
+              class="text-sm text-gray-500 leading-loose"
+            ></div>
+          </div>
+          <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
+            <div class="flex items-center justify-center">
+              <SocialIcons />
+            </div>
+          </div>
+          <div class="flex">
+            <div class="border border-gray-200 rounded-full py-2 px-4">
+              <button class="text-3xl">-</button>
+              <input type="text" value="1" />
+              <button class="text-lg">+</button>
+            </div>
+            <div>
+              <input
+                class="bg-purple-800 mb-10 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+                type="submit"
+                value="Add to Cart"
+              />
+            </div>
           </div>
         </div>
-        <div>
-          <div
-            v-html="product.description"
-            class="text-sm text-gray-500 leading-loose"
-          ></div>
-        </div>
-        <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
-          <div class="flex items-center justify-center">
-            <SocialIcons />
-          </div>
-        </div>
       </div>
+    </div>
+    <div>
+      <Cta />
     </div>
   </div>
 </template>
@@ -51,10 +70,12 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 import SocialIcons from "@/components/SocialIcons";
+import Cta from "@/components/Cta";
 export default {
   components: {
     PageHeading,
-    SocialIcons
+    SocialIcons,
+    Cta
   },
   data: () => ({
     product: {

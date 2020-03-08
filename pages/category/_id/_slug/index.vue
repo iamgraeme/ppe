@@ -15,6 +15,7 @@
           :salePrice="product.sale_price"
           :slug="product.slug"
           :key="product.id"
+          noCarousel
         />
       </div>
     </div>

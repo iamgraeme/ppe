@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,300,400,600&display=swap");
 /* purgecss start ignore */
 @import "tailwindcss/base";
 
@@ -7,4 +8,36 @@
 
 .owl-theme .owl-dots .owl-dot.active span {
   background: #b794f4 !important;
+}
+
+.owl-theme .owl-nav {
+  z-index: 50;
+  position: absolute !important;
+  right: 100px;
+  bottom: 50px;
+}
+
+.owl-theme .owl-nav button {
+  width: 70px;
+  height: 70px;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+.owl-carousel .owl-nav button.owl-prev:focus,
+.owl-carousel .owl-nav button.owl-next:focus {
+  outline: none;
+}
+
+.owl-theme .owl-nav button span {
+  font-size: 40px;
+}
+
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover {
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: #fff;
 }
