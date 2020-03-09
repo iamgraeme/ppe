@@ -29,9 +29,9 @@ export default {
     isLoading: true
   }),
   async created() {
-    const ck = process.env.WOOCOMMERCE_KEY;
-    const cs = process.env.WOOCOMMERCE_SECRET;
-    const url = process.env.WOOCOMMERCE_URL;
+    const ck = "ck_3d7e6dc8e9f416e72a656375b366c70392bf31a9";
+    const cs = "cs_1577824db5aa127f150af1963641363e3b2378c7";
+    const url = "http://35.178.124.91/wp-json/wc/v2/products/categories";
 
     const oauth = OAuth({
       consumer: {
