@@ -1,7 +1,9 @@
 <template>
   <div class="border-t border-gray-300">
     <div class="container mx-auto py-6">
-      <div class="flex justify-between">
+      <div
+        class="text-center sm:flex sm:flex-col sm:text-center sm:items-center md:flex-row md:text-left"
+      >
         <div class="col col1">
           <Logo />
           <p class="text-gray-500 my-5">

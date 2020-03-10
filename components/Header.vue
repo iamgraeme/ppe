@@ -2,16 +2,16 @@
   <div>
     <div class="h-1 bg-purple-500"></div>
     <div class="border-b border-gray-300 py-6">
-      <div class="flex justify-between item-center container mx-auto">
+      <div class="flex justify-between item-center container mx-auto px-6 sm:px-0">
         <div>
           <nuxt-link to="/">
             <Logo />
           </nuxt-link>
         </div>
-        <Nav />
+        <Nav class="hidden md:flex" />
         <div class="flex items-center">
           <ul class="flex items-center">
-            <li class="px-4">
+            <li class="px-4 hidden md:block">
               <nuxt-link class="font-semibold text-purple-800 hover:text-purple-400" to="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
                 </svg>
               </nuxt-link>
             </li>
-            <li class="px-4 relative">
+            <li class="px-4 relative hidden md:block">
               <span
                 class="absolute right-5 -top-10 bg-green-600 text-white rounded-full text-xs w-4 h-4 flex justify-center items-center"
               >{{1}}</span>
@@ -40,7 +40,7 @@
                 </svg>
               </nuxt-link>
             </li>
-            <li class="px-4">
+            <li class="px-4 hidden md:block">
               <nuxt-link class="font-semibold text-purple-800 hover:text-purple-400" to="/auth">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +52,16 @@
                   />
                 </svg>
               </nuxt-link>
+            </li>
+            <li class="sm:block md:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="fill-current font-semibold text-purple-800 hover:text-purple-400 w-8 h-8"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
             </li>
           </ul>
         </div>
