@@ -1,9 +1,14 @@
 <template>
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="flex justify-center items-center">
+    <div>
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="lds-txt">Loading...</div>
   </div>
 </template>
 
@@ -14,20 +19,24 @@ export default {
 </script>
 
 <style scoped>
+.lds-txt {
+  height: 16px;
+  line-height: 16px;
+}
 .lds-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 .lds-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #e2e8f0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e2e8f0;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #e2e8f0 transparent transparent transparent;

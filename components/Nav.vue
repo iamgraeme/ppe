@@ -1,9 +1,9 @@
 <template>
   <nav class="flex items-center justify-between">
     <div v-if="isLoading">
-      <div class="item mr-8"></div>
-      <div class="item mr-8"></div>
-      <div class="item mr-8"></div>
+      <div class="item mr-3 lg:mr-10"></div>
+      <div class="item mr-3 lg:mr-10"></div>
+      <div class="item mr-3 lg:mr-10"></div>
     </div>
     <div v-else>
       <nuxt-link
@@ -93,7 +93,7 @@ export default {
   background-color: #444;
   height: 12px;
   border-radius: 100px;
-  min-width: 100px;
+  min-width: 70px;
   opacity: 0.1;
   animation: fading 1.5s infinite;
 }

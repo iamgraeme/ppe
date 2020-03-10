@@ -1,7 +1,5 @@
 <template>
-  <h1 class=" font-thin text-gray-600 text-3xl my-16">
-    {{ title | transformUpperCase }}
-  </h1>
+  <h1 class="font-thin text-gray-600 lext-lg lg:text-3xl my-16">{{ title | transformUpperCase }}</h1>
 </template>
 
 <script>

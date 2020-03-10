@@ -1,11 +1,91 @@
 <template>
   <div class="container mx-auto">
-    <div class="flex">
-      <div class="w-7/12 py-10 pr-10">
-        <div class="pb-10">
-          <h1 class="text-3xl font-thin text-gray-600">Checkout</h1>
+    <div class="flex justify-between px-6 sm:px-0 mt-6">
+      <h1 class="text-lg lg:text-3xl font-thin text-gray-600">Checkout</h1>
+      <button
+        @click="isOpen =!isOpen"
+        class="bg-purple-800 hover:bg-purple-400 rounded-full text-white px-3 md:hidden text-sm py-1 focus:outline-none"
+      >Show Cart</button>
+    </div>
+
+    <div class="flex flex-col md:flex-row-reverse px-6 sm:px-0">
+      <div
+        :class="{'hidden ': !isOpen}"
+        class="md:block mt-6 md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 h-full bg-gray-200 md:sticky md:top-0"
+      >
+        <div>
+          <div class="px-10 pt-10">
+            <h3 class="text-lg lg:text-3xl font-thin text-gray-600">Order Summary</h3>
+          </div>
+          <div class="flex justify-between p-10">
+            <div class="flex">
+              <div class="w-24 h-24 overflow-hidden mr-3">
+                <img
+                  src="https://demo.storefrontcloud.io/img/150/150/resize/w/b/wb03-yellow_main.jpg"
+                  alt
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-500 text-sm lg:text-lg">Celeste Sports Bra</h4>
+                <div class="text-xs text-gray-500">WB03-M-Yellow</div>
+                <div class="flex flex-col">
+                  <div>
+                    <div class="text-xs text-gray-500">Color: Yellow</div>
+                    <div class="text-xs text-gray-500">Size: M</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-gray-500">Qty 1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-500 text-sm lg:text-lg">£47.97</p>
+            </div>
+          </div>
+          <div class="p-10">
+            <div class="flex justify-between">
+              <h6 class="text-gray-500 text-sm lg:text-lg">Subtotal</h6>
+              <p class="text-gray-500 text-sm lg:text-lg">£39.00</p>
+            </div>
+            <div class="flex justify-between">
+              <h6 class="text-gray-500 text-sm lg:text-lg">Shipping</h6>
+              <p class="text-gray-500 text-sm lg:text-lg">Free</p>
+            </div>
+            <div class="flex justify-between">
+              <h6 class="text-gray-500 text-sm lg:text-lg">Tax</h6>
+              <p class="text-gray-500 text-sm lg:text-lg">£8.97</p>
+            </div>
+            <div class="flex justify-between mt-6 border-t pt-6 border-gray-400">
+              <h6 class="text-gray-700 text-2xl font-semibold">Total</h6>
+              <p class="text-gray-700 text-2xl font-semibold">£47.97</p>
+            </div>
+          </div>
         </div>
-        <div class="mb-6">
+        <div class="border-t border-gray-400">
+          <div class="p-10">
+            <p class="mb-6 font-thin text-gray-600 text-lg">Discount Code</p>
+            <div class="flex-flex-col">
+              <div class="flex">
+                <input
+                  type="text"
+                  id="payment"
+                  class="w-4/6 flex-1 text-xs lg:text-sm bg-white text-purple-800 rounded-l border border-grey-400 py-3 pl-3 focus:outline-none"
+                  placeholder="Enter your Discount Code"
+                />
+                <input
+                  type="submit"
+                  id="coupon-submit"
+                  class="w-2/6 inline-block text-xs lg:text-sm bg-purple-800 text-white hover:bg-purple-400 cursor-pointer rounded-r text-center py-3 focus:outline-none"
+                  value="Add Discount"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-12/12 md:w-6/12 lg:w-7/12 py-10 md:pr-10">
+        <div class="md:mb-6">
           <SectionHeading number="1" title="Personal Details" />
           <div class="flex-flex-col">
             <div class="flex">
@@ -103,17 +183,22 @@
           </div>
         </div>
 
-        <div class="mb-6 border-b border-gray-400">
+        <div class="md:mb-6 md:border-b md:border-gray-400">
           <div>
-            <input
-              class="bg-purple-800 mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+            <button
+              class="bg-purple-800 mb-10 flex justify-center hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
               type="submit"
-              value="Place Order"
-            />
+              @click="addingToCart = !addingToCart"
+            >
+              <div v-if="addingToCart">
+                <Loader class="w-10 h-10" />
+              </div>
+              <div v-else>Place Order</div>
+            </button>
           </div>
         </div>
-        <div>
-          <h1 class="text-3xl font-thin text-gray-600 my-8">What Our Customers Say...</h1>
+        <div class="hidden md:block">
+          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">What Our Customers Say...</h1>
 
           <no-ssr>
             <carousel items="1" autoplay="true" :dots="true" :nav="false">
@@ -139,78 +224,6 @@
           </no-ssr>
         </div>
       </div>
-      <div class="w-5/12 h-full bg-gray-200 sticky top-0">
-        <div>
-          <div class="px-10 pt-10">
-            <h3 class="text-3xl font-thin text-gray-600">Order Summary</h3>
-          </div>
-          <div class="flex justify-between p-10">
-            <div class="flex">
-              <div class="w-24 h-24 overflow-hidden mr-3">
-                <img
-                  src="https://demo.storefrontcloud.io/img/150/150/resize/w/b/wb03-yellow_main.jpg"
-                  alt
-                />
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-500">Celeste Sports Bra</h4>
-                <div class="text-xs text-gray-500">WB03-M-Yellow</div>
-                <div class="flex flex-col">
-                  <div>
-                    <div class="text-xs text-gray-500">Color: Yellow</div>
-                    <div class="text-xs text-gray-500">Size: M</div>
-                  </div>
-                  <div>
-                    <div class="text-xs text-gray-500">Qty 1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p class="font-semibold text-gray-500">£47.97</p>
-            </div>
-          </div>
-          <div class="p-10">
-            <div class="flex justify-between">
-              <h6 class="text-gray-500 text-lg">Subtotal</h6>
-              <p class="text-gray-500">£39.00</p>
-            </div>
-            <div class="flex justify-between">
-              <h6 class="text-gray-500 text-lg">Shipping &amp; Handling (Flat Rate - Fixed)</h6>
-              <p class="text-gray-500">£15.00</p>
-            </div>
-            <div class="flex justify-between">
-              <h6 class="text-gray-500 text-lg">Tax</h6>
-              <p class="text-gray-500">£8.97</p>
-            </div>
-            <div class="flex justify-between mt-6 border-t pt-6 border-gray-400">
-              <h6 class="text-gray-700 text-2xl font-semibold">Total</h6>
-              <p class="text-gray-700 text-2xl font-semibold">£62.97</p>
-            </div>
-          </div>
-        </div>
-        <div class="border-t border-gray-400">
-          <div class="p-10">
-            <p class="mb-6 font-thin text-gray-600 text-lg">Discount Code</p>
-            <div class="flex-flex-col">
-              <div class="flex">
-                <input
-                  type="text"
-                  id="payment"
-                  class="w-4/6 flex-1 text-sm bg-white text-purple-800 rounded-l border border-grey-400 py-3 pl-3 focus:outline-none"
-                  placeholder="Enter your Discount Code"
-                />
-                <input
-                  type="submit"
-                  id="coupon-submit"
-                  class="w-2/6 inline-block text-sm bg-purple-800 text-white hover:bg-purple-400 cursor-pointer rounded-r text-center py-3 focus:outline-none"
-                  value="Add Discount"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -221,13 +234,19 @@ import InfoItem from "@/components/Checkout/InfoItem";
 import SectionHeading from "@/components/Checkout/SectionHeading";
 import CountrySelect from "@/components/Checkout/CountrySelect";
 import Quote from "@/components/Checkout/Quote";
+import Loader from "@/components/Loader";
 export default {
+  data: () => ({
+    isOpen: false,
+    addingToCart: false
+  }),
   components: {
     PageHeading,
     InfoItem,
     SectionHeading,
     CountrySelect,
-    Quote
+    Quote,
+    Loader
   }
 };
 </script>

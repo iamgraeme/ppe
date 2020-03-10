@@ -1,16 +1,17 @@
 <template>
   <div class="border-t border-gray-300">
-    <div class="container mx-auto py-6">
+    <div class="container mx-auto py-3 md:py-6">
       <div
-        class="text-center sm:flex sm:flex-col sm:text-center sm:items-center md:flex-row md:text-left"
+        class="text-center flex sm:text-center sm:items-center flex-wrap md:flex-no-wrap md:flex-row md:text-left px-6 md:px-0 justify-between"
       >
-        <div class="col col1">
-          <Logo />
-          <p class="text-gray-500 my-5">
-            High quality beds and mattresses, designed to go easy on your wallet
-            <br />and give you the best nights sleep.
-          </p>
-          <ul class="flex items-center">
+        <div class="col col1 w-12/12 md:w-6/12 pr-3">
+          <div class="w-48 mx-auto md:mx-0">
+            <Logo />
+          </div>
+          <p
+            class="text-gray-500 my-5"
+          >High quality beds and mattresses, designed to go easy on your wallet and give you the best nights sleep.</p>
+          <ul class="flex items-center justify-center md:justify-start mb-6 md:mb-0">
             <li class="mr-3">
               <a href>
                 <svg
@@ -93,7 +94,8 @@
             </li>
           </ul>
         </div>
-        <div class="col col2">
+
+        <div class="w-6/12 md:w-3/12">
           <h6 class="font-semibold text-gray-600 text-lg">Shopping online</h6>
           <ul>
             <li>
@@ -113,7 +115,7 @@
             </li>
           </ul>
         </div>
-        <div class="col col3">
+        <div class="w-6/12 md:w-3/12">
           <h6 class="font-semibold text-gray-600 text-lg">Information</h6>
           <ul>
             <li>

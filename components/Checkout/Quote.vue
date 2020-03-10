@@ -10,14 +10,14 @@
         <path fill="none" d="M0 0h48v48H0z" />
       </svg>
     </span>
-    <div class="flex items-center">
-      <div class="rounded-full w-32 h-32 overflow-hidden mr-6">
+    <div class="flex flex-col lg:flex-row text-center lg:text-left items-center">
+      <div class="rounded-full w-32 h-32 overflow-hidden mr-6 mb-6 lg:mb-0">
         <img class="object-cover h-32 w-auto" :src="image" />
       </div>
       <div class="flex flex-col flex-1 mb-3">
         <h5 class="text-lg font-semibold mb-3 text-gray-600">{{name}}</h5>
         <p class="text-sm text-gray-600">{{body}}</p>
-        <div class="flex items-center mt-3">
+        <div class="flex items-center mt-3 mx-auto lg:mx-0">
           <span class="mr-1">
             <svg
               class="fill-current text-purple-800 w-3 h-3"
