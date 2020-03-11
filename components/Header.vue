@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div v-if="menuIsOpen" class="border-b border-gray-300 py-3">
+    <div v-if="menuIsOpen" class="border-b border-gray-300 py-3 md:hidden">
       <div class="mx-auto container">
         <div class="flex justify-center">
           <Nav />

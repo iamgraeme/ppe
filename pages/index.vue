@@ -147,8 +147,11 @@
               <ProductCard
                 v-for="product in products"
                 :key="product.id"
+                :id="product.id"
+                :slug="product.slug"
                 :productName="product.name"
-                :price="product.regular_price"
+                :price="product.price"
+                :regularPrice="product.regular_price"
                 :salePrice="product.sale_price"
                 :image="product.images[0].src"
               />
@@ -173,53 +176,737 @@ export default {
   data: () => ({
     products: [
       {
-        id: 19,
-        name: "Single",
-        slug: "single",
-        permalink: "http://35.178.124.91/product/single/",
-        date_created: "2019-01-16T13:01:54",
-        date_created_gmt: "2019-01-16T13:01:54",
-        date_modified: "2020-03-08T21:22:52",
-        date_modified_gmt: "2020-03-08T21:22:52",
+        id: 64,
+        name: "Patient Ninja",
+        slug: "patient-ninja",
+        permalink: "http://64.227.41.179/product/patient-ninja/",
+        date_created: "2020-03-10T18:57:15",
+        date_created_gmt: "2020-03-10T18:57:15",
+        date_modified: "2020-03-10T18:57:15",
+        date_modified_gmt: "2020-03-10T18:57:15",
         type: "simple",
         status: "publish",
         featured: false,
         catalog_visibility: "visible",
         description:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.</p>\n",
-        short_description: "<p>This is a simple, virtual product.</p>\n",
-        sku: "woo-single",
-        price: "2",
-        regular_price: "3",
-        sale_price: "2",
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "HOODIE-PATIENT-NINJA",
+        price: "35",
+        regular_price: "35",
+        sale_price: "",
         date_on_sale_from: null,
         date_on_sale_from_gmt: null,
         date_on_sale_to: null,
         date_on_sale_to_gmt: null,
         price_html:
-          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>3.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>2.00</span></ins>',
-        on_sale: true,
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>35.00</span>',
+        on_sale: false,
         purchasable: true,
         total_sales: 0,
-        virtual: true,
-        downloadable: true,
-        downloads: [
-          {
-            id: "a0fdda89-5f0e-440d-93f5-188e12c910d1",
-            name: "Single",
-            file:
-              "https://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2017/08/single.jpg"
-          }
-        ],
-        download_limit: 1,
-        download_expiry: 1,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
         external_url: "",
         button_text: "",
         tax_status: "taxable",
         tax_class: "",
         manage_stock: false,
         stock_quantity: null,
-        in_stock: true,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [13, 17, 52, 43, 55],
+        upsell_ids: [],
+        cross_sell_ids: [25],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 62,
+            date_created: "2020-03-10T18:57:14",
+            date_created_gmt: "2020-03-10T18:57:14",
+            date_modified: "2020-03-10T18:57:14",
+            date_modified_gmt: "2020-03-10T18:57:14",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_3_front.jpg",
+            name: "hoodie_3_front.jpg",
+            alt: ""
+          },
+          {
+            id: 63,
+            date_created: "2020-03-10T18:57:15",
+            date_created_gmt: "2020-03-10T18:57:15",
+            date_modified: "2020-03-10T18:57:15",
+            date_modified_gmt: "2020-03-10T18:57:15",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_3_back.jpg",
+            name: "hoodie_3_back.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/64"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 55,
+        name: "Ship Your Idea",
+        slug: "ship-your-idea",
+        permalink: "http://64.227.41.179/product/ship-your-idea/",
+        date_created: "2020-03-10T18:57:11",
+        date_created_gmt: "2020-03-10T18:57:11",
+        date_modified: "2020-03-10T18:57:11",
+        date_modified_gmt: "2020-03-10T18:57:11",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "POSTER-SHIP-YOUR-IDEA",
+        price: "15",
+        regular_price: "15",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>15.00</span>',
+        on_sale: false,
+        purchasable: true,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [17, 46, 25, 43, 26],
+        upsell_ids: [21, 22],
+        cross_sell_ids: [21, 22],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 53,
+            date_created: "2020-03-10T18:57:11",
+            date_created_gmt: "2020-03-10T18:57:11",
+            date_modified: "2020-03-10T18:57:11",
+            date_modified_gmt: "2020-03-10T18:57:11",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/poster_1_up.jpg",
+            name: "poster_1_up.jpg",
+            alt: ""
+          },
+          {
+            id: 54,
+            date_created: "2020-03-10T18:57:11",
+            date_created_gmt: "2020-03-10T18:57:11",
+            date_modified: "2020-03-10T18:57:11",
+            date_modified_gmt: "2020-03-10T18:57:11",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_1_flat.jpg",
+            name: "Poster_1_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/55"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 52,
+        name: "Flying Ninja",
+        slug: "flying-ninja",
+        permalink: "http://64.227.41.179/product/flying-ninja/",
+        date_created: "2020-03-10T18:57:10",
+        date_created_gmt: "2020-03-10T18:57:10",
+        date_modified: "2020-03-10T18:57:10",
+        date_modified_gmt: "2020-03-10T18:57:10",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "POSTER-FLYING-NINJA",
+        price: "12",
+        regular_price: "15",
+        sale_price: "12",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>15.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>12.00</span></ins>',
+        on_sale: true,
+        purchasable: true,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [55, 17, 13, 46, 25],
+        upsell_ids: [],
+        cross_sell_ids: [],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 50,
+            date_created: "2020-03-10T18:57:10",
+            date_created_gmt: "2020-03-10T18:57:10",
+            date_modified: "2020-03-10T18:57:10",
+            date_modified_gmt: "2020-03-10T18:57:10",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/poster_2_up.jpg",
+            name: "poster_2_up.jpg",
+            alt: ""
+          },
+          {
+            id: 51,
+            date_created: "2020-03-10T18:57:10",
+            date_created_gmt: "2020-03-10T18:57:10",
+            date_modified: "2020-03-10T18:57:10",
+            date_modified_gmt: "2020-03-10T18:57:10",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_2_flat.jpg",
+            name: "Poster_2_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/52"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 49,
+        name: "Premium Quality",
+        slug: "premium-quality",
+        permalink: "http://64.227.41.179/product/premium-quality/",
+        date_created: "2020-03-10T18:57:09",
+        date_created_gmt: "2020-03-10T18:57:09",
+        date_modified: "2020-03-10T18:57:09",
+        date_modified_gmt: "2020-03-10T18:57:09",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "POSTER-PREMIUM-QUALITY",
+        price: "12",
+        regular_price: "15",
+        sale_price: "12",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>15.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>12.00</span></ins>',
+        on_sale: true,
+        purchasable: true,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [13, 64, 43, 55, 52],
+        upsell_ids: [20],
+        cross_sell_ids: [],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 47,
+            date_created: "2020-03-10T18:57:09",
+            date_created_gmt: "2020-03-10T18:57:09",
+            date_modified: "2020-03-10T18:57:09",
+            date_modified_gmt: "2020-03-10T18:57:09",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/poster_3_up.jpg",
+            name: "poster_3_up.jpg",
+            alt: ""
+          },
+          {
+            id: 48,
+            date_created: "2020-03-10T18:57:09",
+            date_created_gmt: "2020-03-10T18:57:09",
+            date_modified: "2020-03-10T18:57:09",
+            date_modified_gmt: "2020-03-10T18:57:09",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_3_flat.jpg",
+            name: "Poster_3_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/49"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 46,
+        name: "Woo Ninja",
+        slug: "woo-ninja",
+        permalink: "http://64.227.41.179/product/woo-ninja/",
+        date_created: "2020-03-10T18:57:09",
+        date_created_gmt: "2020-03-10T18:57:09",
+        date_modified: "2020-03-10T18:57:09",
+        date_modified_gmt: "2020-03-10T18:57:09",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "POSTER-WOO-NINJA",
+        price: "15",
+        regular_price: "15",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>15.00</span>',
+        on_sale: false,
+        purchasable: true,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [43, 55, 26, 13, 52],
+        upsell_ids: [],
+        cross_sell_ids: [18, 19],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 44,
+            date_created: "2020-03-10T18:57:08",
+            date_created_gmt: "2020-03-10T18:57:08",
+            date_modified: "2020-03-10T18:57:08",
+            date_modified_gmt: "2020-03-10T18:57:08",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/poster_4_up.jpg",
+            name: "poster_4_up.jpg",
+            alt: ""
+          },
+          {
+            id: 45,
+            date_created: "2020-03-10T18:57:08",
+            date_created_gmt: "2020-03-10T18:57:08",
+            date_modified: "2020-03-10T18:57:08",
+            date_modified_gmt: "2020-03-10T18:57:08",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_4_flat.jpg",
+            name: "Poster_4_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/46"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 43,
+        name: "Woo Logo",
+        slug: "woo-logo",
+        permalink: "http://64.227.41.179/product/woo-logo/",
+        date_created: "2020-03-10T18:57:08",
+        date_created_gmt: "2020-03-10T18:57:08",
+        date_modified: "2020-03-10T18:57:08",
+        date_modified_gmt: "2020-03-10T18:57:08",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "POSTER-WOO-LOGO",
+        price: "15",
+        regular_price: "15",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>15.00</span>',
+        on_sale: false,
+        purchasable: true,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [64, 49, 13, 55, 52],
+        upsell_ids: [],
+        cross_sell_ids: [16, 17],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 41,
+            date_created: "2020-03-10T18:57:07",
+            date_created_gmt: "2020-03-10T18:57:07",
+            date_modified: "2020-03-10T18:57:07",
+            date_modified_gmt: "2020-03-10T18:57:07",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/poster_5_up.jpg",
+            name: "poster_5_up.jpg",
+            alt: ""
+          },
+          {
+            id: 42,
+            date_created: "2020-03-10T18:57:07",
+            date_created_gmt: "2020-03-10T18:57:07",
+            date_modified: "2020-03-10T18:57:07",
+            date_modified_gmt: "2020-03-10T18:57:07",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_5_flat.jpg",
+            name: "Poster_5_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/43"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 34,
+        name: "Woo Album #4",
+        slug: "woo-album-4",
+        permalink: "http://64.227.41.179/product/woo-album-4/",
+        date_created: "2020-03-10T18:57:03",
+        date_created_gmt: "2020-03-10T18:57:03",
+        date_modified: "2020-03-10T18:57:03",
+        date_modified_gmt: "2020-03-10T18:57:03",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "WOO-ALBUM-4",
+        price: "9",
+        regular_price: "9",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.00</span>',
+        on_sale: false,
+        purchasable: true,
+        total_sales: 0,
+        virtual: true,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
         backorders: "no",
         backorders_allowed: false,
         backordered: false,
@@ -237,30 +924,41 @@ export default {
         reviews_allowed: true,
         average_rating: "0.00",
         rating_count: 0,
-        related_ids: [96, 93, 95, 12, 11],
+        related_ids: [31, 16, 14, 15, 20],
         upsell_ids: [],
         cross_sell_ids: [],
         parent_id: 0,
         purchase_note: "",
         categories: [
           {
-            id: 17,
-            name: "Mattresses",
-            slug: "mattresses"
+            id: 16,
+            name: "Ottoman",
+            slug: "ottoman"
           }
         ],
         tags: [],
         images: [
           {
-            id: 48,
-            date_created: "2019-01-16T13:02:10",
-            date_created_gmt: "2019-01-16T13:02:10",
-            date_modified: "2019-01-16T13:02:10",
-            date_modified_gmt: "2019-01-16T13:02:10",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/single-1.jpg",
-            name: "single-1.jpg",
-            alt: "",
-            position: 0
+            id: 32,
+            date_created: "2020-03-10T18:57:02",
+            date_created_gmt: "2020-03-10T18:57:02",
+            date_modified: "2020-03-10T18:57:02",
+            date_modified_gmt: "2020-03-10T18:57:02",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/cd_5_angle.jpg",
+            name: "cd_5_angle.jpg",
+            alt: ""
+          },
+          {
+            id: 33,
+            date_created: "2020-03-10T18:57:03",
+            date_created_gmt: "2020-03-10T18:57:03",
+            date_modified: "2020-03-10T18:57:03",
+            date_modified_gmt: "2020-03-10T18:57:03",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/cd_5_flat.jpg",
+            name: "cd_5_flat.jpg",
+            alt: ""
           }
         ],
         attributes: [],
@@ -272,266 +970,263 @@ export default {
         _links: {
           self: [
             {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/19"
+              href: "http://64.227.41.179/wp-json/wc/v3/products/34"
             }
           ],
           collection: [
             {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
             }
           ]
         }
       },
       {
-        id: 12,
-        name: "Cap",
-        slug: "cap",
-        permalink: "http://35.178.124.91/product/cap/",
-        date_created: "2019-01-16T13:01:53",
-        date_created_gmt: "2019-01-16T13:01:53",
-        date_modified: "2020-03-08T21:25:41",
-        date_modified_gmt: "2020-03-08T21:25:41",
-        type: "simple",
-        status: "publish",
-        featured: true,
-        catalog_visibility: "visible",
-        description:
-          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-        short_description: "<p>This is a simple product.</p>\n",
-        sku: "woo-cap",
-        price: "16",
-        regular_price: "18",
-        sale_price: "16",
-        date_on_sale_from: null,
-        date_on_sale_from_gmt: null,
-        date_on_sale_to: null,
-        date_on_sale_to_gmt: null,
-        price_html:
-          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>18.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>16.00</span></ins>',
-        on_sale: true,
-        purchasable: true,
-        total_sales: 0,
-        virtual: false,
-        downloadable: false,
-        downloads: [],
-        download_limit: 0,
-        download_expiry: 0,
-        external_url: "",
-        button_text: "",
-        tax_status: "taxable",
-        tax_class: "",
-        manage_stock: false,
-        stock_quantity: null,
-        in_stock: true,
-        backorders: "no",
-        backorders_allowed: false,
-        backordered: false,
-        sold_individually: false,
-        weight: "",
-        dimensions: {
-          length: "",
-          width: "",
-          height: ""
-        },
-        shipping_required: true,
-        shipping_taxable: true,
-        shipping_class: "",
-        shipping_class_id: 0,
-        reviews_allowed: true,
-        average_rating: "0.00",
-        rating_count: 0,
-        related_ids: [19, 95, 11, 93, 96],
-        upsell_ids: [],
-        cross_sell_ids: [],
-        parent_id: 0,
-        purchase_note: "",
-        categories: [
-          {
-            id: 17,
-            name: "Mattresses",
-            slug: "mattresses"
-          }
-        ],
-        tags: [],
-        images: [
-          {
-            id: 98,
-            date_created: "2019-01-16T13:02:04",
-            date_created_gmt: "2019-01-16T13:02:04",
-            date_modified: "2019-01-16T13:02:04",
-            date_modified_gmt: "2019-01-16T13:02:04",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/cap-2.jpg",
-            name: "cap-2.jpg",
-            alt: "",
-            position: 0
-          }
-        ],
-        attributes: [
-          {
-            id: 1,
-            name: "Color",
-            position: 0,
-            visible: true,
-            variation: false,
-            options: ["Yellow"]
-          }
-        ],
-        default_attributes: [],
-        variations: [],
-        grouped_products: [],
-        menu_order: 0,
-        meta_data: [],
-        _links: {
-          self: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/12"
-            }
-          ],
-          collection: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
-            }
-          ]
-        }
-      },
-      {
-        id: 96,
-        name: "Beanie",
-        slug: "beanie",
-        permalink: "http://35.178.124.91/product/beanie/",
-        date_created: "2019-01-16T13:01:52",
-        date_created_gmt: "2019-01-16T13:01:52",
-        date_modified: "2020-03-08T21:25:19",
-        date_modified_gmt: "2020-03-08T21:25:19",
-        type: "simple",
+        id: 31,
+        name: "Woo Singles",
+        slug: "woo-singles",
+        permalink: "http://64.227.41.179/product/woo-singles/",
+        date_created: "2020-03-10T18:57:02",
+        date_created_gmt: "2020-03-10T18:57:02",
+        date_modified: "2020-03-10T18:57:02",
+        date_modified_gmt: "2020-03-10T18:57:02",
+        type: "grouped",
         status: "publish",
         featured: false,
         catalog_visibility: "visible",
         description:
           "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-        short_description: "<p>This is a simple product.</p>\n",
-        sku: "woo-beanie",
-        price: "18",
-        regular_price: "20",
-        sale_price: "18",
-        date_on_sale_from: null,
-        date_on_sale_from_gmt: null,
-        date_on_sale_to: null,
-        date_on_sale_to_gmt: null,
-        price_html:
-          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>20.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>18.00</span></ins>',
-        on_sale: true,
-        purchasable: true,
-        total_sales: 0,
-        virtual: false,
-        downloadable: false,
-        downloads: [],
-        download_limit: 0,
-        download_expiry: 0,
-        external_url: "",
-        button_text: "",
-        tax_status: "taxable",
-        tax_class: "",
-        manage_stock: false,
-        stock_quantity: null,
-        in_stock: true,
-        backorders: "no",
-        backorders_allowed: false,
-        backordered: false,
-        sold_individually: false,
-        weight: "",
-        dimensions: {
-          length: "",
-          width: "",
-          height: ""
-        },
-        shipping_required: true,
-        shipping_taxable: true,
-        shipping_class: "",
-        shipping_class_id: 0,
-        reviews_allowed: true,
-        average_rating: "0.00",
-        rating_count: 0,
-        related_ids: [95, 11, 19, 12, 93],
-        upsell_ids: [],
-        cross_sell_ids: [],
-        parent_id: 0,
-        purchase_note: "",
-        categories: [
-          {
-            id: 17,
-            name: "Mattresses",
-            slug: "mattresses"
-          }
-        ],
-        tags: [],
-        images: [
-          {
-            id: 39,
-            date_created: "2019-01-16T13:02:02",
-            date_created_gmt: "2019-01-16T13:02:02",
-            date_modified: "2019-01-16T13:02:02",
-            date_modified_gmt: "2019-01-16T13:02:02",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/beanie-2.jpg",
-            name: "beanie-2.jpg",
-            alt: "",
-            position: 0
-          }
-        ],
-        attributes: [
-          {
-            id: 1,
-            name: "Color",
-            position: 0,
-            visible: true,
-            variation: false,
-            options: ["Red"]
-          }
-        ],
-        default_attributes: [],
-        variations: [],
-        grouped_products: [],
-        menu_order: 0,
-        meta_data: [],
-        _links: {
-          self: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/96"
-            }
-          ],
-          collection: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
-            }
-          ]
-        }
-      },
-      {
-        id: 95,
-        name: "T-Shirt",
-        slug: "t-shirt",
-        permalink: "http://35.178.124.91/product/t-shirt/",
-        date_created: "2019-01-16T13:01:52",
-        date_created_gmt: "2019-01-16T13:01:52",
-        date_modified: "2020-03-08T21:25:00",
-        date_modified_gmt: "2020-03-08T21:25:00",
-        type: "simple",
-        status: "publish",
-        featured: false,
-        catalog_visibility: "visible",
-        description:
+        short_description:
           "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-        short_description: "<p>This is a simple product.</p>\n",
-        sku: "woo-tshirt",
-        price: "18",
-        regular_price: "18",
+        sku: "WOO-SINGLES",
+        price: "2",
+        regular_price: "",
         sale_price: "",
         date_on_sale_from: null,
         date_on_sale_from_gmt: null,
         date_on_sale_to: null,
         date_on_sale_to_gmt: null,
         price_html:
-          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>18.00</span>',
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>2.00</span> &ndash; <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>3.00</span>',
+        on_sale: true,
+        purchasable: false,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url: "",
+        button_text: "",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: true,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [11, 12, 14, 34, 16],
+        upsell_ids: [13, 14],
+        cross_sell_ids: [15],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 16,
+            name: "Ottoman",
+            slug: "ottoman"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 28,
+            date_created: "2020-03-10T18:57:01",
+            date_created_gmt: "2020-03-10T18:57:01",
+            date_modified: "2020-03-10T18:57:01",
+            date_modified_gmt: "2020-03-10T18:57:01",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/cd_6_flat.jpg",
+            name: "cd_6_flat.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [11, 12],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/31"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 26,
+        name: "Ninja Silhouette",
+        slug: "ninja-silhouette",
+        permalink: "http://64.227.41.179/product/ninja-silhouette/",
+        date_created: "2020-03-10T18:57:00",
+        date_created_gmt: "2020-03-10T18:57:00",
+        date_modified: "2020-03-10T18:57:13",
+        date_modified_gmt: "2020-03-10T18:57:13",
+        type: "external",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "HOODIE-NINJA-SILHOUETTE",
+        price: "30",
+        regular_price: "30",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>30.00</span>',
+        on_sale: false,
+        purchasable: false,
+        total_sales: 0,
+        virtual: false,
+        downloadable: false,
+        downloads: [],
+        download_limit: 0,
+        download_expiry: 0,
+        external_url:
+          "https://mercantile.wordpress.org/product/wordpress-logo-black-zip-hoodie/",
+        button_text: "Buy on WordPress Swag Store",
+        tax_status: "taxable",
+        tax_class: "",
+        manage_stock: false,
+        stock_quantity: null,
+        stock_status: "instock",
+        backorders: "no",
+        backorders_allowed: false,
+        backordered: false,
+        sold_individually: false,
+        weight: "",
+        dimensions: {
+          length: "",
+          width: "",
+          height: ""
+        },
+        shipping_required: true,
+        shipping_taxable: true,
+        shipping_class: "",
+        shipping_class_id: 0,
+        reviews_allowed: false,
+        average_rating: "0.00",
+        rating_count: 0,
+        related_ids: [64, 17, 46, 49, 55],
+        upsell_ids: [],
+        cross_sell_ids: [23],
+        parent_id: 0,
+        purchase_note: "",
+        categories: [
+          {
+            id: 17,
+            name: "Mattresses",
+            slug: "mattresses"
+          }
+        ],
+        tags: [],
+        images: [
+          {
+            id: 58,
+            date_created: "2020-03-10T18:57:13",
+            date_created_gmt: "2020-03-10T18:57:13",
+            date_modified: "2020-03-10T18:57:13",
+            date_modified_gmt: "2020-03-10T18:57:13",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_5_front.jpg",
+            name: "hoodie_5_front.jpg",
+            alt: ""
+          },
+          {
+            id: 59,
+            date_created: "2020-03-10T18:57:13",
+            date_created_gmt: "2020-03-10T18:57:13",
+            date_modified: "2020-03-10T18:57:13",
+            date_modified_gmt: "2020-03-10T18:57:13",
+            src:
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_5_back.jpg",
+            name: "hoodie_5_back.jpg",
+            alt: ""
+          }
+        ],
+        attributes: [],
+        default_attributes: [],
+        variations: [],
+        grouped_products: [],
+        menu_order: 0,
+        meta_data: [],
+        _links: {
+          self: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products/26"
+            }
+          ],
+          collection: [
+            {
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      },
+      {
+        id: 25,
+        name: "Happy Ninja",
+        slug: "happy-ninja",
+        permalink: "http://64.227.41.179/product/happy-ninja/",
+        date_created: "2020-03-10T18:57:00",
+        date_created_gmt: "2020-03-10T18:57:00",
+        date_modified: "2020-03-10T18:57:14",
+        date_modified_gmt: "2020-03-10T18:57:14",
+        type: "simple",
+        status: "publish",
+        featured: false,
+        catalog_visibility: "visible",
+        description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        short_description:
+          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
+        sku: "HOODIE-HAPPY-NINJA",
+        price: "35",
+        regular_price: "35",
+        sale_price: "",
+        date_on_sale_from: null,
+        date_on_sale_from_gmt: null,
+        date_on_sale_to: null,
+        date_on_sale_to_gmt: null,
+        price_html:
+          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>35.00</span>',
         on_sale: false,
         purchasable: true,
         total_sales: 0,
@@ -546,7 +1241,7 @@ export default {
         tax_class: "",
         manage_stock: false,
         stock_quantity: null,
-        in_stock: true,
+        stock_status: "instock",
         backorders: "no",
         backorders_allowed: false,
         backordered: false,
@@ -564,9 +1259,9 @@ export default {
         reviews_allowed: true,
         average_rating: "0.00",
         rating_count: 0,
-        related_ids: [96, 19, 12, 93, 11],
+        related_ids: [26, 52, 49, 13, 64],
         upsell_ids: [],
-        cross_sell_ids: [],
+        cross_sell_ids: [24],
         parent_id: 0,
         purchase_note: "",
         categories: [
@@ -579,283 +1274,26 @@ export default {
         tags: [],
         images: [
           {
-            id: 38,
-            date_created: "2019-01-16T13:02:02",
-            date_created_gmt: "2019-01-16T13:02:02",
-            date_modified: "2019-01-16T13:02:02",
-            date_modified_gmt: "2019-01-16T13:02:02",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/tshirt-2.jpg",
-            name: "tshirt-2.jpg",
-            alt: "",
-            position: 0
-          }
-        ],
-        attributes: [
-          {
-            id: 1,
-            name: "Color",
-            position: 0,
-            visible: true,
-            variation: false,
-            options: ["Gray"]
-          }
-        ],
-        default_attributes: [],
-        variations: [],
-        grouped_products: [],
-        menu_order: 0,
-        meta_data: [],
-        _links: {
-          self: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/95"
-            }
-          ],
-          collection: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
-            }
-          ]
-        }
-      },
-      {
-        id: 93,
-        name: "Hoodie",
-        slug: "hoodie",
-        permalink: "http://35.178.124.91/product/hoodie/",
-        date_created: "2019-01-16T13:01:52",
-        date_created_gmt: "2019-01-16T13:01:52",
-        date_modified: "2020-03-08T21:24:47",
-        date_modified_gmt: "2020-03-08T21:24:47",
-        type: "variable",
-        status: "publish",
-        featured: false,
-        catalog_visibility: "visible",
-        description:
-          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-        short_description: "<p>This is a variable product.</p>\n",
-        sku: "woo-hoodie",
-        price: "42",
-        regular_price: "",
-        sale_price: "",
-        date_on_sale_from: null,
-        date_on_sale_from_gmt: null,
-        date_on_sale_to: null,
-        date_on_sale_to_gmt: null,
-        price_html:
-          '<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>42.00</span> &ndash; <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>45.00</span>',
-        on_sale: true,
-        purchasable: true,
-        total_sales: 0,
-        virtual: false,
-        downloadable: false,
-        downloads: [],
-        download_limit: 0,
-        download_expiry: 0,
-        external_url: "",
-        button_text: "",
-        tax_status: "taxable",
-        tax_class: "",
-        manage_stock: false,
-        stock_quantity: null,
-        in_stock: true,
-        backorders: "no",
-        backorders_allowed: false,
-        backordered: false,
-        sold_individually: false,
-        weight: "",
-        dimensions: {
-          length: "",
-          width: "",
-          height: ""
-        },
-        shipping_required: true,
-        shipping_taxable: true,
-        shipping_class: "",
-        shipping_class_id: 0,
-        reviews_allowed: true,
-        average_rating: "0.00",
-        rating_count: 0,
-        related_ids: [95, 19, 12, 11, 96],
-        upsell_ids: [],
-        cross_sell_ids: [],
-        parent_id: 0,
-        purchase_note: "",
-        categories: [
-          {
-            id: 17,
-            name: "Mattresses",
-            slug: "mattresses"
-          }
-        ],
-        tags: [],
-        images: [
-          {
-            id: 34,
-            date_created: "2019-01-16T13:01:58",
-            date_created_gmt: "2019-01-16T13:01:58",
-            date_modified: "2019-01-16T13:01:58",
-            date_modified_gmt: "2019-01-16T13:01:58",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/hoodie-2.jpg",
-            name: "hoodie-2.jpg",
-            alt: "",
-            position: 0
-          },
-          {
-            id: 35,
-            date_created: "2019-01-16T13:01:59",
-            date_created_gmt: "2019-01-16T13:01:59",
-            date_modified: "2019-01-16T13:01:59",
-            date_modified_gmt: "2019-01-16T13:01:59",
+            id: 60,
+            date_created: "2020-03-10T18:57:13",
+            date_created_gmt: "2020-03-10T18:57:13",
+            date_modified: "2020-03-10T18:57:13",
+            date_modified_gmt: "2020-03-10T18:57:13",
             src:
-              "http://35.178.124.91/wp-content/uploads/2019/01/hoodie-blue-1.jpg",
-            name: "hoodie-blue-1.jpg",
-            alt: "",
-            position: 1
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_4_front.jpg",
+            name: "hoodie_4_front.jpg",
+            alt: ""
           },
           {
-            id: 36,
-            date_created: "2019-01-16T13:02:00",
-            date_created_gmt: "2019-01-16T13:02:00",
-            date_modified: "2019-01-16T13:02:00",
-            date_modified_gmt: "2019-01-16T13:02:00",
+            id: 61,
+            date_created: "2020-03-10T18:57:14",
+            date_created_gmt: "2020-03-10T18:57:14",
+            date_modified: "2020-03-10T18:57:14",
+            date_modified_gmt: "2020-03-10T18:57:14",
             src:
-              "http://35.178.124.91/wp-content/uploads/2019/01/hoodie-green-1.jpg",
-            name: "hoodie-green-1.jpg",
-            alt: "",
-            position: 2
-          },
-          {
-            id: 37,
-            date_created: "2019-01-16T13:02:01",
-            date_created_gmt: "2019-01-16T13:02:01",
-            date_modified: "2019-01-16T13:02:01",
-            date_modified_gmt: "2019-01-16T13:02:01",
-            src:
-              "http://35.178.124.91/wp-content/uploads/2019/01/hoodie-with-logo-2.jpg",
-            name: "hoodie-with-logo-2.jpg",
-            alt: "",
-            position: 3
-          }
-        ],
-        attributes: [
-          {
-            id: 1,
-            name: "Color",
-            position: 0,
-            visible: true,
-            variation: true,
-            options: ["Blue", "Green", "Red"]
-          },
-          {
-            id: 0,
-            name: "Logo",
-            position: 1,
-            visible: true,
-            variation: true,
-            options: ["Yes", "No"]
-          }
-        ],
-        default_attributes: [],
-        variations: [30, 23, 24, 25],
-        grouped_products: [],
-        menu_order: 0,
-        meta_data: [],
-        _links: {
-          self: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/93"
-            }
-          ],
-          collection: [
-            {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
-            }
-          ]
-        }
-      },
-      {
-        id: 11,
-        name: "Belt",
-        slug: "belt",
-        permalink: "http://35.178.124.91/product/belt/",
-        date_created: "2019-01-16T13:01:52",
-        date_created_gmt: "2019-01-16T13:01:52",
-        date_modified: "2020-03-08T21:25:32",
-        date_modified_gmt: "2020-03-08T21:25:32",
-        type: "simple",
-        status: "publish",
-        featured: false,
-        catalog_visibility: "visible",
-        description:
-          "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-        short_description: "<p>This is a simple product.</p>\n",
-        sku: "woo-belt",
-        price: "55",
-        regular_price: "65",
-        sale_price: "55",
-        date_on_sale_from: null,
-        date_on_sale_from_gmt: null,
-        date_on_sale_to: null,
-        date_on_sale_to_gmt: null,
-        price_html:
-          '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>65.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>55.00</span></ins>',
-        on_sale: true,
-        purchasable: true,
-        total_sales: 0,
-        virtual: false,
-        downloadable: false,
-        downloads: [],
-        download_limit: 0,
-        download_expiry: 0,
-        external_url: "",
-        button_text: "",
-        tax_status: "taxable",
-        tax_class: "",
-        manage_stock: false,
-        stock_quantity: null,
-        in_stock: true,
-        backorders: "no",
-        backorders_allowed: false,
-        backordered: false,
-        sold_individually: false,
-        weight: "",
-        dimensions: {
-          length: "",
-          width: "",
-          height: ""
-        },
-        shipping_required: true,
-        shipping_taxable: true,
-        shipping_class: "",
-        shipping_class_id: 0,
-        reviews_allowed: true,
-        average_rating: "0.00",
-        rating_count: 0,
-        related_ids: [95, 93, 96, 19, 12],
-        upsell_ids: [],
-        cross_sell_ids: [],
-        parent_id: 0,
-        purchase_note: "",
-        categories: [
-          {
-            id: 17,
-            name: "Mattresses",
-            slug: "mattresses"
-          }
-        ],
-        tags: [],
-        images: [
-          {
-            id: 97,
-            date_created: "2019-01-16T13:02:03",
-            date_created_gmt: "2019-01-16T13:02:03",
-            date_modified: "2019-01-16T13:02:03",
-            date_modified_gmt: "2019-01-16T13:02:03",
-            src: "http://35.178.124.91/wp-content/uploads/2019/01/belt-2.jpg",
-            name: "belt-2.jpg",
-            alt: "",
-            position: 0
+              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_4_back.jpg",
+            name: "hoodie_4_back.jpg",
+            alt: ""
           }
         ],
         attributes: [],
@@ -867,12 +1305,12 @@ export default {
         _links: {
           self: [
             {
-              href: "http://35.178.124.91/wp-json/wc/v2/products/11"
+              href: "http://64.227.41.179/wp-json/wc/v3/products/25"
             }
           ],
           collection: [
             {
-              href: "http://35.178.124.91/wp-json/wc/v2/products"
+              href: "http://64.227.41.179/wp-json/wc/v3/products"
             }
           ]
         }

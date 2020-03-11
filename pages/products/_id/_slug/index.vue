@@ -1,55 +1,120 @@
 <template>
   <div>
-    <div class="mt-16">
-      <div class="container mx-auto flex">
-        <div class="w-7/12 flex">
-          <div class="w-2/12 flex flex-col">
-            <div class="mb-3" v-for="image in product.images" :key="image.id">
-              <img class="w-full pr-3 cursor-pointer" :src="image.src" :alt="image.name" />
+    <div>
+      <div v-if="isLoading" class="h-64 flex justify-center items-center">
+        <Loader />
+      </div>
+      <div class="lg:mt-16" v-else>
+        <div class="bg-white md:hidden sticky top-0 relative z-20">
+          <div class="container mx-auto flex justify-between items-center px-6 sm:px-0">
+            <h1 class="text-3xl font-light text-gray-600 py-3 md:py-0">{{ product.name }}</h1>
+            <div>
+              <div v-if="product.sale_price" class="flex">
+                <p
+                  class="text-3xl font-normal text-purple-800 mb-2 mr-3"
+                >£{{ product.regular_price }}.00</p>
+                <p
+                  class="text-3xl font-normal text-gray-500 mb-2 line-through"
+                >£{{ product.sale_price }}.00</p>
+              </div>
+              <div v-else>
+                <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
+              </div>
             </div>
-          </div>
-          <div class="w-10/12">
-            <img class="w-full pr-3" :src="product.images[0].src" :alt="product.name" />
           </div>
         </div>
-        <div class="w-5/12 pl-3">
-          <h1 class="text-3xl font-light text-gray-600">{{ product.name }}</h1>
-          <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
-          <div class="border-t border-b border-gray-300 py-1 mb-2">
-            <div class="flex items-center">
-              <span class="text-sm mr-2 text-gray-500">4.5</span>
-              <span>
-                <img src="@/assets/images/starz.svg" alt />
-              </span>
+        <div
+          class="container mx-auto flex pb-16 flex-col items-center md:items-start md:flex-row px-6 sm:px-0"
+        >
+          <div class="w-12/12 md:w-7/12 flex">
+            <div class="w-3/12 md:w-2/12 flex flex-col">
+              <div class="mb-3" v-for="image in product.images" :key="image.id">
+                <img class="w-full pr-3 cursor-pointer" :src="image.src" :alt="image.name" />
+              </div>
+            </div>
+            <div class="w-9/12 md:w-10/12 relative">
+              <StockStatus
+                class="md:hidden absolute right-20 top-20"
+                :stockStatus="product.stock_status"
+              />
+              <img class="w-full md:pr-3" :src="product.images[0].src" :alt="product.name" />
             </div>
           </div>
-          <div>
-            <div v-html="product.description" class="text-sm text-gray-500 leading-loose"></div>
-          </div>
-          <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
-            <div class="flex items-center justify-center">
-              <SocialIcons />
+          <div class="w-12/12 md:w-5/12 pl-3">
+            <div class="hidden md:block">
+              <h1 class="text-3xl font-light text-gray-600 hidden md:block">{{ product.name }}</h1>
+              <StockStatus :stockStatus="product.stock_status" />
+
+              <div v-if="product.sale_price" class="flex">
+                <p
+                  class="text-3xl font-normal text-purple-800 mb-2 mr-3"
+                >£{{ product.regular_price }}.00</p>
+                <p
+                  class="text-3xl font-normal text-gray-500 mb-2 line-through"
+                >£{{ product.sale_price }}.00</p>
+              </div>
+              <div v-else>
+                <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
+              </div>
             </div>
-          </div>
-          <div class="flex">
-            <div class="border border-gray-200 rounded-full py-2 px-4">
-              <button class="text-3xl">-</button>
-              <input type="text" value="1" />
-              <button class="text-lg">+</button>
+            <div class="border-t border-b border-gray-300 py-1 mb-2">
+              <div class="flex items-center">
+                <div v-if="product.rating_count === 0 && product.reviews_allowed">
+                  <a href="#addReview" class="text-sm text-gray-500">Write a Review?</a>
+                </div>
+                <div v-else>
+                  <span class="text-sm mr-2 text-gray-500">{{product.average_rating}}</span>
+                  <span>
+                    <img src="@/assets/images/starz.svg" :alt="product.average_rating" />
+                  </span>
+                  <a href="#addReview" class="text-sm text-gray-500">Write a Review?</a>
+                </div>
+              </div>
             </div>
             <div>
-              <input
-                class="bg-purple-800 mb-10 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
-                type="submit"
-                value="Add to Cart"
-              />
+              <div v-html="product.description" class="text-sm text-gray-500 leading-loose"></div>
+            </div>
+            <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
+              <div class="flex items-center justify-center">
+                <SocialIcons />
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="border border-gray-200 flex justify-center items-center rounded-full py-3 overflow-hidden"
+              >
+                <button
+                  class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
+                  @click="item.qty -= 1"
+                >-</button>
+                <input
+                  class="text-center w-16 text-gray-500"
+                  type="text"
+                  min="1"
+                  v-model="item.qty"
+                />
+                <button
+                  class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
+                  @click="item.qty += 1"
+                >+</button>
+              </div>
+              <div>
+                <input
+                  class="bg-purple-800 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+                  type="submit"
+                  value="Add to Cart"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <Cta />
+      <div class="hidden md:block">
+        <Cta />
+      </div>
+      <div id="addReview" class="container mx-auto">
+        <PageHeading title="Write a Review?" />
+      </div>
     </div>
   </div>
 </template>
@@ -57,149 +122,76 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 import SocialIcons from "@/components/SocialIcons";
+import Loader from "@/components/Loader";
+import StockStatus from "@/components/StockStatus";
+import axios from "axios";
+import OAuth from "oauth-1.0a";
+import CryptoJS from "crypto-js";
+import jQuery from "jquery";
 import Cta from "@/components/Cta";
 export default {
   components: {
     PageHeading,
     SocialIcons,
-    Cta
+    Cta,
+    Loader,
+    StockStatus
   },
   data: () => ({
-    product: {
-      id: 28,
-      name: "Logo Collection",
-      slug: "logo-collection",
-      permalink: "http://35.178.124.91/product/logo-collection/",
-      date_created: "2019-01-16T13:01:55",
-      date_created_gmt: "2019-01-16T13:01:55",
-      date_modified: "2020-03-08T21:22:17",
-      date_modified_gmt: "2020-03-08T21:22:17",
-      type: "grouped",
-      status: "publish",
-      featured: false,
-      catalog_visibility: "visible",
-      description:
-        "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-      short_description: "<p>This is a grouped product.</p>\n",
-      sku: "logo-collection",
-      price: "18",
-      regular_price: "",
-      sale_price: "",
-      date_on_sale_from: null,
-      date_on_sale_from_gmt: null,
-      date_on_sale_to: null,
-      date_on_sale_to_gmt: null,
-      price_html: "",
-      on_sale: false,
-      purchasable: false,
-      total_sales: 0,
-      virtual: false,
-      downloadable: false,
-      downloads: [],
-      download_limit: 0,
-      download_expiry: 0,
-      external_url: "",
-      button_text: "",
-      tax_status: "taxable",
-      tax_class: "",
-      manage_stock: false,
-      stock_quantity: null,
-      stock_status: "instock",
-      backorders: "no",
-      backorders_allowed: false,
-      backordered: false,
-      sold_individually: false,
-      weight: "",
-      dimensions: {
-        length: "",
-        width: "",
-        height: ""
-      },
-      shipping_required: true,
-      shipping_taxable: true,
-      shipping_class: "",
-      shipping_class_id: 0,
-      reviews_allowed: true,
-      average_rating: "0.00",
-      rating_count: 0,
-      related_ids: [27, 18, 16, 17, 15],
-      upsell_ids: [],
-      cross_sell_ids: [],
-      parent_id: 0,
-      purchase_note: "",
-      categories: [
-        {
-          id: 16,
-          name: "Bedsteads",
-          slug: "bedsteads"
-        }
-      ],
-      tags: [],
-      images: [
-        {
-          id: 51,
-          date_created: "2019-01-16T13:02:13",
-          date_created_gmt: "2019-01-16T13:02:13",
-          date_modified: "2019-01-16T13:02:13",
-          date_modified_gmt: "2019-01-16T13:02:13",
-          src: "http://35.178.124.91/wp-content/uploads/2019/01/logo-1.jpg",
-          name: "logo-1.jpg",
-          alt: ""
-        },
-        {
-          id: 50,
-          date_created: "2019-01-16T13:02:12",
-          date_created_gmt: "2019-01-16T13:02:12",
-          date_modified: "2019-01-16T13:02:12",
-          date_modified_gmt: "2019-01-16T13:02:12",
-          src:
-            "http://35.178.124.91/wp-content/uploads/2019/01/beanie-with-logo-1.jpg",
-          name: "beanie-with-logo-1.jpg",
-          alt: ""
-        },
-        {
-          id: 49,
-          date_created: "2019-01-16T13:02:11",
-          date_created_gmt: "2019-01-16T13:02:11",
-          date_modified: "2019-01-16T13:02:11",
-          date_modified_gmt: "2019-01-16T13:02:11",
-          src:
-            "http://35.178.124.91/wp-content/uploads/2019/01/t-shirt-with-logo-1.jpg",
-          name: "t-shirt-with-logo-1.jpg",
-          alt: ""
-        },
-        {
-          id: 37,
-          date_created: "2019-01-16T13:02:01",
-          date_created_gmt: "2019-01-16T13:02:01",
-          date_modified: "2019-01-16T13:02:01",
-          date_modified_gmt: "2019-01-16T13:02:01",
-          src:
-            "http://35.178.124.91/wp-content/uploads/2019/01/hoodie-with-logo-2.jpg",
-          name: "hoodie-with-logo-2.jpg",
-          alt: ""
-        }
-      ],
-      attributes: [],
-      default_attributes: [],
-      variations: [],
-      grouped_products: [8, 9, 10],
-      menu_order: 0,
-      meta_data: [],
-      _links: {
-        self: [
-          {
-            href: "http://35.178.124.91/wp-json/wc/v3/products/28"
-          }
-        ],
-        collection: [
-          {
-            href: "http://35.178.124.91/wp-json/wc/v3/products"
-          }
-        ]
-      }
+    product: {},
+    isLoading: true,
+    item: {
+      qty: 1
     }
-  })
+  }),
+  async created() {
+    const ck = process.env.WOOCOMMERCE_KEY;
+    const cs = process.env.WOOCOMMERCE_SECRET;
+    const url = `http://64.227.41.179/wp-json/wc/v3/products/${this.$route.params.id}`;
+
+    const oauth = OAuth({
+      consumer: {
+        key: ck,
+        secret: cs
+      },
+      signature_method: "HMAC-SHA1",
+      hash_function: function(base_string, key) {
+        return CryptoJS.enc.Base64.stringify(
+          CryptoJS.HmacSHA1(base_string, key)
+        );
+      }
+    });
+    const requestData = {
+      url,
+      method: "GET",
+      qs: {
+        x_auth_access_type: "read_write"
+      }
+    };
+    const config = {
+      headers: {
+        Accept: "application/json"
+      }
+    };
+
+    try {
+      const response = await axios.get(
+        requestData.url +
+          "?" +
+          jQuery.param(oauth.authorize(requestData), config)
+      );
+
+      const { data } = response;
+
+      this.product = data;
+
+      this.isLoading = false;
+
+      console.log(response.data);
+    } catch (error) {
+      throw error;
+    }
+  }
 };
 </script>
 

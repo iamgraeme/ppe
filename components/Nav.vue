@@ -31,7 +31,7 @@ export default {
   async created() {
     const ck = process.env.WOOCOMMERCE_KEY;
     const cs = process.env.WOOCOMMERCE_SECRET;
-    const url = "http://35.178.124.91/wp-json/wc/v3/products/categories";
+    const url = "http://64.227.41.179/wp-json/wc/v3/products/categories";
 
     const oauth = OAuth({
       consumer: {

@@ -14,12 +14,16 @@
         class="md:block mt-6 md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 h-full bg-gray-200 md:sticky md:top-0"
       >
         <div>
-          <div class="px-10 pt-10">
-            <h3 class="text-lg lg:text-3xl font-thin text-gray-600">Order Summary</h3>
+          <div class="md:px-10 pt-6 md:pt-10">
+            <h3
+              class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
+            >Order Summary</h3>
           </div>
           <div class="flex justify-between p-10">
-            <div class="flex">
-              <div class="w-24 h-24 overflow-hidden mr-3">
+            <div
+              class="flex flex-col sm:flex-row items-center text-center sm:text-left mx-auto sm:mx-0"
+            >
+              <div class="w-24 h-24 overflow-hidden mr-0 sm:mr-3 mb-6 sm:mb-0">
                 <img
                   src="https://demo.storefrontcloud.io/img/150/150/resize/w/b/wb03-yellow_main.jpg"
                   alt
@@ -39,11 +43,11 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div class="hidden sm:block">
               <p class="font-semibold text-gray-500 text-sm lg:text-lg">£47.97</p>
             </div>
           </div>
-          <div class="p-10">
+          <div class="px-10 md:px-10 md:py-10 pb-6">
             <div class="flex justify-between">
               <h6 class="text-gray-500 text-sm lg:text-lg">Subtotal</h6>
               <p class="text-gray-500 text-sm lg:text-lg">£39.00</p>

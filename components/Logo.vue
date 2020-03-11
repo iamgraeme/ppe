@@ -1,5 +1,5 @@
 <template>
-  <img class="logo w-48 lg:w-full" src="@/assets/images/logo.svg" alt="Purple People Eater" />
+  <img class="logo w-40 sm:w-48 lg:w-full" src="@/assets/images/logo.svg" alt="Purple People Eater" />
 </template>
 <style scoped>
 .logo {
