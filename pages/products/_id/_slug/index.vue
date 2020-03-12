@@ -145,8 +145,8 @@ export default {
     }
   }),
   async created() {
-    const ck = ck_8d450139382c5dc8293107cd7e3710c80ef962c1;
-    const cs = cs_40ab04189e95016e6b646d5ee5aae0a0801959e5;
+    const ck = "ck_8d450139382c5dc8293107cd7e3710c80ef962c1";
+    const cs = "cs_40ab04189e95016e6b646d5ee5aae0a0801959e5";
     const url = `https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/${this.$route.params.id}`;
 
     const oauth = OAuth({
