@@ -280,7 +280,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/64"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/64"
             }
           ],
           collection: [
@@ -294,7 +295,8 @@ export default {
         id: 55,
         name: "Ship Your Idea",
         slug: "ship-your-idea",
-        permalink: "https://api.purplepeopleeater.co.uk/product/ship-your-idea/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/ship-your-idea/",
         date_created: "2020-03-10T18:57:11",
         date_created_gmt: "2020-03-10T18:57:11",
         date_modified: "2020-03-10T18:57:11",
@@ -395,7 +397,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/55"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/55"
             }
           ],
           collection: [
@@ -510,7 +513,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/52"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/52"
             }
           ],
           collection: [
@@ -524,7 +528,8 @@ export default {
         id: 49,
         name: "Premium Quality",
         slug: "premium-quality",
-        permalink: "https://api.purplepeopleeater.co.uk/product/premium-quality/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/premium-quality/",
         date_created: "2020-03-10T18:57:09",
         date_created_gmt: "2020-03-10T18:57:09",
         date_modified: "2020-03-10T18:57:09",
@@ -625,7 +630,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/49"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/49"
             }
           ],
           collection: [
@@ -740,7 +746,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/46"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/46"
             }
           ],
           collection: [
@@ -855,7 +862,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/43"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/43"
             }
           ],
           collection: [
@@ -970,7 +978,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/34"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/34"
             }
           ],
           collection: [
@@ -1074,7 +1083,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/31"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/31"
             }
           ],
           collection: [
@@ -1088,7 +1098,8 @@ export default {
         id: 26,
         name: "Ninja Silhouette",
         slug: "ninja-silhouette",
-        permalink: "https://api.purplepeopleeater.co.uk/product/ninja-silhouette/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/ninja-silhouette/",
         date_created: "2020-03-10T18:57:00",
         date_created_gmt: "2020-03-10T18:57:00",
         date_modified: "2020-03-10T18:57:13",
@@ -1190,7 +1201,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/26"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/26"
             }
           ],
           collection: [
@@ -1305,7 +1317,8 @@ export default {
         _links: {
           self: [
             {
-              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/25"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/25"
             }
           ],
           collection: [
