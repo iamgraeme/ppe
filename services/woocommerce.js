@@ -2,8 +2,8 @@ var WooCommerceAPI = require("@woocommerce/woocommerce-rest-api");
 
 const WooCommerce = new WooCommerceAPI({
   url: "https://api.purplepeopleeater.co.uk",
-  consumerKey: process.env.WOOCOMMERCE_KEY,
-  consumerSecret: process.env.WOOCOMMERCE_SECRET,
+  consumerKey: ck_8d450139382c5dc8293107cd7e3710c80ef962c1,
+  consumerSecret: cs_40ab04189e95016e6b646d5ee5aae0a0801959e5,
   wpAPI: true,
   version: "wc/v3"
 });
