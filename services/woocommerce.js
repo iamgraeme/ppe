@@ -1,7 +1,7 @@
 var WooCommerceAPI = require("@woocommerce/woocommerce-rest-api");
 
 const WooCommerce = new WooCommerceAPI({
-  url: "http://64.227.41.179",
+  url: "https://api.purplepeopleeater.co.uk",
   consumerKey: process.env.WOOCOMMERCE_KEY,
   consumerSecret: process.env.WOOCOMMERCE_SECRET,
   wpAPI: true,

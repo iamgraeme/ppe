@@ -79,9 +79,9 @@
                 <SocialIcons />
               </div>
             </div>
-            <div class="flex">
+            <div class="flex mt-6">
               <div
-                class="border border-gray-200 flex justify-center items-center rounded-full py-3 overflow-hidden"
+                class="border border-gray-200 flex justify-center items-center rounded-full py-3 overflow-hidden mr-6"
               >
                 <button
                   class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
@@ -147,7 +147,7 @@ export default {
   async created() {
     const ck = process.env.WOOCOMMERCE_KEY;
     const cs = process.env.WOOCOMMERCE_SECRET;
-    const url = `http://64.227.41.179/wp-json/wc/v3/products/${this.$route.params.id}`;
+    const url = `https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/${this.$route.params.id}`;
 
     const oauth = OAuth({
       consumer: {

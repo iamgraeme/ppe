@@ -44,7 +44,7 @@ export default {
         id: 64,
         name: "Patient Ninja",
         slug: "patient-ninja",
-        permalink: "http://64.227.41.179/product/patient-ninja/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/patient-ninja/",
         date_created: "2020-03-10T18:57:15",
         date_created_gmt: "2020-03-10T18:57:15",
         date_modified: "2020-03-10T18:57:15",
@@ -120,7 +120,7 @@ export default {
             date_modified: "2020-03-10T18:57:14",
             date_modified_gmt: "2020-03-10T18:57:14",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_3_front.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_3_front.jpg",
             name: "hoodie_3_front.jpg",
             alt: ""
           },
@@ -131,7 +131,7 @@ export default {
             date_modified: "2020-03-10T18:57:15",
             date_modified_gmt: "2020-03-10T18:57:15",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_3_back.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_3_back.jpg",
             name: "hoodie_3_back.jpg",
             alt: ""
           }
@@ -145,12 +145,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/64"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/64"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -159,7 +160,8 @@ export default {
         id: 55,
         name: "Ship Your Idea",
         slug: "ship-your-idea",
-        permalink: "http://64.227.41.179/product/ship-your-idea/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/ship-your-idea/",
         date_created: "2020-03-10T18:57:11",
         date_created_gmt: "2020-03-10T18:57:11",
         date_modified: "2020-03-10T18:57:11",
@@ -235,7 +237,7 @@ export default {
             date_modified: "2020-03-10T18:57:11",
             date_modified_gmt: "2020-03-10T18:57:11",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/poster_1_up.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/poster_1_up.jpg",
             name: "poster_1_up.jpg",
             alt: ""
           },
@@ -246,7 +248,7 @@ export default {
             date_modified: "2020-03-10T18:57:11",
             date_modified_gmt: "2020-03-10T18:57:11",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_1_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/Poster_1_flat.jpg",
             name: "Poster_1_flat.jpg",
             alt: ""
           }
@@ -260,12 +262,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/55"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/55"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -274,7 +277,7 @@ export default {
         id: 52,
         name: "Flying Ninja",
         slug: "flying-ninja",
-        permalink: "http://64.227.41.179/product/flying-ninja/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/flying-ninja/",
         date_created: "2020-03-10T18:57:10",
         date_created_gmt: "2020-03-10T18:57:10",
         date_modified: "2020-03-10T18:57:10",
@@ -350,7 +353,7 @@ export default {
             date_modified: "2020-03-10T18:57:10",
             date_modified_gmt: "2020-03-10T18:57:10",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/poster_2_up.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/poster_2_up.jpg",
             name: "poster_2_up.jpg",
             alt: ""
           },
@@ -361,7 +364,7 @@ export default {
             date_modified: "2020-03-10T18:57:10",
             date_modified_gmt: "2020-03-10T18:57:10",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_2_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/Poster_2_flat.jpg",
             name: "Poster_2_flat.jpg",
             alt: ""
           }
@@ -375,12 +378,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/52"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/52"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -389,7 +393,8 @@ export default {
         id: 49,
         name: "Premium Quality",
         slug: "premium-quality",
-        permalink: "http://64.227.41.179/product/premium-quality/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/premium-quality/",
         date_created: "2020-03-10T18:57:09",
         date_created_gmt: "2020-03-10T18:57:09",
         date_modified: "2020-03-10T18:57:09",
@@ -465,7 +470,7 @@ export default {
             date_modified: "2020-03-10T18:57:09",
             date_modified_gmt: "2020-03-10T18:57:09",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/poster_3_up.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/poster_3_up.jpg",
             name: "poster_3_up.jpg",
             alt: ""
           },
@@ -476,7 +481,7 @@ export default {
             date_modified: "2020-03-10T18:57:09",
             date_modified_gmt: "2020-03-10T18:57:09",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_3_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/Poster_3_flat.jpg",
             name: "Poster_3_flat.jpg",
             alt: ""
           }
@@ -490,12 +495,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/49"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/49"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -504,7 +510,7 @@ export default {
         id: 46,
         name: "Woo Ninja",
         slug: "woo-ninja",
-        permalink: "http://64.227.41.179/product/woo-ninja/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/woo-ninja/",
         date_created: "2020-03-10T18:57:09",
         date_created_gmt: "2020-03-10T18:57:09",
         date_modified: "2020-03-10T18:57:09",
@@ -580,7 +586,7 @@ export default {
             date_modified: "2020-03-10T18:57:08",
             date_modified_gmt: "2020-03-10T18:57:08",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/poster_4_up.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/poster_4_up.jpg",
             name: "poster_4_up.jpg",
             alt: ""
           },
@@ -591,7 +597,7 @@ export default {
             date_modified: "2020-03-10T18:57:08",
             date_modified_gmt: "2020-03-10T18:57:08",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_4_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/Poster_4_flat.jpg",
             name: "Poster_4_flat.jpg",
             alt: ""
           }
@@ -605,12 +611,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/46"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/46"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -619,7 +626,7 @@ export default {
         id: 43,
         name: "Woo Logo",
         slug: "woo-logo",
-        permalink: "http://64.227.41.179/product/woo-logo/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/woo-logo/",
         date_created: "2020-03-10T18:57:08",
         date_created_gmt: "2020-03-10T18:57:08",
         date_modified: "2020-03-10T18:57:08",
@@ -695,7 +702,7 @@ export default {
             date_modified: "2020-03-10T18:57:07",
             date_modified_gmt: "2020-03-10T18:57:07",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/poster_5_up.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/poster_5_up.jpg",
             name: "poster_5_up.jpg",
             alt: ""
           },
@@ -706,7 +713,7 @@ export default {
             date_modified: "2020-03-10T18:57:07",
             date_modified_gmt: "2020-03-10T18:57:07",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/Poster_5_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/Poster_5_flat.jpg",
             name: "Poster_5_flat.jpg",
             alt: ""
           }
@@ -720,12 +727,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/43"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/43"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -734,7 +742,7 @@ export default {
         id: 34,
         name: "Woo Album #4",
         slug: "woo-album-4",
-        permalink: "http://64.227.41.179/product/woo-album-4/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/woo-album-4/",
         date_created: "2020-03-10T18:57:03",
         date_created_gmt: "2020-03-10T18:57:03",
         date_modified: "2020-03-10T18:57:03",
@@ -810,7 +818,7 @@ export default {
             date_modified: "2020-03-10T18:57:02",
             date_modified_gmt: "2020-03-10T18:57:02",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/cd_5_angle.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/cd_5_angle.jpg",
             name: "cd_5_angle.jpg",
             alt: ""
           },
@@ -821,7 +829,7 @@ export default {
             date_modified: "2020-03-10T18:57:03",
             date_modified_gmt: "2020-03-10T18:57:03",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/cd_5_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/cd_5_flat.jpg",
             name: "cd_5_flat.jpg",
             alt: ""
           }
@@ -835,12 +843,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/34"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/34"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -849,7 +858,7 @@ export default {
         id: 31,
         name: "Woo Singles",
         slug: "woo-singles",
-        permalink: "http://64.227.41.179/product/woo-singles/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/woo-singles/",
         date_created: "2020-03-10T18:57:02",
         date_created_gmt: "2020-03-10T18:57:02",
         date_modified: "2020-03-10T18:57:02",
@@ -925,7 +934,7 @@ export default {
             date_modified: "2020-03-10T18:57:01",
             date_modified_gmt: "2020-03-10T18:57:01",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/cd_6_flat.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/cd_6_flat.jpg",
             name: "cd_6_flat.jpg",
             alt: ""
           }
@@ -939,12 +948,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/31"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/31"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -953,7 +963,8 @@ export default {
         id: 26,
         name: "Ninja Silhouette",
         slug: "ninja-silhouette",
-        permalink: "http://64.227.41.179/product/ninja-silhouette/",
+        permalink:
+          "https://api.purplepeopleeater.co.uk/product/ninja-silhouette/",
         date_created: "2020-03-10T18:57:00",
         date_created_gmt: "2020-03-10T18:57:00",
         date_modified: "2020-03-10T18:57:13",
@@ -1030,7 +1041,7 @@ export default {
             date_modified: "2020-03-10T18:57:13",
             date_modified_gmt: "2020-03-10T18:57:13",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_5_front.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_5_front.jpg",
             name: "hoodie_5_front.jpg",
             alt: ""
           },
@@ -1041,7 +1052,7 @@ export default {
             date_modified: "2020-03-10T18:57:13",
             date_modified_gmt: "2020-03-10T18:57:13",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_5_back.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_5_back.jpg",
             name: "hoodie_5_back.jpg",
             alt: ""
           }
@@ -1055,12 +1066,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/26"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/26"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
@@ -1069,7 +1081,7 @@ export default {
         id: 25,
         name: "Happy Ninja",
         slug: "happy-ninja",
-        permalink: "http://64.227.41.179/product/happy-ninja/",
+        permalink: "https://api.purplepeopleeater.co.uk/product/happy-ninja/",
         date_created: "2020-03-10T18:57:00",
         date_created_gmt: "2020-03-10T18:57:00",
         date_modified: "2020-03-10T18:57:14",
@@ -1145,7 +1157,7 @@ export default {
             date_modified: "2020-03-10T18:57:13",
             date_modified_gmt: "2020-03-10T18:57:13",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_4_front.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_4_front.jpg",
             name: "hoodie_4_front.jpg",
             alt: ""
           },
@@ -1156,7 +1168,7 @@ export default {
             date_modified: "2020-03-10T18:57:14",
             date_modified_gmt: "2020-03-10T18:57:14",
             src:
-              "http://64.227.41.179/wp-content/uploads/2020/03/hoodie_4_back.jpg",
+              "https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/hoodie_4_back.jpg",
             name: "hoodie_4_back.jpg",
             alt: ""
           }
@@ -1170,12 +1182,13 @@ export default {
         _links: {
           self: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products/25"
+              href:
+                "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/25"
             }
           ],
           collection: [
             {
-              href: "http://64.227.41.179/wp-json/wc/v3/products"
+              href: "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products"
             }
           ]
         }
