@@ -240,6 +240,7 @@ import CountrySelect from "@/components/Checkout/CountrySelect";
 import Quote from "@/components/Checkout/Quote";
 import Loader from "@/components/Loader";
 export default {
+  layout: "checkout",
   data: () => ({
     isOpen: false,
     addingToCart: false

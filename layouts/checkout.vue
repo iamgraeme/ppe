@@ -1,9 +1,18 @@
 <template>
   <div>
-    <h1>Checkout</h1>
+    <MinimalHeader />
+    <nuxt />
+    <Footer />
   </div>
 </template>
 
 <script>
-export default {};
+import MinimalHeader from "@/components/MinimalHeader";
+import Footer from "@/components/Footer";
+export default {
+  components: {
+    MinimalHeader,
+    Footer
+  }
+};
 </script>
