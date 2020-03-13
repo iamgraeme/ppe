@@ -130,6 +130,9 @@ import CryptoJS from "crypto-js";
 import jQuery from "jquery";
 import Cta from "@/components/Cta";
 export default {
+  head: () => ({
+    title: "Purple People Eater"
+  }),
   components: {
     PageHeading,
     SocialIcons,

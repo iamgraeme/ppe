@@ -173,6 +173,9 @@ import jQuery from "jquery";
 
 import Cta from "@/components/Cta";
 export default {
+  head: () => ({
+    title: "Purple People Eater"
+  }),
   data: () => ({
     products: [
       {
