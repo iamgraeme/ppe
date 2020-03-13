@@ -85,17 +85,16 @@
               >
                 <button
                   class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
-                  @click="item.qty -= 1"
+                  @click="item.qty > 1 ? item.qty-- : item.qty = 1"
                 >-</button>
                 <input
-                  class="text-center w-16 text-gray-500"
-                  type="text"
-                  min="1"
+                  type="number"
                   v-model="item.qty"
+                  class="text-center w-16 text-gray-500 focus:outline-none"
                 />
                 <button
                   class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
-                  @click="item.qty += 1"
+                  @click="item.qty++"
                 >+</button>
               </div>
               <div>
@@ -198,4 +197,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+</style>
