@@ -3,21 +3,25 @@
     <div class="flex justify-between px-6 sm:px-0 mt-6">
       <h1 class="text-lg lg:text-3xl font-thin text-gray-600">Checkout</h1>
       <button
-        @click="isOpen =!isOpen"
+        @click="isOpen = !isOpen"
         class="bg-purple-800 hover:bg-purple-400 rounded-full text-white px-3 md:hidden text-sm py-1 focus:outline-none"
-      >Show Cart</button>
+      >
+        Show Cart
+      </button>
     </div>
 
     <div class="flex flex-col md:flex-row-reverse px-6 sm:px-0">
       <div
-        :class="{'hidden ': !isOpen}"
+        :class="{ 'hidden ': !isOpen }"
         class="md:block mt-6 md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 h-full bg-gray-200 md:sticky md:top-0"
       >
         <div>
           <div class="md:px-10 pt-6 md:pt-10">
             <h3
               class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
-            >Order Summary</h3>
+            >
+              Order Summary
+            </h3>
           </div>
           <div class="flex justify-between p-10">
             <div
@@ -30,7 +34,9 @@
                 />
               </div>
               <div>
-                <h4 class="font-semibold text-gray-500 text-sm lg:text-lg">Celeste Sports Bra</h4>
+                <h4 class="font-semibold text-gray-500 text-sm lg:text-lg">
+                  Celeste Sports Bra
+                </h4>
                 <div class="text-xs text-gray-500">WB03-M-Yellow</div>
                 <div class="flex flex-col">
                   <div>
@@ -44,7 +50,9 @@
               </div>
             </div>
             <div class="hidden sm:block">
-              <p class="font-semibold text-gray-500 text-sm lg:text-lg">£47.97</p>
+              <p class="font-semibold text-gray-500 text-sm lg:text-lg">
+                £47.97
+              </p>
             </div>
           </div>
           <div class="px-10 md:px-10 md:py-10 pb-6">
@@ -60,7 +68,9 @@
               <h6 class="text-gray-500 text-sm lg:text-lg">Tax</h6>
               <p class="text-gray-500 text-sm lg:text-lg">£8.97</p>
             </div>
-            <div class="flex justify-between mt-6 border-t pt-6 border-gray-400">
+            <div
+              class="flex justify-between mt-6 border-t pt-6 border-gray-400"
+            >
               <h6 class="text-gray-700 text-2xl font-semibold">Total</h6>
               <p class="text-gray-700 text-2xl font-semibold">£47.97</p>
             </div>
@@ -202,7 +212,9 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">What Our Customers Say...</h1>
+          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">
+            What Our Customers Say...
+          </h1>
 
           <no-ssr>
             <carousel items="1" autoplay="true" :dots="true" :nav="false">
@@ -240,6 +252,7 @@ import CountrySelect from "@/components/Checkout/CountrySelect";
 import Quote from "@/components/Checkout/Quote";
 import Loader from "@/components/Loader";
 export default {
+  transition: "slide-fade",
   layout: "checkout",
   data: () => ({
     isOpen: false,

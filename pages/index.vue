@@ -3,9 +3,13 @@
     <div class="mb-24 relative">
       <no-ssr>
         <carousel items="1" :autoplay="true" :dots="false">
-          <img src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg" />
+          <img
+            src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg"
+          />
           <img src="@/assets/slider/slide-two.jpg" />
-          <img src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg" />
+          <img
+            src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg"
+          />
           <img src="@/assets/slider/slide-two.jpg" />
         </carousel>
       </no-ssr>
@@ -14,21 +18,33 @@
       >
         <div class="flex">
           <div class="flex items-center mr-16">
-            <img src="@/assets/images/free-shipping.svg" class="mr-3" alt="Free Delivery" />
+            <img
+              src="@/assets/images/free-shipping.svg"
+              class="mr-3"
+              alt="Free Delivery"
+            />
             <div>
               <p class="font-semibold text-lg">Free Delivery</p>
               <p>On purchases over £399</p>
             </div>
           </div>
           <div class="flex items-center mr-16">
-            <img src="@/assets/images/free-shipping.svg" class="mr-3" alt="Free Delivery" />
+            <img
+              src="@/assets/images/free-shipping.svg"
+              class="mr-3"
+              alt="Free Delivery"
+            />
             <div>
               <p class="font-semibold text-lg">Free Delivery</p>
               <p>On purchases over £399</p>
             </div>
           </div>
           <div class="flex items-center mr-16">
-            <img src="@/assets/images/free-shipping.svg" class="mr-3" alt="Free Delivery" />
+            <img
+              src="@/assets/images/free-shipping.svg"
+              class="mr-3"
+              alt="Free Delivery"
+            />
             <div>
               <p class="font-semibold text-lg">Free Delivery</p>
               <p>On purchases over £399</p>
@@ -41,13 +57,16 @@
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
           <div>
-            <h3 class="text-lg lg:text-2xl text-gray-600">Our Bedstead Range</h3>
+            <h3 class="text-lg lg:text-2xl text-gray-600">
+              Our Bedstead Range
+            </h3>
           </div>
           <div>
             <nuxt-link
               to="/category/18/bedsteads"
               class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
-            >Show All</nuxt-link>
+              >Show All</nuxt-link
+            >
           </div>
         </div>
         <div>
@@ -56,7 +75,12 @@
               items="4"
               :nav="false"
               :dots="false"
-              :responsive="{0:{items:1,nav:false}, 375: {items:2, nav:false},640:{items:3,nav:false},767:{items:4,nav:false}}"
+              :responsive="{
+                0: { items: 1, nav: false },
+                375: { items: 2, nav: false },
+                640: { items: 3, nav: false },
+                767: { items: 4, nav: false }
+              }"
             >
               <ProductCard
                 v-for="product in products"
@@ -79,22 +103,36 @@
     </div>
     <div class="py-10 border-b border-gray-300">
       <div class="container mx-auto px-6 md:px-0">
-        <h3 class="text-center text-3xl text-gray-600 font-thin mb-20">Why should you choose us?</h3>
+        <h3 class="text-center text-3xl text-gray-600 font-thin mb-20">
+          Why should you choose us?
+        </h3>
         <div class="flex flex-wrap justify-between">
           <div
             class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
           >
-            <img class="mb-10" src="@/assets/images/free-shipping.svg" alt="Free Delivery" />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">Free Delivery</h5>
-            <p
-              class="text-sm text-gray-600 md:mr-10"
-            >All purchases over £399 are eligible for free delivery.</p>
+            <img
+              class="mb-10"
+              src="@/assets/images/free-shipping.svg"
+              alt="Free Delivery"
+            />
+            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
+              Free Delivery
+            </h5>
+            <p class="text-sm text-gray-600 md:mr-10">
+              All purchases over £399 are eligible for free delivery.
+            </p>
           </div>
           <div
             class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
           >
-            <img class="mb-10" src="@/assets/images/payments.svg" alt="Free Delivery" />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">Hassle Free Payments</h5>
+            <img
+              class="mb-10"
+              src="@/assets/images/payments.svg"
+              alt="Free Delivery"
+            />
+            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
+              Hassle Free Payments
+            </h5>
             <p class="text-sm text-gray-600 md:mr-10">
               All payments are processed instantly over a secure payment
               protocol.
@@ -103,8 +141,14 @@
           <div
             class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
           >
-            <img class="mb-10" src="@/assets/images/money-back.svg" alt="Free Delivery" />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">Money Back Guaruntee</h5>
+            <img
+              class="mb-10"
+              src="@/assets/images/money-back.svg"
+              alt="Free Delivery"
+            />
+            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
+              Money Back Guaruntee
+            </h5>
             <p class="text-sm text-gray-600 md:mr-10">
               If an item arrived damaged, you can send it back for a full
               refund.
@@ -113,8 +157,14 @@
           <div
             class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
           >
-            <img class="mb-10" src="@/assets/images/finest-quality.svg" alt="Free Delivery" />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">Finest Quality</h5>
+            <img
+              class="mb-10"
+              src="@/assets/images/finest-quality.svg"
+              alt="Free Delivery"
+            />
+            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
+              Finest Quality
+            </h5>
             <p class="text-sm text-gray-600 md:mr-10">
               Designed to last, each of our products has been crafted with the
               finest materials.
@@ -127,13 +177,16 @@
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
           <div>
-            <h3 class="text-lg lg:text-2xl text-gray-600">Our Mattress Range</h3>
+            <h3 class="text-lg lg:text-2xl text-gray-600">
+              Our Mattress Range
+            </h3>
           </div>
           <div>
             <nuxt-link
               to="/category/19/mattresses"
               class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
-            >Show All</nuxt-link>
+              >Show All</nuxt-link
+            >
           </div>
         </div>
         <div>
@@ -142,7 +195,12 @@
               items="4"
               :nav="false"
               :dots="false"
-              :responsive="{0:{items:1,nav:false}, 375: {items:2, nav:false},640:{items:3,nav:false},767:{items:4,nav:false}}"
+              :responsive="{
+                0: { items: 1, nav: false },
+                375: { items: 2, nav: false },
+                640: { items: 3, nav: false },
+                767: { items: 4, nav: false }
+              }"
             >
               <ProductCard
                 v-for="product in products"
@@ -173,6 +231,7 @@ import jQuery from "jquery";
 
 import Cta from "@/components/Cta";
 export default {
+  transition: "slide-fade",
   head: () => ({
     title: "Purple People Eater"
   }),

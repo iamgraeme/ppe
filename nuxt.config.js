@@ -23,7 +23,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~/assets/css/transition.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -43,7 +43,8 @@ module.exports = {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv"
+    "@nuxtjs/dotenv",
+    "vue-scrollto/nuxt"
   ],
   /*
    ** Axios module configuration

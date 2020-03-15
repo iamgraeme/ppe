@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/User/Sidebar";
 export default {
+  transition: "slide-fade",
   components: {
     Header,
     Footer,

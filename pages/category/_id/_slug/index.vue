@@ -5,7 +5,10 @@
       <div>
         <!-- <Breadcrumb /> -->
       </div>
-      <div v-if="isLoading" class="h-64 w-full flex justify-center items-center">
+      <div
+        v-if="isLoading"
+        class="h-64 w-full flex justify-center items-center"
+      >
         <Loader />
       </div>
       <div class="flex justify-start flex-wrap px-6 sm:px-0" v-else>
@@ -32,6 +35,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Loader from "@/components/Loader";
 
 export default {
+  transition: "slide-fade",
   components: {
     PageHeading,
     ProductCard,

@@ -31,6 +31,7 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 export default {
+  transition: "slide-fade",
   components: {
     PageHeading
   },
