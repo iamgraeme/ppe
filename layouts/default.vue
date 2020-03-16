@@ -4,38 +4,38 @@
     <nuxt />
     <Footer />
     <script type="text/javascript" data-cfasync="false">
-      window.purechatApi = {
-        l: [],
-        t: [],
-        on: function() {
-          this.l.push(arguments);
-        }
-      };
-      (function() {
-        var done = false;
-        var script = document.createElement("script");
-        script.async = true;
-        script.type = "text/javascript";
-        script.src = "https://app.purechat.com/VisitorWidget/WidgetScript";
-        document
-          .getElementsByTagName("HEAD")
-          .item(0)
-          .appendChild(script);
-        script.onreadystatechange = script.onload = function(e) {
-          if (
-            !done &&
-            (!this.readyState ||
-              this.readyState == "loaded" ||
-              this.readyState == "complete")
-          ) {
-            var w = new PCWidget({
-              c: "af8fe901-b7d9-4c84-8973-11b49c7ccab5",
-              f: true
-            });
-            done = true;
-          }
-        };
-      })();
+  window.purechatApi = {
+    l: [],
+    t: [],
+    on: function() {
+      this.l.push(arguments);
+    }
+  };
+  (function() {
+    var done = false;
+    var script = document.createElement("script");
+    script.async = true;
+    script.type = "text/javascript";
+    script.src = "https://app.purechat.com/VisitorWidget/WidgetScript";
+    document
+      .getElementsByTagName("HEAD")
+      .item(0)
+      .appendChild(script);
+    script.onreadystatechange = script.onload = function(e) {
+      if (
+        !done &&
+        (!this.readyState ||
+          this.readyState == "loaded" ||
+          this.readyState == "complete")
+      ) {
+        var w = new PCWidget({
+          c: "af8fe901-b7d9-4c84-8973-11b49c7ccab5",
+          f: true
+        });
+        done = true;
+      }
+    };
+  })();
     </script>
   </div>
 </template>
@@ -52,6 +52,36 @@ export default {
 </script>
 
 <style>
+.vue-star-rating-star {
+  display: inline-block;
+}
+
+.vue-star-rating-pointer {
+  cursor: pointer;
+}
+
+.vue-star-rating {
+  display: flex;
+  align-items: center;
+}
+
+.vue-star-rating-inline {
+  display: inline-flex;
+}
+
+.vue-star-rating-rating-text {
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.vue-star-rating-rtl {
+  direction: rtl;
+}
+
+.vue-star-rating-rtl .vue-star-rating-rating-text {
+  margin-right: 10px;
+  direction: rtl;
+}
 .owl-theme .owl-dots .owl-dot.active span {
   background: #b794f4 !important;
 }
