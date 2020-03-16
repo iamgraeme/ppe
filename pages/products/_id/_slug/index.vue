@@ -35,7 +35,10 @@
           <div
             class="container mx-auto flex pb-16 flex-col items-center md:items-start md:flex-row px-6 sm:px-0"
           >
-            <div class="w-12/12 md:w-7/12 flex">
+            <div
+              class="w-12/12 md:w-7/12 flex"
+              v-if="product.images.length > 0"
+            >
               <div class="w-3/12 md:w-2/12 flex flex-col">
                 <div
                   class="mb-3"
@@ -1524,6 +1527,7 @@ export default {
       cartItem.bedsize = this.item.bedsize;
       this.tempcart.push(cartItem);
       this.$store.commit("addToCart", { ...cartItem });
+      // this.$router.push("/checkout");
     }
   },
   filters: {

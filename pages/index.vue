@@ -1,58 +1,6 @@
 <template>
   <div>
-    <div class="mb-24 relative">
-      <no-ssr>
-        <carousel items="1" :autoplay="true" :dots="false">
-          <img
-            src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg"
-          />
-          <img src="@/assets/slider/slide-two.jpg" />
-          <img
-            src="@/assets/slider/0LDWYkDi0Zzp6aitokK6Hi0OQDFrJ3DcoIFykEnH.jpeg"
-          />
-          <img src="@/assets/slider/slide-two.jpg" />
-        </carousel>
-      </no-ssr>
-      <div
-        class="absolute bg-white w-9/12 h-32 bottom-0 left-0 z-50 rounded-tr-full hidden md:flex items-center justify-end"
-      >
-        <div class="flex">
-          <div class="flex items-center mr-16">
-            <img
-              src="@/assets/images/free-shipping.svg"
-              class="mr-3"
-              alt="Free Delivery"
-            />
-            <div>
-              <p class="font-semibold text-lg">Free Delivery</p>
-              <p>On purchases over £399</p>
-            </div>
-          </div>
-          <div class="flex items-center mr-16">
-            <img
-              src="@/assets/images/free-shipping.svg"
-              class="mr-3"
-              alt="Free Delivery"
-            />
-            <div>
-              <p class="font-semibold text-lg">Free Delivery</p>
-              <p>On purchases over £399</p>
-            </div>
-          </div>
-          <div class="flex items-center mr-16">
-            <img
-              src="@/assets/images/free-shipping.svg"
-              class="mr-3"
-              alt="Free Delivery"
-            />
-            <div>
-              <p class="font-semibold text-lg">Free Delivery</p>
-              <p>On purchases over £399</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <BannerSlider />
     <div class="container mx-auto">
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
@@ -101,78 +49,7 @@
     <div>
       <Cta class="hidden md:flex" />
     </div>
-    <div class="py-10 border-b border-gray-300">
-      <div class="container mx-auto px-6 md:px-0">
-        <h3 class="text-center text-3xl text-gray-600 font-thin mb-20">
-          Why should you choose us?
-        </h3>
-        <div class="flex flex-wrap justify-between">
-          <div
-            class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
-          >
-            <img
-              class="mb-10"
-              src="@/assets/images/free-shipping.svg"
-              alt="Free Delivery"
-            />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
-              Free Delivery
-            </h5>
-            <p class="text-sm text-gray-600 md:mr-10">
-              All purchases over £399 are eligible for free delivery.
-            </p>
-          </div>
-          <div
-            class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
-          >
-            <img
-              class="mb-10"
-              src="@/assets/images/payments.svg"
-              alt="Free Delivery"
-            />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
-              Hassle Free Payments
-            </h5>
-            <p class="text-sm text-gray-600 md:mr-10">
-              All payments are processed instantly over a secure payment
-              protocol.
-            </p>
-          </div>
-          <div
-            class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
-          >
-            <img
-              class="mb-10"
-              src="@/assets/images/money-back.svg"
-              alt="Free Delivery"
-            />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
-              Money Back Guaruntee
-            </h5>
-            <p class="text-sm text-gray-600 md:mr-10">
-              If an item arrived damaged, you can send it back for a full
-              refund.
-            </p>
-          </div>
-          <div
-            class="w-1/2 md:w-1/4 mb-10 flex items-center md:items-start flex-col text-center md:text-left px-6 md:px-0"
-          >
-            <img
-              class="mb-10"
-              src="@/assets/images/finest-quality.svg"
-              alt="Free Delivery"
-            />
-            <h5 class="font-semibold text-gray-700 mb-3 text-sm lg:text-lg">
-              Finest Quality
-            </h5>
-            <p class="text-sm text-gray-600 md:mr-10">
-              Designed to last, each of our products has been crafted with the
-              finest materials.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <SalePoints />
     <div class="container mx-auto py-10">
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
@@ -224,11 +101,12 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 import ProductCard from "@/components/ProductCard";
+import BannerSlider from "@/components/Home/BannerSlider";
+import SalePoints from "@/components/Home/SalePoints";
 import axios from "axios";
 import OAuth from "oauth-1.0a";
 import CryptoJS from "crypto-js";
 import jQuery from "jquery";
-
 import Cta from "@/components/Cta";
 export default {
   transition: "slide-fade",
@@ -1395,7 +1273,9 @@ export default {
   components: {
     PageHeading,
     ProductCard,
-    Cta
+    Cta,
+    SalePoints,
+    BannerSlider
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-center h-64">
     <div>
       <div class="lds-ring">
         <div></div>
