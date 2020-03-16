@@ -7,27 +7,19 @@
       <div v-else>
         <div class="lg:mt-16">
           <div class="bg-white md:hidden sticky top-0 relative z-20">
-            <div
-              class="container mx-auto flex justify-between items-center px-6 sm:px-0"
-            >
-              <h1 class="text-3xl font-light text-gray-600 py-3 md:py-0">
-                {{ product.name }}
-              </h1>
+            <div class="container mx-auto flex justify-between items-center px-6 sm:px-0">
+              <h1 class="text-3xl font-light text-gray-600 py-3 md:py-0">{{ product.name }}</h1>
               <div>
                 <div v-if="product.sale_price" class="flex">
-                  <p class="text-3xl font-normal text-purple-800 mb-2 mr-3">
-                    £{{ product.regular_price }}.00
-                  </p>
+                  <p
+                    class="text-3xl font-normal text-purple-800 mb-2 mr-3"
+                  >£{{ product.regular_price }}.00</p>
                   <p
                     class="text-3xl font-normal text-gray-500 mb-2 line-through"
-                  >
-                    £{{ product.sale_price }}.00
-                  </p>
+                  >£{{ product.sale_price }}.00</p>
                 </div>
                 <div v-else>
-                  <p class="text-3xl font-normal text-purple-800 mb-2">
-                    £{{ product.price }}.00
-                  </p>
+                  <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
                 </div>
               </div>
             </div>
@@ -35,21 +27,10 @@
           <div
             class="container mx-auto flex pb-16 flex-col items-center md:items-start md:flex-row px-6 sm:px-0"
           >
-            <div
-              class="w-12/12 md:w-7/12 flex"
-              v-if="product.images.length > 0"
-            >
+            <div class="w-12/12 md:w-7/12 flex" v-if="product.images.length > 0">
               <div class="w-3/12 md:w-2/12 flex flex-col">
-                <div
-                  class="mb-3"
-                  v-for="image in product.images"
-                  :key="image.id"
-                >
-                  <img
-                    class="w-full pr-3 cursor-pointer"
-                    :src="image.src"
-                    :alt="image.name"
-                  />
+                <div class="mb-3" v-for="image in product.images" :key="image.id">
+                  <img class="w-full pr-3 cursor-pointer" :src="image.src" :alt="image.name" />
                 </div>
               </div>
               <div class="w-9/12 md:w-10/12 relative">
@@ -57,43 +38,31 @@
                   class="md:hidden absolute right-20 top-20"
                   :stockStatus="product.stock_status"
                 />
-                <img
-                  class="w-full md:pr-3"
-                  :src="product.images[0].src"
-                  :alt="product.name"
-                />
+                <img class="w-full md:pr-3" :src="product.images[0].src" :alt="product.name" />
               </div>
             </div>
             <div class="w-12/12 md:w-5/12 pl-3">
               <div class="hidden md:block">
                 <div class="flex justify-between items-center">
-                  <h1 class="text-3xl font-light text-gray-600 hidden md:block">
-                    {{ product.name }}
-                  </h1>
+                  <h1 class="text-3xl font-light text-gray-600 hidden md:block">{{ product.name }}</h1>
                   <StockStatus :stockStatus="product.stock_status" />
                 </div>
 
                 <div v-if="product.sale_price" class="flex">
-                  <p class="text-3xl font-normal text-purple-800 mb-2 mr-3">
-                    £{{ product.regular_price }}.00
-                  </p>
+                  <p
+                    class="text-3xl font-normal text-purple-800 mb-2 mr-3"
+                  >£{{ product.regular_price }}.00</p>
                   <p
                     class="text-3xl font-normal text-gray-500 mb-2 line-through"
-                  >
-                    £{{ product.sale_price }}.00
-                  </p>
+                  >£{{ product.sale_price }}.00</p>
                 </div>
                 <div v-else>
-                  <p class="text-3xl font-normal text-purple-800 mb-2">
-                    £{{ product.price }}.00
-                  </p>
+                  <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
                 </div>
               </div>
               <div class="border-t border-b border-gray-300 py-1 mb-2">
                 <div class="flex items-center">
-                  <div
-                    v-if="product.rating_count === 0 && product.reviews_allowed"
-                  >
+                  <div v-if="product.rating_count === 0 && product.reviews_allowed">
                     <a
                       href="#"
                       class="text-sm text-gray-500"
@@ -109,8 +78,7 @@
                         x: false,
                         y: true
                       }"
-                      >Write a Review?</a
-                    >
+                    >Write a Review?</a>
                   </div>
                   <div v-else class="flex items-center">
                     <a
@@ -128,13 +96,12 @@
                         y: true
                       }"
                       class="text-sm mr-2 text-gray-500 mr-4"
-                      >{{ product.rating_count | pluralize }}</a
-                    >
+                    >{{ product.rating_count | pluralize }}</a>
                     <span class="text-sm mr-2 text-gray-500">|</span>
                     <div class="flex items-center ml-4">
-                      <p class="text-sm mr-2 text-gray-500 font-semibold">
-                        {{ Math.round(product.average_rating * 100) / 100 }}/5
-                      </p>
+                      <p
+                        class="text-sm mr-2 text-gray-500 font-semibold"
+                      >{{ Math.round(product.average_rating * 100) / 100 }}/5</p>
 
                       <star-rating
                         :rating="product.average_rating"
@@ -143,16 +110,14 @@
                         :show-rating="false"
                         :padding="2"
                         increment="0.5"
+                        :read-only="true"
                       ></star-rating>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <div
-                  v-html="product.description"
-                  class="text-sm text-gray-500 leading-loose"
-                ></div>
+                <div v-html="product.description" class="text-sm text-gray-500 leading-loose"></div>
               </div>
               <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
                 <div class="flex items-center justify-center">
@@ -164,16 +129,12 @@
                   <div class="flex justify-between mb-6">
                     <h4 class="mb-6">
                       Choose a size:
-                      <span class="text-gray-600">
-                        {{ item.bedsize | prettify }}
-                      </span>
+                      <span class="text-gray-600">{{ item.bedsize | prettify }}</span>
                     </h4>
                     <button
                       @click="showModal"
-                      class="text-white bg-gray-600 cursor-pointer hover:bg-purple-400 rounded-full focus:outline-none px-4 h-6 "
-                    >
-                      Size Guide
-                    </button>
+                      class="text-white bg-gray-600 cursor-pointer hover:bg-purple-400 rounded-full focus:outline-none px-4 h-6"
+                    >Size Guide</button>
                   </div>
                   <div class="flex items-center">
                     <label class="mr-3">
@@ -196,30 +157,15 @@
                       <img src="@/assets/images/system/double.svg" />
                     </label>
                     <label class="mr-3">
-                      <input
-                        type="radio"
-                        v-model="item.bedsize"
-                        value="double"
-                        name="bed-size"
-                      />
+                      <input type="radio" v-model="item.bedsize" value="double" name="bed-size" />
                       <img src="@/assets/images/system/46Double.svg" />
                     </label>
                     <label class="mr-3">
-                      <input
-                        type="radio"
-                        v-model="item.bedsize"
-                        value="king"
-                        name="bed-size"
-                      />
+                      <input type="radio" v-model="item.bedsize" value="king" name="bed-size" />
                       <img src="@/assets/images/system/king.svg" />
                     </label>
                     <label class="mr-3">
-                      <input
-                        type="radio"
-                        v-model="item.bedsize"
-                        value="super-king"
-                        name="bed-size"
-                      />
+                      <input type="radio" v-model="item.bedsize" value="super-king" name="bed-size" />
                       <img src="@/assets/images/system/superking.svg" />
                     </label>
                   </div>
@@ -240,9 +186,7 @@
                   <button
                     class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
                     @click="item.qty > 1 ? item.qty-- : (item.qty = 1)"
-                  >
-                    -
-                  </button>
+                  >-</button>
                   <input
                     type="number"
                     v-model="item.qty"
@@ -251,9 +195,7 @@
                   <button
                     class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
                     @click="item.qty++"
-                  >
-                    +
-                  </button>
+                  >+</button>
                 </div>
                 <div>
                   <input
@@ -270,10 +212,7 @@
         <div class="hidden md:block">
           <Cta :title="product.name" :body="product.description" />
         </div>
-        <div
-          id="addReview"
-          class="w-1/2 mx-auto pb-20 items-center flex flex-col"
-        >
+        <div id="addReview" class="w-1/2 mx-auto pb-20 items-center flex flex-col">
           <PageHeading title="Write a Review?" />
           <ReviewForm />
         </div>
