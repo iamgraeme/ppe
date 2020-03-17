@@ -101,8 +101,10 @@ export default {
           });
         })
         .catch(error => {
+          //console.log(error);
           this.isError = true;
-          this.message = error.message;
+          this.message =
+            "Username already exists, please enter another username";
         });
     },
     switchVisibility() {
