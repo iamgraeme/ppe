@@ -68,6 +68,11 @@
           </div>
           <div v-else>
             <nuxt-link
+              to="/auth/register"
+              class="block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+              >Register</nuxt-link
+            >
+            <nuxt-link
               to="/auth"
               class="block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
               >Log In</nuxt-link
