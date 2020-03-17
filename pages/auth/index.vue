@@ -37,8 +37,7 @@
             <nuxt-link
               class="text-gray-400 hover:text-purple-400"
               to="/auth/forgot-password"
-              >Forgot password?</nuxt-link
-            >
+            >Forgot password?</nuxt-link>
           </div>
         </div>
 
@@ -51,9 +50,7 @@
       <div class="text-center">
         <p class="text-gray-400">
           Need an account?
-          <nuxt-link class="text-purple-800" to="/auth/register"
-            >Register Here</nuxt-link
-          >
+          <nuxt-link class="text-purple-800" to="/auth/register">Register Here</nuxt-link>
         </p>
       </div>
     </div>
@@ -61,6 +58,7 @@
 </template>
 
 <script>
+import NotificationSuccess from "@/components/NotificationSuccess";
 import PageHeading from "@/components/PageHeading";
 export default {
   transition: "slide-fade",
@@ -70,7 +68,8 @@ export default {
     passwordFieldType: "password"
   }),
   components: {
-    PageHeading
+    PageHeading,
+    NotificationSuccess
   },
   methods: {
     switchVisibility() {

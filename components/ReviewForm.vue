@@ -7,9 +7,14 @@
     />
     <input
       class="border w-full rounded border-gray-300 focus:outline-none focus:border-purple-800 p-3 mb-3"
-      type="text"
+      type="email"
       placeholder="Email"
     />
+    <div class="flex justify-start items-center border w-full rounded border-gray-300 p-3 mb-3">
+      <label class="text-gray-500 font-normal text-md mr-6" for="rating">Your rating:</label>
+      <star-rating @rating-selected="setRating" active-color="#FFAE00" :star-size="24" :padding="2"></star-rating>
+    </div>
+    <input type="hidden" />
     <input
       class="border w-full rounded border-gray-300 focus:outline-none focus:border-purple-800 p-3 mb-3"
       type="text"
@@ -29,7 +34,19 @@
 </template>
 
 <script>
+import StarRating from "vue-star-rating/src/star-rating.vue";
 export default {
-  name: "ReviewForm"
+  name: "ReviewForm",
+  components: {
+    StarRating
+  },
+  methods: {
+    setRating: function(rating) {
+      this.rating = rating;
+    }
+  },
+  data: {
+    rating: 0
+  }
 };
 </script>

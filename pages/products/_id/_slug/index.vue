@@ -212,7 +212,10 @@
         <div class="hidden md:block">
           <Cta :title="product.name" :body="product.description" />
         </div>
-        <div id="addReview" class="w-1/2 mx-auto pb-20 items-center flex flex-col">
+        <div
+          id="addReview"
+          class="w-12/12 lg:w-1/2 mx-auto pb-20 items-center flex flex-col px-6 lg:px-0"
+        >
           <PageHeading title="Write a Review?" />
           <ReviewForm />
         </div>

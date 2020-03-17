@@ -15,13 +15,14 @@
             placeholder="Email Address"
             class="mb-3 border border-gray-400 rounded-full w-full py-3 px-6 focus:outline-none focus:border-purple-400"
             type="email"
-            v-model="email"
+            v-model="user.user_login"
           />
         </div>
         <input
           class="bg-purple-800 mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none focus:shadow-outline"
           type="submit"
           value="Reset Password"
+          @click="retrievePassword"
         />
       </form>
     </div>
@@ -29,14 +30,38 @@
 </template>
 
 <script>
+import axios from "axios";
 import PageHeading from "@/components/PageHeading";
+import Notification from "@/components/Notification";
 export default {
   transition: "slide-fade",
   components: {
     PageHeading
   },
   data: () => ({
-    email: ""
-  })
+    user: {
+      user_login: ""
+    },
+    isError: false,
+    message: ""
+  }),
+  methods: {
+    retrievePassword(e) {
+      e.preventDefault();
+
+      axios
+        .post(
+          "https://api.purplepeopleeater.co.uk/wp-json/wp/v2/users/lost-password",
+          this.user
+        )
+        .then(() => {
+          this.$router.push("/auth/forgot-password/confirmation");
+        })
+        .catch(error => {
+          this.isError = true;
+          this.message = error.message;
+        });
+    }
+  }
 };
 </script>

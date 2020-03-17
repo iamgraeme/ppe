@@ -8,16 +8,18 @@
         efficiently.
       </p>
     </div>
-
+    <div class="w-1/2 mx-auto">
+      <Notification :isError="isError" :message="message" type="negative" />
+    </div>
     <div class="w-1/2 mx-auto">
       <form @submit.prevent class="flex flex-col justify-center">
         <div class="w-full">
-          <Label class="sr-only">Full Name</Label>
+          <Label class="sr-only">Choose a Username</Label>
           <input
-            placeholder="Full Name"
+            placeholder="Choose a Username"
             class="mb-3 border text-gray-400 focus:outline-none focus:border-purple-400 rounded-full w-full py-3 px-6"
             type="text"
-            v-model="name"
+            v-model="user.username"
           />
         </div>
         <div class="w-full">
@@ -26,7 +28,7 @@
             placeholder="Email Address"
             class="mb-3 border text-gray-400 focus:outline-none focus:border-purple-400 rounded-full w-full py-3 px-6"
             type="email"
-            v-model="email"
+            v-model="user.email"
           />
         </div>
         <div class="w-full flex flex-col relative justify-center mb-20">
@@ -36,7 +38,7 @@
             class="mb-3 border text-gray-400 focus:outline-none focus:border-purple-400 rounded-full w-full py-3 px-6"
             :type="passwordFieldType"
             id="password"
-            v-model="password"
+            v-model="user.password"
           />
           <button
             class="absolute right-0 mr-6 -mt-2 z-10 focus:outline-none"
@@ -50,6 +52,7 @@
           class="bg-purple-800 mb-10 hover:bg-purple-400 focus:outline-none focus:shadow-outline rounded-full w-full py-3 px-6 text-white"
           type="submit"
           value="Register"
+          @click="registerUser"
         />
       </form>
       <div class="text-center">
@@ -63,19 +66,45 @@
 </template>
 
 <script>
+import axios from "axios";
 import PageHeading from "@/components/PageHeading";
+import Notification from "@/components/Notification";
 export default {
   transition: "slide-fade",
   data: () => ({
-    name: "",
-    email: "",
-    password: "",
-    passwordFieldType: "password"
+    user: {
+      username: "",
+      email: "",
+      password: ""
+    },
+    passwordFieldType: "password",
+    isError: false,
+    message: ""
   }),
   components: {
-    PageHeading
+    PageHeading,
+    Notification
   },
   methods: {
+    registerUser(e) {
+      e.preventDefault();
+
+      axios
+        .post(
+          "https://api.purplepeopleeater.co.uk/wp-json/wp/v2/users/register",
+          this.user
+        )
+        .then(() => {
+          this.$router.push({
+            name: "auth",
+            params: { email: this.user.email }
+          });
+        })
+        .catch(error => {
+          this.isError = true;
+          this.message = error.message;
+        });
+    },
     switchVisibility() {
       this.passwordFieldType =
         this.passwordFieldType === "password" ? "text" : "password";
