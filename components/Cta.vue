@@ -1,8 +1,14 @@
 <template>
-  <div class="cta flex items-center border-t border-b border-gray-300 mb-10 relative">
+  <div class="hidden lg:flex cta items-center border-t border-b border-gray-300 mb-10 relative">
     <div class="container mx-auto">
       <div class="flex items-center">
         <div class="w-7/12 pr-6">
+          <div v-if="title">
+            <h2 class="text-3xl font-thin text-gray-600 mb-10">{{title}}</h2>
+          </div>
+          <div v-else>
+            <h2 class="text-3xl font-thin text-gray-600 mb-10">Our Super Relief Mattress</h2>
+          </div>
           <h2 class="text-3xl font-thin text-gray-600 mb-10">{{title}}</h2>
           <div v-if="body">
             <div class="leading-loose text-gray-600 mb-10" v-html="body"></div>

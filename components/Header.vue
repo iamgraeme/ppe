@@ -52,10 +52,8 @@
                 </nuxt-link>
               </li>
               <li class="px-4 hidden md:block">
-                <nuxt-link
-                  class="font-semibold text-purple-800 hover:text-purple-400"
-                  to="/auth"
-                >
+                <AccountDropdown />
+                <!-- <nuxt-link class="font-semibold text-purple-800 hover:text-purple-400" to="/auth">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -65,7 +63,7 @@
                       d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"
                     />
                   </svg>
-                </nuxt-link>
+                </nuxt-link>-->
               </li>
               <li
                 class="sm:block md:hidden cursor-pointer"
@@ -119,11 +117,14 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mixin as clickaway } from "vue-clickaway";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
 import SearchBar from "@/components/SearchBar";
+import AccountDropdown from "@/components/AccountDropdown";
 export default {
   name: "Header",
+  mixin: ["clickaway"],
   computed: {
     ...mapGetters(["cartCount"])
   },
@@ -135,7 +136,16 @@ export default {
   components: {
     Nav,
     Logo,
-    SearchBar
+    SearchBar,
+    AccountDropdown
+  },
+  methods: {
+    searchAway() {
+      this.searchIsOpen = false;
+    },
+    menuAway() {
+      this.menuIsOpen = false;
+    }
   }
 };
 </script>

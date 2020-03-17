@@ -59,6 +59,15 @@ module.exports = {
     }
   },
 
+  auth: {
+    redirect: {
+      login: "/auth",
+      logout: "/",
+      callback: "/auth",
+      home: "/"
+    }
+  },
+
   /*
    ** Build configuration
    */

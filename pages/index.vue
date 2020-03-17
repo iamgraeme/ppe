@@ -5,16 +5,13 @@
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
           <div>
-            <h3 class="text-lg lg:text-2xl text-gray-600">
-              Our Bedstead Range
-            </h3>
+            <h3 class="text-lg lg:text-2xl text-gray-600">Our Bedstead Range</h3>
           </div>
           <div>
             <nuxt-link
               to="/category/18/bedsteads"
               class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
-              >Show All</nuxt-link
-            >
+            >Show All</nuxt-link>
           </div>
         </div>
         <div>
@@ -47,23 +44,20 @@
       </div>
     </div>
     <div>
-      <Cta class="hidden md:flex" />
+      <Cta />
     </div>
     <SalePoints />
     <div class="container mx-auto py-10">
       <div>
         <div class="flex justify-between items-center mb-6 px-4">
           <div>
-            <h3 class="text-lg lg:text-2xl text-gray-600">
-              Our Mattress Range
-            </h3>
+            <h3 class="text-lg lg:text-2xl text-gray-600">Our Mattress Range</h3>
           </div>
           <div>
             <nuxt-link
               to="/category/19/mattresses"
               class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
-              >Show All</nuxt-link
-            >
+            >Show All</nuxt-link>
           </div>
         </div>
         <div>
