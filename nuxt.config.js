@@ -50,7 +50,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseUrl: "http://localhost:3000",
+    baseUrl: "https://api.purplepeopleeater.co.uk/wp-json/",
     https: false,
     headers: {
       common: {
@@ -65,6 +65,22 @@ module.exports = {
       logout: "/",
       callback: "/auth",
       home: "/"
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/jwt-auth/v1/token",
+            method: "post",
+            propertyName: "token"
+          },
+          logout: { url: "/api/auth/logout", method: "post" },
+          user: { url: "/wp/v2/users/me", method: "get", propertyName: "user" }
+        }
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+        // autoFetchUser: true
+      }
     }
   },
 

@@ -13,10 +13,10 @@
       <form @submit.prevent class="flex flex-col justify-center">
         <div class="w-full">
           <input
-            placeholder="Email Address"
+            placeholder="Username"
             class="mb-3 border border-gray-400 rounded-full w-full py-3 px-6 focus:outline-none focus:border-purple-400"
-            type="email"
-            v-model="email"
+            type="text"
+            v-model="username"
           />
         </div>
         <div class="w-full flex flex-col relative justify-center mb-20">
@@ -37,7 +37,8 @@
             <nuxt-link
               class="text-gray-400 hover:text-purple-400"
               to="/auth/forgot-password"
-            >Forgot password?</nuxt-link>
+              >Forgot password?</nuxt-link
+            >
           </div>
         </div>
 
@@ -45,12 +46,15 @@
           class="bg-purple-800 mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none focus:shadow-outline"
           type="submit"
           value="Log In"
+          @click="loginUser"
         />
       </form>
       <div class="text-center">
         <p class="text-gray-400">
           Need an account?
-          <nuxt-link class="text-purple-800" to="/auth/register">Register Here</nuxt-link>
+          <nuxt-link class="text-purple-800" to="/auth/register"
+            >Register Here</nuxt-link
+          >
         </p>
       </div>
     </div>
@@ -63,8 +67,10 @@ import PageHeading from "@/components/PageHeading";
 export default {
   transition: "slide-fade",
   data: () => ({
-    email: "",
-    password: "",
+    user: {
+      username: "",
+      password: ""
+    },
     passwordFieldType: "password"
   }),
   components: {
@@ -72,6 +78,11 @@ export default {
     NotificationSuccess
   },
   methods: {
+    loginUser() {
+      // alert("Logging in...");
+
+      this.$auth.loginWith("local", this.user);
+    },
     switchVisibility() {
       this.passwordFieldType =
         this.passwordFieldType === "password" ? "text" : "password";

@@ -11,7 +11,7 @@
               <Logo />
             </nuxt-link>
           </div>
-          <Nav class="hidden md:flex" />
+          <Nav class="hidden lg:flex" />
           <div class="flex items-center">
             <ul class="flex items-center">
               <li class="px-4 hidden md:block">
@@ -66,7 +66,7 @@
                 </nuxt-link>-->
               </li>
               <li
-                class="sm:block md:hidden cursor-pointer"
+                class="sm:block lg:hidden cursor-pointer"
                 @click="menuIsOpen = !menuIsOpen"
               >
                 <svg
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div v-if="menuIsOpen" class="border-b border-gray-300 py-3 md:hidden">
+      <div v-if="menuIsOpen" class="border-b border-gray-300 py-3 lg:hidden">
         <div class="mx-auto container">
           <div class="flex justify-center">
             <Nav />

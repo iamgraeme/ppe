@@ -51,14 +51,6 @@
           <div class="border-t border-gray-300"></div>
         </div>
         <div class="py-1">
-          <nuxt-link
-            to="/contact"
-            class="block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-            >Contact Support</nuxt-link
-          >
-        </div>
-        <div class="border-t border-gray-300"></div>
-        <div class="py-1">
           <div v-if="$auth.loggedIn">
             <a
               @click="logoutUser"
@@ -77,6 +69,14 @@
               class="block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
               >Log In</nuxt-link
             >
+            <div class="border-t border-gray-300"></div>
+            <div class="py-1">
+              <nuxt-link
+                to="/contact"
+                class="block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                >Contact Support</nuxt-link
+              >
+            </div>
           </div>
         </div>
       </div>
