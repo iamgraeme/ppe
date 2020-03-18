@@ -30,7 +30,8 @@
     "vue-lazy-hydration": "^1.0.0-beta.12",
     "vue-product-zoomer": "^3.0.0",
     "vue-scrollto": "^2.17.1",
-    "vue-star-rating": "^1.6.1"
+    "vue-star-rating": "^1.6.1",
+    "@nuxtjs/tailwindcss": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",
