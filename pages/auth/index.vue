@@ -37,7 +37,7 @@
             <nuxt-link
               class="text-gray-400 hover:text-purple-400"
               to="/auth/forgot-password"
-              >Forgot password?</nuxt-link
+              >Forgot your password?</nuxt-link
             >
           </div>
         </div>
