@@ -81,7 +81,7 @@ export default {
     loginUser() {
       // alert("Logging in...");
 
-      this.$auth.loginWith("local", this.user);
+      this.$auth.loginWith("local", { data: this.user });
     },
     switchVisibility() {
       this.passwordFieldType =
