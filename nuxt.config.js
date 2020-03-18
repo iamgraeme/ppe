@@ -47,13 +47,7 @@ module.exports = {
     [
       "@nuxtjs/axios",
       {
-        baseURL: "https://api.purplepeopleeater.co.uk/wp-json",
-        https: true,
-        headers: {
-          common: {
-            Accept: "application/json"
-          }
-        }
+        baseURL: "https://api.purplepeopleeater.co.uk/wp-json"
       }
     ],
     "@nuxtjs/pwa",
@@ -65,6 +59,14 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
+  axios: {
+    https: true,
+    headers: {
+      common: {
+        Accept: "application/json"
+      }
+    }
+  },
   // proxy: {
   //   "/wp-json/": "https://api.purplepeopleeater.co.uk"
   // },
