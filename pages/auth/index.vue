@@ -16,7 +16,7 @@
             placeholder="Username"
             class="mb-3 border border-gray-400 rounded-full w-full py-3 px-6 focus:outline-none focus:border-purple-400"
             type="text"
-            v-model="username"
+            v-model="login.username"
           />
         </div>
         <div class="w-full flex flex-col relative justify-center mb-20">
@@ -25,7 +25,7 @@
             class="mb-3 border border-gray-400 rounded-full w-full py-3 px-6 focus:outline-none focus:border-purple-400"
             :type="passwordFieldType"
             id="password"
-            v-model="password"
+            v-model="login.password"
           />
           <button
             class="absolute right-0 mr-6 -mt-4 z-10 focus:outline-none"
