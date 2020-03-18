@@ -1,5 +1,10 @@
 module.exports = {
   mode: "universal",
+
+  env: {
+    baseUrl: process.env.BASE_URL || "http://localhost:3000"
+  },
+
   /*
    ** Headers of the page
    */
@@ -27,7 +32,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "plugins/owl.js", ssr: false }],
+  plugins: [{ src: "~/plugins/owl.js", ssr: false }, "~/plugins/axios.js"],
   /*
    ** Nuxt.js dev-modules
    */
@@ -50,14 +55,17 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseUrl: "https://api.purplepeopleeater.co.uk/wp-json/",
-    https: false,
+    baseUrl: "https://api.purplepeopleeater.co.uk/wp-json",
+    https: true,
     headers: {
       common: {
         Accept: "application/json"
       }
     }
   },
+  // proxy: {
+  //   "/wp-json/": "https://api.purplepeopleeater.co.uk"
+  // },
 
   auth: {
     redirect: {
