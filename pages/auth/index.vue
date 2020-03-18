@@ -46,7 +46,7 @@
           class="bg-purple-800 mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none focus:shadow-outline"
           type="submit"
           value="Log In"
-          @click="loginUser"
+          @click="userLogin"
         />
       </form>
       <div class="text-center">
@@ -67,7 +67,7 @@ import PageHeading from "@/components/PageHeading";
 export default {
   transition: "slide-fade",
   data: () => ({
-    user: {
+    login: {
       username: "",
       password: ""
     },
@@ -78,10 +78,15 @@ export default {
     NotificationSuccess
   },
   methods: {
-    loginUser() {
-      // alert("Logging in...");
-
-      this.$auth.loginWith("local", { data: this.user });
+    async userLogin() {
+      try {
+        let response = await this.$auth.loginWith("local", {
+          data: this.login
+        });
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+      }
     },
     switchVisibility() {
       this.passwordFieldType =
