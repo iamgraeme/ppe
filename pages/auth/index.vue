@@ -10,7 +10,7 @@
     </div>
 
     <div class="w-1/2 mx-auto">
-      <form @submit.prevent class="flex flex-col justify-center">
+      <form @submit.prevent="userLogin" class="flex flex-col justify-center">
         <div class="w-full">
           <input
             placeholder="Username"
@@ -37,8 +37,7 @@
             <nuxt-link
               class="text-gray-400 hover:text-purple-400"
               to="/auth/forgot-password"
-              >Forgot your password?</nuxt-link
-            >
+            >Forgot your password?</nuxt-link>
           </div>
         </div>
 
@@ -46,15 +45,12 @@
           class="bg-purple-800 mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none focus:shadow-outline"
           type="submit"
           value="Log In"
-          @click="userLogin"
         />
       </form>
       <div class="text-center">
         <p class="text-gray-400">
           Need an account?
-          <nuxt-link class="text-purple-800" to="/auth/register"
-            >Register Here</nuxt-link
-          >
+          <nuxt-link class="text-purple-800" to="/auth/register">Register Here</nuxt-link>
         </p>
       </div>
     </div>
@@ -80,10 +76,10 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith("local", {
+        await this.$auth.loginWith("local", {
           data: this.login
         });
-        console.log(response);
+        this.$router.back();
       } catch (err) {
         console.log(err);
       }

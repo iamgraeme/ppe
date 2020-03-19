@@ -3,9 +3,7 @@
     <div class="relative z-20">
       <div class="h-1 bg-purple-500"></div>
       <div class="border-b border-gray-300 py-6">
-        <div
-          class="flex justify-between item-center container mx-auto px-6 sm:px-0"
-        >
+        <div class="flex justify-between item-center container mx-auto px-6 sm:px-0">
           <div>
             <nuxt-link to="/">
               <Logo />
@@ -34,8 +32,7 @@
                 <span
                   v-if="cartCount > 0"
                   class="absolute right-5 -top-10 bg-green-600 text-white rounded-full text-xs w-4 h-4 flex justify-center items-center"
-                  >{{ cartCount }}</span
-                >
+                >{{ cartCount }}</span>
                 <nuxt-link
                   class="font-semibold text-purple-800 hover:text-purple-400"
                   to="/checkout"
@@ -65,10 +62,7 @@
                   </svg>
                 </nuxt-link>-->
               </li>
-              <li
-                class="sm:block lg:hidden cursor-pointer"
-                @click="menuIsOpen = !menuIsOpen"
-              >
+              <li class="sm:block lg:hidden cursor-pointer" @click="menuIsOpen = !menuIsOpen">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -82,8 +76,7 @@
                 <span
                   v-if="cartCount > 0"
                   class="absolute right-5 -top-10 bg-green-600 text-white rounded-full text-xs w-4 h-4 flex justify-center items-center"
-                  >{{ cartCount }}</span
-                >
+                >{{ cartCount }}</span>
                 <nuxt-link
                   class="font-semibold text-purple-800 hover:text-purple-400"
                   to="/checkout"

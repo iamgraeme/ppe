@@ -67,9 +67,6 @@ module.exports = {
       }
     }
   },
-  // proxy: {
-  //   "/wp-json/": "https://api.purplepeopleeater.co.uk"
-  // },
 
   auth: {
     redirect: {
@@ -86,8 +83,8 @@ module.exports = {
             method: "post",
             propertyName: "token"
           },
-          logout: { url: "/api/auth/logout", method: "post" },
-          user: { url: "/wp/v2/users/me", method: "get", propertyName: "user" }
+          logout: false,
+          user: false
         }
         // tokenRequired: true,
         // tokenType: 'bearer'

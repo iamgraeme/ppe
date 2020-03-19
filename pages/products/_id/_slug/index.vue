@@ -65,7 +65,7 @@
                   <div v-if="product.rating_count === 0 && product.reviews_allowed">
                     <a
                       href="#"
-                      class="text-sm text-gray-500"
+                      class="text-sm text-gray-500 hover:text-purple-800"
                       v-scroll-to="{
                         el: '#addReview',
                         duration: 300,
@@ -95,7 +95,7 @@
                         x: false,
                         y: true
                       }"
-                      class="text-sm mr-2 text-gray-500 mr-4"
+                      class="text-sm mr-2 text-gray-500 mr-4 hover:text-purple-800"
                     >{{ product.rating_count | pluralize }}</a>
                     <span class="text-sm mr-2 text-gray-500">|</span>
                     <div class="flex items-center ml-4">
@@ -212,12 +212,22 @@
         <div class="hidden md:block">
           <Cta :title="product.name" :body="product.description" />
         </div>
+        <ReviewsSection />
         <div
           id="addReview"
           class="w-12/12 lg:w-1/2 mx-auto pb-20 items-center flex flex-col px-6 lg:px-0"
         >
           <PageHeading title="Write a Review?" />
-          <ReviewForm />
+          <div v-if="$auth.loggedIn" class="w-full">
+            <ReviewForm />
+          </div>
+          <div v-else>
+            <p class="text-gray-400 mb-10">You need to be logged in to leave a review.</p>
+            <nuxt-link
+              to="/auth"
+              class="bg-purple-800 block text-center mb-10 hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none focus:shadow-outline"
+            >Log In</nuxt-link>
+          </div>
         </div>
       </div>
       <div class="py-24 border-t border-gray-300">
@@ -262,6 +272,7 @@ import ReviewForm from "@/components/ReviewForm";
 import Modal from "@/components/Modal";
 import StockStatus from "@/components/StockStatus";
 import ProductCard from "@/components/ProductCard";
+import ReviewsSection from "@/components/ReviewsSection";
 import StarRating from "vue-star-rating/src/star-rating.vue";
 import axios from "axios";
 import OAuth from "oauth-1.0a";
@@ -282,7 +293,8 @@ export default {
     Cta,
     Loader,
     ReviewForm,
-    StockStatus
+    StockStatus,
+    ReviewsSection
   },
   data: () => ({
     product: {},

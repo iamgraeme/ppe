@@ -1,7 +1,9 @@
 import Cookie from "js-cookie";
+import axios from "axios";
 
 export const state = () => ({
   user: null,
+  token: "",
   isAuthenticated: false
 });
 
