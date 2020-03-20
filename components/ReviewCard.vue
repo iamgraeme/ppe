@@ -1,5 +1,5 @@
 <template>
-  <div class="w-4/12 p-3">
+  <div class="w-12/12 sm:w-6/12 lg:w-4/12 p-3">
     <div class="bg-white flex flex-col rounded-lg p-3 shadow">
       <div class="flex justify-between mb-3 items-center">
         <h5 class="text-lg font-semibold">Review Title</h5>
