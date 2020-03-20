@@ -55,7 +55,6 @@ module.exports = {
     ],
     "@nuxtjs/pwa",
     "@nuxtjs/dotenv",
-    "@nuxtjs/auth",
     "vue-scrollto/nuxt"
   ],
   /*
@@ -71,30 +70,30 @@ module.exports = {
     }
   },
 
-  auth: {
-    redirect: {
-      login: "/auth",
-      logout: "/",
-      callback: "/auth",
-      home: "/"
-    },
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: "/jwt-auth/v1/token",
-            method: "post",
-            propertyName: "token"
-          },
-          logout: false,
-          user: false
-        }
-        // tokenRequired: true,
-        // tokenType: 'bearer'
-        // autoFetchUser: true
-      }
-    }
-  },
+  // auth: {
+  //   redirect: {
+  //     login: "/auth",
+  //     logout: "/",
+  //     callback: "/auth",
+  //     home: "/"
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: "/jwt-auth/v1/token",
+  //           method: "post",
+  //           propertyName: "token"
+  //         },
+  //         logout: false,
+  //         user: false
+  //       }
+  //       // tokenRequired: true,
+  //       // tokenType: 'bearer'
+  //       // autoFetchUser: true
+  //     }
+  //   }
+  // },
 
   /*
    ** Build configuration

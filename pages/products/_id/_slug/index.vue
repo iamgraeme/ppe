@@ -1511,6 +1511,7 @@ export default {
     const cs = "cs_40ab04189e95016e6b646d5ee5aae0a0801959e5";
     const url = `https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/${this.$route.params.id}`;
 
+    console.log(url);
     const oauth = OAuth({
       consumer: {
         key: ck,

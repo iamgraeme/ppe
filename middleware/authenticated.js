@@ -1,5 +1,5 @@
 export default function({ store, route, redirect }) {
-  const user = store.state.users.user;
+  const user = store.state.users.isAuthenticated;
   const blockedRoute = /\/user\/[a-z]*/g;
   const loginRoute = "/auth";
   const registerRoute = "/auth/register";

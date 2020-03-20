@@ -10,14 +10,14 @@
       <div
         class="flex flex-col justify-center items-start lg:justify-start lg:items-center flex-wrap ml-10 lg:ml-0"
       >
-        <p class="text-center mt-3 text-purple-800 font-semibold text-lg" v-if="loggedInUser">
-          <!-- TODO add User Name dynamically  -->
-          {{loggedInUser.user_display_name}}
-        </p>
-        <p class="text-center mt-3 text-purple-800 font-semibold text-sm" v-if="loggedInUser">
-          <!-- TODO add User Name dynamically  -->
-          {{loggedInUser.user_email}}
-        </p>
+        <p
+          class="text-center mt-3 text-purple-800 font-semibold text-lg"
+          v-if="loggedInUser"
+        >{{loggedInUser.name}}</p>
+        <p
+          class="text-center mt-3 text-purple-800 font-semibold text-sm"
+          v-if="loggedInUser"
+        >{{loggedInUser.user_email}}</p>
         <ul class="flex mt-3 lg:hidden justify-between w-full items-center">
           <li class="mr-6">
             <nuxt-link
@@ -73,7 +73,7 @@
           <li class="mr-6">
             <a
               class="text-xs cursor-pointer text-gray-600 hover:text-purple-800 flex items-center hover:bg-gray-100 border-transparent border-l-2"
-              @click="logout"
+              @click="logoutUser"
             >
               <svg
                 class="w-4 h-4 fill-current text-purple-800 mr-1"
@@ -146,7 +146,7 @@
         <li class="border-b border-gray-200">
           <a
             class="cursor-pointer text-gray-600 hover:text-purple-800 flex py-3 px-10 items-center hover:bg-gray-100 border-transparent border-l-2"
-            @click="logout"
+            @click="logoutUser"
           >
             <svg
               class="w-4 h-4 fill-current text-purple-800 mr-3"
@@ -178,8 +178,13 @@ export default {
     ...mapGetters("users", ["loggedInUser"])
   },
   methods: {
-    async logout() {
-      location.href = "/";
+    logoutUser() {
+      this.$store
+        .dispatch("users/logout")
+        .then(this.$router.push("/auth"))
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

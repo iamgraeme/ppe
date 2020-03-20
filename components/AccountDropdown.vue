@@ -77,6 +77,19 @@ export default {
   }),
   computed: {
     ...mapGetters("users", ["loggedInUser", "isAuthenticated"])
+  },
+  methods: {
+    async logoutUser() {
+      this.$store
+        .dispatch("users/logout")
+        .then(this.$router.push("/auth"))
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    away() {
+      this.isOpen = false;
+    }
   }
 };
 </script>

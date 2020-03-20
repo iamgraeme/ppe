@@ -26,7 +26,7 @@
             class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
           >More Info</nuxt-link>
         </div>
-        <div class="w-5/12 absolute -right-20">
+        <div class="w-5/12 absolute right-0">
           <div v-if="imageUrl">
             <img :src="imageUrl" :alt="title" />
           </div>
