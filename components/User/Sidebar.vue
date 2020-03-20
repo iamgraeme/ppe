@@ -8,15 +8,15 @@
         <v-gravatar email="graemehouston@gmail.com" :size="160" />
       </figure>
       <div
-        class="flex flex-col justify-center items-start lg:justify-start lg:items-center flex-wrap ml-10"
+        class="flex flex-col justify-center items-start lg:justify-start lg:items-center flex-wrap ml-10 lg:ml-0"
       >
-        <p class="text-center mt-3 text-purple-800 font-semibold text-lg">
+        <p class="text-center mt-3 text-purple-800 font-semibold text-lg" v-if="loggedInUser">
           <!-- TODO add User Name dynamically  -->
-          Graeme Houston
+          {{loggedInUser.user_display_name}}
         </p>
-        <p class="text-center mt-3 text-purple-800 font-semibold text-sm">
+        <p class="text-center mt-3 text-purple-800 font-semibold text-sm" v-if="loggedInUser">
           <!-- TODO add User Name dynamically  -->
-          graemehouston@gmail.com
+          {{loggedInUser.user_email}}
         </p>
         <ul class="flex mt-3 lg:hidden justify-between w-full items-center">
           <li class="mr-6">
@@ -166,7 +166,7 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import Cookie from "js-cookie";
 import Gravatar from "vue-gravatar";
 
@@ -174,7 +174,9 @@ export default {
   components: {
     "v-gravatar": Gravatar
   },
-  computed: {},
+  computed: {
+    ...mapGetters("users", ["loggedInUser"])
+  },
   methods: {
     async logout() {
       location.href = "/";

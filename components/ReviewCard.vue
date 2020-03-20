@@ -19,7 +19,7 @@
         </p>
       </div>
       <star-rating
-        rating="4"
+        :rating="4"
         active-color="#FFAE00"
         :star-size="17"
         :show-rating="false"

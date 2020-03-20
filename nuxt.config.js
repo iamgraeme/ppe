@@ -29,6 +29,9 @@ module.exports = {
    ** Global CSS
    */
   css: ["~/assets/css/transition.css"],
+  router: {
+    middleware: "authenticated"
+  },
   /*
    ** Plugins to load before mounting the App
    */

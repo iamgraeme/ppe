@@ -218,7 +218,7 @@
           class="w-12/12 lg:w-1/2 mx-auto pb-20 items-center flex flex-col px-6 lg:px-0"
         >
           <PageHeading title="Write a Review?" />
-          <div v-if="$auth.loggedIn" class="w-full">
+          <div v-if="loggedInUser" class="w-full">
             <ReviewForm />
           </div>
           <div v-else>
@@ -274,6 +274,7 @@ import StockStatus from "@/components/StockStatus";
 import ProductCard from "@/components/ProductCard";
 import ReviewsSection from "@/components/ReviewsSection";
 import StarRating from "vue-star-rating/src/star-rating.vue";
+import { mapGetters } from "vuex";
 import axios from "axios";
 import OAuth from "oauth-1.0a";
 import CryptoJS from "crypto-js";
@@ -304,6 +305,9 @@ export default {
     item: {
       qty: 1,
       bedsize: "single"
+    },
+    computed: {
+      ...mapGetters("users", ["loggedInUser", "isAuthenticated"])
     },
     products: [
       {

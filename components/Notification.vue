@@ -1,9 +1,11 @@
 <template>
   <div>
     <div
-      v-if="isError"
+      v-if="message"
       class="bg-red-200 border border-red-600 text-red-600 rounded-full text-center font-bold w-full mx-auto py-2 mb-6"
-    >{{ message }}</div>
+    >
+      {{ message }}
+    </div>
   </div>
 </template>
 

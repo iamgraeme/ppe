@@ -10,7 +10,8 @@
     </div>
 
     <div class="w-1/2 mx-auto">
-      <form @submit.prevent="userLogin" class="flex flex-col justify-center">
+      <Notification :isError="isError" :message="errMsg" />
+      <form @submit.prevent="submit" class="flex flex-col justify-center">
         <div class="w-full">
           <input
             placeholder="Username"
@@ -37,7 +38,8 @@
             <nuxt-link
               class="text-gray-400 hover:text-purple-400"
               to="/auth/forgot-password"
-            >Forgot your password?</nuxt-link>
+              >Forgot your password?</nuxt-link
+            >
           </div>
         </div>
 
@@ -50,7 +52,9 @@
       <div class="text-center">
         <p class="text-gray-400">
           Need an account?
-          <nuxt-link class="text-purple-800" to="/auth/register">Register Here</nuxt-link>
+          <nuxt-link class="text-purple-800" to="/auth/register"
+            >Register Here</nuxt-link
+          >
         </p>
       </div>
     </div>
@@ -58,7 +62,8 @@
 </template>
 
 <script>
-import NotificationSuccess from "@/components/NotificationSuccess";
+import { mapActions } from "vuex";
+import Notification from "@/components/Notification";
 import PageHeading from "@/components/PageHeading";
 export default {
   transition: "slide-fade",
@@ -67,22 +72,25 @@ export default {
       username: "",
       password: ""
     },
-    passwordFieldType: "password"
+    passwordFieldType: "password",
+    isError: "",
+    errMsg: ""
   }),
   components: {
     PageHeading,
-    NotificationSuccess
+    Notification
   },
   methods: {
-    async userLogin() {
-      try {
-        await this.$auth.loginWith("local", {
-          data: this.login
+    submit() {
+      this.$store
+        .dispatch("users/login", this.login)
+        .then(() => {
+          this.$router.back();
+        })
+        .catch(error => {
+          this.isError = true;
+          this.errMsg = error.code;
         });
-        this.$router.back();
-      } catch (err) {
-        console.log(err);
-      }
     },
     switchVisibility() {
       this.passwordFieldType =
