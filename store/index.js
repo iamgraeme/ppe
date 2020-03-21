@@ -34,4 +34,12 @@ export const mutations = {
   }
 };
 
-export const actions = {};
+export const actions = {
+  nuxtServerInit({ dispatch }, { req }) {
+    if (process.server && process.static) return;
+    if (!req.headers.cookie) return;
+
+    let { token } = cookieparser.parse(req.headers.cookie);
+    dispatch("users/attempt", token);
+  }
+};

@@ -49,6 +49,7 @@ export const actions = {
   async attempt({ commit }, data) {
     Cookie.set("access_token", data.token);
     commit("SET_TOKEN", data.token);
+    localStorage.setItem("token", data.token);
     try {
       let response = await axios.get(
         "https://api.purplepeopleeater.co.uk/wp-json/wp/v2/users/me",
@@ -58,19 +59,16 @@ export const actions = {
           }
         }
       );
-      console.log(response.data);
-      debugger;
       commit("SET_USER", response.data);
     } catch (e) {
       commit("SET_TOKEN", null);
+      localStorage.removeItem("token");
       commit("SET_USER", null);
     }
   },
   async logout({ commit }) {
     Cookie.remove("access_token");
+    localStorage.removeItem("token");
     commit("DELETE_USER");
-  },
-  async productsCategoryId({ commit }, id) {
-    productsByCategory(id);
   }
 };
