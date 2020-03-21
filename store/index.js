@@ -1,5 +1,6 @@
 import axios from "axios";
 import cookieparser from "cookieparser";
+import Cookie from "cookie";
 import JWTDecode from "jwt-decode";
 
 export const state = () => ({
@@ -36,10 +37,11 @@ export const mutations = {
 
 export const actions = {
   nuxtServerInit({ dispatch }, { req }) {
-    if (process.server && process.static) return;
-    if (!req.headers.cookie) return;
+    console.log(req.headers.cookie);
+    const cookies = Cookie.parse(req.headers.cookie || "");
+    const token = cookies["access_token"] || "";
 
-    let { token } = cookieparser.parse(req.headers.cookie);
-    dispatch("users/attempt", token);
+    console.log(token);
+    if (token) return dispatch("users/attempt", token);
   }
 };

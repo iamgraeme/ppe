@@ -35,7 +35,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/owl.js", ssr: false }, "~/plugins/axios.js"],
+  plugins: [
+    { src: "~/plugins/owl.js", ssr: false },
+    "~/plugins/currency-filter.js"
+  ],
   /*
    ** Nuxt.js dev-modules
    */

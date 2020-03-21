@@ -44,25 +44,23 @@ export const actions = {
       login
     );
 
-    dispatch("attempt", response.data);
+    dispatch("attempt", response.data.token);
   },
-  async attempt({ commit }, data) {
-    Cookie.set("access_token", data.token);
-    commit("SET_TOKEN", data.token);
-    localStorage.setItem("token", data.token);
+  async attempt({ commit }, token) {
+    Cookie.set("access_token", token);
+    commit("SET_TOKEN", token);
     try {
       let response = await axios.get(
         "https://api.purplepeopleeater.co.uk/wp-json/wp/v2/users/me",
         {
           headers: {
-            Authorization: "Bearer " + data.token
+            Authorization: "Bearer " + token
           }
         }
       );
       commit("SET_USER", response.data);
     } catch (e) {
       commit("SET_TOKEN", null);
-      localStorage.removeItem("token");
       commit("SET_USER", null);
     }
   },

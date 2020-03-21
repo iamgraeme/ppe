@@ -4,7 +4,9 @@
       <button
         @click="isOpen = !isOpen"
         class="bg-purple-800 hover:bg-purple-400 rounded-full text-white px-3 md:hidden text-sm py-1 focus:outline-none"
-      >Show Cart</button>
+      >
+        Show Cart
+      </button>
     </div>
 
     <div class="flex flex-col md:flex-row-reverse px-6 sm:px-0">
@@ -16,40 +18,21 @@
           <div class="md:px-10 pt-6 md:pt-10">
             <h3
               class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
-            >Order Summary</h3>
-          </div>
-          <div class="flex justify-between p-10">
-            <div
-              class="flex flex-col sm:flex-row items-center text-center sm:text-left mx-auto sm:mx-0"
             >
-              <div class="w-24 h-24 overflow-hidden mr-0 sm:mr-3 mb-6 sm:mb-0">
-                <img
-                  src="https://demo.storefrontcloud.io/img/150/150/resize/w/b/wb03-yellow_main.jpg"
-                  alt
-                />
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-500 text-sm lg:text-lg">Celeste Sports Bra</h4>
-                <div class="text-xs text-gray-500">WB03-M-Yellow</div>
-                <div class="flex flex-col">
-                  <div>
-                    <div class="text-xs text-gray-500">Color: Yellow</div>
-                    <div class="text-xs text-gray-500">Size: M</div>
-                  </div>
-                  <div>
-                    <div class="text-xs text-gray-500">Qty 1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="hidden sm:block">
-              <p class="font-semibold text-gray-500 text-sm lg:text-lg">£47.97</p>
+              Order Summary
+            </h3>
+          </div>
+          <div>
+            <div v-for="item in cart" :key="item.id">
+              <CartItem :item="item" />
             </div>
           </div>
           <div class="px-10 md:px-10 md:py-10 pb-6">
             <div class="flex justify-between">
               <h6 class="text-gray-500 text-sm lg:text-lg">Subtotal</h6>
-              <p class="text-gray-500 text-sm lg:text-lg">£39.00</p>
+              <p class="text-gray-500 text-sm lg:text-lg">
+                {{ cartTotal | VatAmountFromNet }}
+              </p>
             </div>
             <div class="flex justify-between">
               <h6 class="text-gray-500 text-sm lg:text-lg">Shipping</h6>
@@ -57,12 +40,22 @@
             </div>
             <div class="flex justify-between">
               <h6 class="text-gray-500 text-sm lg:text-lg">Tax</h6>
-              <p class="text-gray-500 text-sm lg:text-lg">£8.97</p>
+              <p class="text-gray-500 text-sm lg:text-lg">
+                {{ cartTotal | VatAmountFromGross }}
+              </p>
             </div>
-            <div class="flex justify-between mt-6 border-t pt-6 border-gray-400">
+            <div class="flex justify-between my-6">
               <h6 class="text-gray-700 text-2xl font-semibold">Total</h6>
-              <p class="text-gray-700 text-2xl font-semibold">£47.97</p>
+              <p class="text-gray-700 text-2xl font-semibold">
+                {{ cartTotal | pound }}
+              </p>
             </div>
+            <button
+              @click="clearCart"
+              class="bg-purple-800 text-white w-full hover:bg-purple-400 py-3 rounded-full"
+            >
+              Clear Cart
+            </button>
           </div>
         </div>
         <div class="border-t border-gray-400">
@@ -88,7 +81,9 @@
         </div>
       </div>
       <div class="w-12/12 md:w-6/12 lg:w-7/12 md:pr-10">
-        <h1 class="text-lg lg:text-3xl font-thin text-gray-600 mt-6 mb-6">Checkout</h1>
+        <h1 class="text-lg lg:text-3xl font-thin text-gray-600 mt-6 mb-6">
+          Checkout
+        </h1>
         <div class="md:mb-6">
           <SectionHeading number="1" title="Personal Details" />
           <div class="flex-flex-col">
@@ -202,7 +197,9 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">What Our Customers Say...</h1>
+          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">
+            What Our Customers Say...
+          </h1>
 
           <no-ssr>
             <carousel items="1" autoplay="true" :dots="true" :nav="false">
@@ -233,10 +230,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 import PageHeading from "@/components/PageHeading";
 import InfoItem from "@/components/Checkout/InfoItem";
 import SectionHeading from "@/components/Checkout/SectionHeading";
 import CountrySelect from "@/components/Checkout/CountrySelect";
+import CartItem from "@/components/Checkout/CartItem";
 import Quote from "@/components/Checkout/Quote";
 import Loader from "@/components/Loader";
 export default {
@@ -246,15 +246,21 @@ export default {
     isOpen: false,
     addingToCart: false
   }),
+  methods: {
+    clearCart() {}
+  },
+  computed: {
+    ...mapState(["cart"]),
+    ...mapGetters(["cartTotal"])
+  },
   components: {
     PageHeading,
     InfoItem,
     SectionHeading,
+    CartItem,
     CountrySelect,
     Quote,
     Loader
   }
 };
 </script>
-
-<style lang="scss" scoped></style>
