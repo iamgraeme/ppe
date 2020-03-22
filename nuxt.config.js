@@ -37,6 +37,7 @@ module.exports = {
    */
   plugins: [
     { src: "~/plugins/owl.js", ssr: false },
+    { src: "~/plugins/snotify.js", ssr: false },
     "~/plugins/currency-filter.js"
   ],
   /*
@@ -73,31 +74,6 @@ module.exports = {
     }
   },
 
-  // auth: {
-  //   redirect: {
-  //     login: "/auth",
-  //     logout: "/",
-  //     callback: "/auth",
-  //     home: "/"
-  //   },
-  //   strategies: {
-  //     local: {
-  //       endpoints: {
-  //         login: {
-  //           url: "/jwt-auth/v1/token",
-  //           method: "post",
-  //           propertyName: "token"
-  //         },
-  //         logout: false,
-  //         user: false
-  //       }
-  //       // tokenRequired: true,
-  //       // tokenType: 'bearer'
-  //       // autoFetchUser: true
-  //     }
-  //   }
-  // },
-
   /*
    ** Build configuration
    */
@@ -105,6 +81,8 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.resolve.alias["vue"] = "vue/dist/vue.common";
+    }
   }
 };

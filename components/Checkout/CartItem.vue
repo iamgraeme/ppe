@@ -26,7 +26,7 @@
     </div>
     <div class="hidden sm:block">
       <p class="font-semibold text-gray-500 text-sm lg:text-lg">
-        {{ item.price | renderPrice }}
+        {{ parseInt(item.price) | renderPrice }}
       </p>
     </div>
   </div>

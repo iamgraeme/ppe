@@ -14,7 +14,7 @@
       <form @submit.prevent="submit" class="flex flex-col justify-center">
         <div class="w-full">
           <input
-            placeholder="Username"
+            placeholder="Email Address"
             class="mb-3 border border-gray-400 rounded-full w-full py-3 px-6 focus:outline-none focus:border-purple-400"
             type="text"
             v-model="login.username"
@@ -81,13 +81,21 @@ export default {
     Notification
   },
   methods: {
+    displaySuccessNotification() {
+      this.$snotify.success("You are now logged in...", "Success!");
+    },
+    displayErrorNotification() {
+      this.$snotify.error("Usename/Password do not match", "Error!");
+    },
     submit() {
       this.$store
         .dispatch("users/login", this.login)
         .then(() => {
-          this.$router.back();
+          this.displaySuccessNotification();
+          this.$router.push("/");
         })
         .catch(error => {
+          this.displayErrorNotification();
           this.isError = true;
           this.errMsg = error.code;
         });

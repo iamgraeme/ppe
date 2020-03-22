@@ -86,6 +86,12 @@ export default {
     Notification
   },
   methods: {
+    displaySuccessNotification() {
+      this.$snotify.success("You are now registered...", "Thanks!");
+    },
+    displayErrorNotification() {
+      this.$snotify.error("Usename already exists", "Sorry!");
+    },
     registerUser(e) {
       e.preventDefault();
 
@@ -95,16 +101,14 @@ export default {
           this.user
         )
         .then(() => {
+          this.displaySuccessNotification();
           this.$router.push({
             name: "auth",
             params: { email: this.user.email }
           });
         })
         .catch(error => {
-          //console.log(error);
-          this.isError = true;
-          this.message =
-            "Username already exists, please enter another username";
+          this.displayErrorNotification();
         });
     },
     switchVisibility() {

@@ -14,7 +14,7 @@
         :class="{ 'hidden ': !isOpen }"
         class="md:block mt-6 md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 h-full bg-gray-200 md:sticky md:top-0"
       >
-        <div>
+        <div v-if="cart.length > 0">
           <div class="md:px-10 pt-6 md:pt-10">
             <h3
               class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
@@ -52,10 +52,25 @@
             </div>
             <button
               @click="clearCart"
-              class="bg-purple-800 text-white w-full hover:bg-purple-400 py-3 rounded-full"
+              class="bg-purple-800 text-white w-full hover:bg-purple-400 py-3 rounded-full focus:outline-none"
             >
               Clear Cart
             </button>
+          </div>
+        </div>
+        <div v-else>
+          <div class="md:px-10 pt-6 md:pt-10">
+            <h3
+              class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
+            >
+              Cart is Empty
+            </h3>
+            <p class="text-gray-600 my-10">
+              Please contine shopping by clicking
+              <nuxt-link class="text-purple-800 hover:text-purple-400" to="/"
+                >here.</nuxt-link
+              >
+            </p>
           </div>
         </div>
         <div class="border-t border-gray-400">
@@ -247,7 +262,11 @@ export default {
     addingToCart: false
   }),
   methods: {
-    clearCart() {}
+    clearCart() {
+      this.$store.dispatch("clearTheCart").catch(err => {
+        console.log(err);
+      });
+    }
   },
   computed: {
     ...mapState(["cart"]),

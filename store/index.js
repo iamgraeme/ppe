@@ -36,6 +36,9 @@ export const mutations = {
 };
 
 export const actions = {
+  clearTheCart({ commit }) {
+    commit("clearCart");
+  },
   nuxtServerInit({ dispatch }, { req }) {
     console.log(req.headers.cookie);
     const cookies = Cookie.parse(req.headers.cookie || "");
