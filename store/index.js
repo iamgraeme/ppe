@@ -40,7 +40,9 @@ export const actions = {
     commit("clearCart");
   },
   nuxtServerInit({ dispatch }, { req }) {
-    console.log(req.headers.cookie);
+    if (process.server && process.static) return;
+    if (!req.headers.cookie) return;
+
     const cookies = Cookie.parse(req.headers.cookie || "");
     const token = cookies["access_token"] || "";
 
