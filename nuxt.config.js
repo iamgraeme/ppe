@@ -28,7 +28,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ["~/assets/css/transition.css"],
+  css: ["~/assets/css/transition.css", "~/assets/css/material.css"],
   router: {
     middleware: "authenticated"
   },
