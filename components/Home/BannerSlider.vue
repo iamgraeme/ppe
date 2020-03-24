@@ -3,7 +3,7 @@
     <div v-if="isLoading">
       <Loader />
     </div>
-    <div class="mb-24 relative z-10" v-else>
+    <div class="mb-6 md:mb-12 lg:mb-24 relative z-10" v-else>
       <no-ssr>
         <carousel items="1" :autoplay="true" :dots="false">
           <div
@@ -13,27 +13,29 @@
           >
             <div class="absolute w-full h-full bg-black opacity-25"></div>
             <img :src="slide.acf.image" :alt="slide.acf.banner_text" />
-            <h2
-              class="text-white w-1/3 font-bold text-6xl -mt-32 absolute ml-48 z-50"
-            >{{ slide.acf.banner_text }}</h2>
+            <div class="hidden sm:block absolute lg:-mt-20 ml-16 lg:ml-32 z-50">
+              <h2
+                class="text-white w-1/2 font-bold text-3xl md:text-4xl lg:text-5xl mb-6 xl:text-6xl"
+              >{{ slide.acf.banner_text }}</h2>
 
-            <nuxt-link class="absolute ml-48 z-50 mt-16" :to="slide.acf.banner_link">
-              <span class="flex items-center">
-                <svg
-                  class="w-10 h-10 mr-3"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="39"
-                  height="39"
-                >
-                  <circle data-name="Ellipse 48" cx="19.5" cy="19.5" r="19.5" fill="#dbc3fd" />
-                  <path
-                    d="M20.337 13.321l5.556 5.561L27 19.989l-1.107 1.108-5.556 5.553-1.107-1.1L24 20.772H11.664v-1.565H24l-4.77-4.776z"
-                    fill="#fff"
-                  />
-                </svg>
-                <p class="text-white hover:text-purple-400 uppercase font-semibold block">Shop Now</p>
-              </span>
-            </nuxt-link>
+              <nuxt-link :to="slide.acf.banner_link">
+                <span class="flex items-center">
+                  <svg
+                    class="w-10 h-10 mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="39"
+                    height="39"
+                  >
+                    <circle data-name="Ellipse 48" cx="19.5" cy="19.5" r="19.5" fill="#dbc3fd" />
+                    <path
+                      d="M20.337 13.321l5.556 5.561L27 19.989l-1.107 1.108-5.556 5.553-1.107-1.1L24 20.772H11.664v-1.565H24l-4.77-4.776z"
+                      fill="#fff"
+                    />
+                  </svg>
+                  <p class="text-white hover:text-purple-400 uppercase font-semibold block">Shop Now</p>
+                </span>
+              </nuxt-link>
+            </div>
           </div>
         </carousel>
       </no-ssr>

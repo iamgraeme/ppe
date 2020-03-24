@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     { src: "~/plugins/owl.js", ssr: false },
     { src: "~/plugins/snotify.js", ssr: false },
-    "~/plugins/currency-filter.js"
+    "~/plugins/filters.js"
   ],
   /*
    ** Nuxt.js dev-modules

@@ -40,6 +40,18 @@
   bottom: 50px;
 }
 
+@media (max-width: 600px) {
+  .owl-theme .owl-nav {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .owl-theme .owl-nav {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
 .owl-theme .owl-nav button {
   width: 70px;
   height: 70px;

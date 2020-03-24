@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import StarRating from "vue-star-rating/src/star-rating";
+import StarRating from "vue-star-rating";
 export default {
   name: "ReviewCard",
   components: {
