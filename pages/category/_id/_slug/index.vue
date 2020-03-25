@@ -1,7 +1,17 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <PageHeading :title="$route.params.slug" />
+      <div class="flex justify-between items-center">
+        <PageHeading :title="$route.params.slug" />
+        <div class="flex items-center">
+          <!-- <span class="text-sm mr-3">Sort By</span>
+          <select>
+            <option value>Low to High</option>
+            <option value>High to Low</option>
+          </select>-->
+          <SortBy />
+        </div>
+      </div>
       <div>
         <!-- <Breadcrumb /> -->
       </div>
@@ -35,6 +45,7 @@ import PageHeading from "@/components/PageHeading";
 import ProductCard from "@/components/ProductCard";
 import Breadcrumb from "@/components/Breadcrumb";
 import Loader from "@/components/Loader";
+import SortBy from "@/components/SortBy";
 import { mapGetters } from "vuex";
 export default {
   transition: "slide-fade",
@@ -42,7 +53,8 @@ export default {
     PageHeading,
     ProductCard,
     Breadcrumb,
-    Loader
+    Loader,
+    SortBy
   },
 
   computed: {

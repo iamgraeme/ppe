@@ -23,8 +23,11 @@ export const mutations = {
     state.productAttributes = data;
   },
   SET_PRODUCTS_BY_ID: (state, data) => {
-    state.products = data;
+    state.products = data.sort(
+      (a, b) => parseFloat(a.price) - parseFloat(b.price)
+    );
   },
+  PRODUCT_HIGH_TO_LOW: (state, data) => {},
   STOP_LOADING: state => {
     state.isLoading = false;
   }
@@ -52,7 +55,7 @@ export const actions = {
     api
       .get(`products/${id}/variations`)
       .then(response => {
-        console.log(response);
+        console.log(response.data);
         commit("SET_PRODUCTS_ATTRS_BY_ID", response.data);
       })
       .catch(error => {
