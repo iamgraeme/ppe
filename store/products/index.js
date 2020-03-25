@@ -27,13 +27,29 @@ export const mutations = {
       (a, b) => parseFloat(a.price) - parseFloat(b.price)
     );
   },
-  PRODUCT_HIGH_TO_LOW: (state, data) => {},
+  PRODUCT_HIGH_TO_LOW: state => {
+    state.products = state.products.sort(
+      (a, b) => parseFloat(b.price) - parseFloat(a.price)
+    );
+  },
+  PRODUCT_LOW_TO_HIGH: state => {
+    state.products = state.products.sort(
+      (a, b) => parseFloat(a.price) - parseFloat(b.price)
+    );
+  },
   STOP_LOADING: state => {
     state.isLoading = false;
   }
 };
 
 export const actions = {
+  highToLow({ commit }) {
+    commit("PRODUCT_HIGH_TO_LOW");
+  },
+  lowToHigh({ commit }) {
+    commit("PRODUCT_LOW_TO_HIGH");
+  },
+
   productsCategoryId({ commit, dispatch }, id) {
     api
       .get(`products?category=${id}`)

@@ -25,11 +25,11 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <a
-            href="#"
+            @click="sortLowToHigh"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
           >Low To High</a>
           <a
-            href="#"
+            @click="sortHighToLow"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
           >High to Low</a>
         </div>
@@ -44,6 +44,18 @@ export default {
   name: "SortBy",
   data: () => ({
     isOpen: false
-  })
+  }),
+  methods: {
+    async sortLowToHigh() {
+      await this.$store.dispatch("products/lowToHigh").catch(err => {
+        console.log(err);
+      });
+    },
+    async sortHighToLow() {
+      await this.$store.dispatch("products/highToLow").catch(err => {
+        console.log(err);
+      });
+    }
+  }
 };
 </script>
