@@ -4,11 +4,6 @@
       <div class="flex justify-between items-center">
         <PageHeading :title="$route.params.slug" />
         <div class="flex items-center">
-          <!-- <span class="text-sm mr-3">Sort By</span>
-          <select>
-            <option value>Low to High</option>
-            <option value>High to Low</option>
-          </select>-->
           <SortBy />
         </div>
       </div>
@@ -19,22 +14,23 @@
         <Loader />
       </div>
       <div class="flex justify-start flex-wrap px-6 sm:px-0" v-else>
-        <div
-          v-for="product in getProducts"
-          :key="product.id"
-          class="w-6/12 sm:w-4/12 md:w-4/12 lg:w-3/12"
-        >
-          <ProductCard
+        <template v-for="product in getProducts">
+          <div
+            class="w-6/12 sm:w-4/12 md:w-4/12 lg:w-3/12"
+            :key="product.id"
             v-if="product.catalog_visibility === 'visible'"
-            :productName="product.name"
-            :image="product.images[0].src"
-            :price="product.price"
-            :id="product.id"
-            :salePrice="product.sale_price"
-            :slug="product.slug"
-            noCarousel
-          />
-        </div>
+          >
+            <ProductCard
+              :productName="product.name"
+              :image="product.images[0].src"
+              :price="product.price"
+              :id="product.id"
+              :salePrice="product.sale_price"
+              :slug="product.slug"
+              noCarousel
+            />
+          </div>
+        </template>
       </div>
     </div>
   </div>
