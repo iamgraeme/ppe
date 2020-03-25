@@ -57,7 +57,7 @@
                   >£{{ product.sale_price }}.00</p>
                 </div>
                 <div v-else>
-                  <p class="text-3xl font-normal text-purple-800 mb-2">£{{ product.price }}.00</p>
+                  <p class="text-3xl font-normal text-purple-800 mb-2" v-html="product.price_html"></p>
                 </div>
               </div>
               <div class="border-t border-b border-gray-300 py-1 mb-2">
@@ -119,66 +119,12 @@
               <div>
                 <div v-html="product.description" class="text-sm text-gray-500 leading-loose"></div>
               </div>
+              <AttributeSelector :attributes="product.attributes" />
               <div class="border-t border-b border-gray-300 py-3 mb-2 mt-10">
                 <div class="flex items-center justify-center">
                   <SocialIcons />
                 </div>
               </div>
-              <div>
-                <fieldset id="bed-size" class="mb-6">
-                  <div class="flex justify-between mb-6">
-                    <h4 class="mb-6">
-                      Choose a size:
-                      <span class="text-gray-600">{{ item.bedsize | prettify }}</span>
-                    </h4>
-                    <button
-                      @click="showModal"
-                      class="text-white bg-gray-600 cursor-pointer hover:bg-purple-400 rounded-full focus:outline-none px-4 h-6"
-                    >Size Guide</button>
-                  </div>
-                  <div class="flex items-center">
-                    <label class="mr-3">
-                      <input
-                        type="radio"
-                        value="single"
-                        name="bed-size"
-                        checked="checked"
-                        v-model="item.bedsize"
-                      />
-                      <img src="@/assets/images/system/single.svg" />
-                    </label>
-                    <label class="mr-3">
-                      <input
-                        type="radio"
-                        v-model="item.bedsize"
-                        value="small-double"
-                        name="bed-size"
-                      />
-                      <img src="@/assets/images/system/double.svg" />
-                    </label>
-                    <label class="mr-3">
-                      <input type="radio" v-model="item.bedsize" value="double" name="bed-size" />
-                      <img src="@/assets/images/system/46Double.svg" />
-                    </label>
-                    <label class="mr-3">
-                      <input type="radio" v-model="item.bedsize" value="king" name="bed-size" />
-                      <img src="@/assets/images/system/king.svg" />
-                    </label>
-                    <label class="mr-3">
-                      <input type="radio" v-model="item.bedsize" value="super-king" name="bed-size" />
-                      <img src="@/assets/images/system/superking.svg" />
-                    </label>
-                  </div>
-                </fieldset>
-
-                <fieldset id="group2">
-                  Choose fabric colour
-                  <input type="radio" value="value1" name="group2" />
-                  <input type="radio" value="value2" name="group2" />
-                  <input type="radio" value="value3" name="group2" />
-                </fieldset>
-              </div>
-
               <div class="flex mt-6">
                 <div
                   class="border border-gray-200 flex justify-center items-center rounded-full py-3 overflow-hidden mr-6"
@@ -197,9 +143,9 @@
                     @click="item.qty++"
                   >+</button>
                 </div>
-                <div>
+                <div class="flex flex-1">
                   <input
-                    class="bg-purple-800 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+                    class="w-full bg-purple-800 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
                     type="submit"
                     @click="cartAdd"
                     value="Add to Cart"
@@ -247,6 +193,7 @@ import Modal from "@/components/Modal";
 import StockStatus from "@/components/StockStatus";
 import ProductSlider from "@/components/Upsells/ProductSlider";
 import ReviewsSection from "@/components/ReviewsSection";
+import AttributeSelector from "@/components/AttributeSelector";
 import StarRating from "vue-star-rating";
 import { mapGetters } from "vuex";
 import axios from "axios";
@@ -286,7 +233,7 @@ export default {
     tempcart: [],
     item: {
       qty: 1,
-      bedsize: "single"
+      bedsize: ""
     },
     computed: {
       ...mapGetters("users", ["loggedInUser", "isAuthenticated"])
@@ -296,6 +243,7 @@ export default {
     title: "Purple People Eater"
   }),
   components: {
+    AttributeSelector,
     PageHeading,
     Modal,
     ProductSlider,
@@ -383,14 +331,13 @@ export default {
 </script>
 
 <style>
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
+
 input[type="number"] {
   -moz-appearance: textfield;
 }
@@ -402,7 +349,7 @@ input[type="number"] {
   height: 0;
 }
 
-/* IMAGE STYLES */
+
 [type="radio"] + img {
   height: 60px;
   padding: 10px;
@@ -410,8 +357,8 @@ input[type="number"] {
   outline: 2px solid #999;
 }
 
-/* CHECKED STYLES */
+
 [type="radio"]:checked + img {
   outline: 2px solid #9f7aea;
-}
+}  */
 </style>
