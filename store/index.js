@@ -1,7 +1,4 @@
-import axios from "axios";
-import cookieparser from "cookieparser";
 import Cookie from "cookie";
-import JWTDecode from "jwt-decode";
 
 export const state = () => ({
   cartUIStatus: "idle",

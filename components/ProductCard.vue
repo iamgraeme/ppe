@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mb-10" :class="{ 'w-6/12 sm:w-4/12 md:w-4/12 lg:w-3/12': noCarousel }">
+  <div class="relative mb-10">
     <div v-if="salePrice">
       <div
         class="absolute bg-purple-400 text-white rounded-full text-xxs uppercase top-10 left-25 font-semibold py-1 px-2"
@@ -22,7 +22,10 @@
           <p class="text-lg text-gray-400 line-through">£{{ price }}</p>
         </div>
         <div v-else>
-          <p class="text-lg text-gray-600">£{{ price }}</p>
+          <p class="text-lg text-gray-600">
+            <span class="text-sm italic font-serif">From</span>
+            £{{ price }}
+          </p>
         </div>
       </div>
     </div>

@@ -9,17 +9,22 @@
         <Loader />
       </div>
       <div class="flex justify-start flex-wrap px-6 sm:px-0" v-else>
-        <ProductCard
+        <div
           v-for="product in getProducts"
-          :productName="product.name"
-          :image="product.images[0].src"
-          :price="product.regular_price"
-          :id="product.id"
-          :salePrice="product.sale_price"
-          :slug="product.slug"
           :key="product.id"
-          noCarousel
-        />
+          class="w-6/12 sm:w-4/12 md:w-4/12 lg:w-3/12"
+        >
+          <ProductCard
+            v-if="product.catalog_visibility === 'visible'"
+            :productName="product.name"
+            :image="product.images[0].src"
+            :price="product.price"
+            :id="product.id"
+            :salePrice="product.sale_price"
+            :slug="product.slug"
+            noCarousel
+          />
+        </div>
       </div>
     </div>
   </div>

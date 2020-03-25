@@ -15,14 +15,18 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 import ReviewCard from "@/components/ReviewCard";
+import api from "@/services/woocommerce";
 export default {
   name: "ReviewsSection",
+  data: () => ({
+    productId: ""
+  }),
   components: {
     ReviewCard,
     PageHeading
+  },
+  props: {
+    productId: Number
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

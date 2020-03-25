@@ -212,7 +212,7 @@
         <div class="hidden md:block">
           <Cta :title="product.name" :body="product.description" />
         </div>
-        <ReviewsSection />
+        <ReviewsSection :productId="product.id" />
         <div
           id="addReview"
           class="w-12/12 lg:w-1/2 mx-auto pb-20 items-center flex flex-col px-6 lg:px-0"
@@ -256,6 +256,42 @@ import jQuery from "jquery";
 import Cta from "@/components/Cta";
 export default {
   transition: "slide-fade",
+  // async asyncData ({ query, store }) {
+  //   const { make, model, cardID } = query
+  //   // Validate query params
+
+  //   // fetch data from API
+  //   try {
+  //     const carDetails = await store.dispatch('getCardInfo', { make, model, cardID })
+  //     return {
+  //        cardDetails
+  //     }
+  //   } catch (error) {
+  //     // Redirect to error page or 404 depending on server response
+  //   }
+  // },
+  // head () {
+  //   return {
+  //     title: this.carDetails.title,
+  //     meta: [
+  //       { hid: 'og-title', property: 'og:title', content: this.carDetails.title },
+  //       // other meta
+  //     ]
+  //   }
+  // },
+  data: () => ({
+    product: {},
+    isLoading: true,
+    isModalVisible: false,
+    tempcart: [],
+    item: {
+      qty: 1,
+      bedsize: "single"
+    },
+    computed: {
+      ...mapGetters("users", ["loggedInUser", "isAuthenticated"])
+    }
+  }),
   head: () => ({
     title: "Purple People Eater"
   }),
@@ -271,19 +307,6 @@ export default {
     StockStatus,
     ReviewsSection
   },
-  data: () => ({
-    product: {},
-    isLoading: true,
-    isModalVisible: false,
-    tempcart: [],
-    item: {
-      qty: 1,
-      bedsize: "single"
-    },
-    computed: {
-      ...mapGetters("users", ["loggedInUser", "isAuthenticated"])
-    }
-  }),
   methods: {
     showModal() {
       this.isModalVisible = true;
@@ -307,6 +330,7 @@ export default {
     }
   },
   async created() {
+    // this.title = this.$route.params.slug;
     const ck = "ck_8d450139382c5dc8293107cd7e3710c80ef962c1";
     const cs = "cs_40ab04189e95016e6b646d5ee5aae0a0801959e5";
     const url = `https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/${this.$route.params.id}`;

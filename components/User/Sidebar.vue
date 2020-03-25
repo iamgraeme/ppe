@@ -5,7 +5,9 @@
     <div class="mt-8 pb-8 border-b border-gray-200 w-full flex lg:flex-col items-center">
       <figure class="rounded-full w-40 h-40 overflow-hidden border border-gray-400">
         <!-- //TODO add email address dynamically -->
-        <v-gravatar email="graemehouston@gmail.com" :size="160" />
+        <div v-if="loggedInUser">
+          <v-gravatar :email="loggedInUser.email" :size="160" />
+        </div>
       </figure>
       <div
         class="flex flex-col justify-center items-start lg:justify-start lg:items-center flex-wrap ml-10 lg:ml-0"
