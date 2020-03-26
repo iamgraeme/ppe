@@ -1,5 +1,5 @@
 <template>
-  <div class="w-12/12 sm:w-6/12 lg:w-4/12 p-3">
+  <div class="my-2 px-2 w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/4">
     <div class="bg-white flex flex-col rounded-lg p-3 shadow">
       <div class="flex justify-between mb-3 items-center">
         <h5 class="text-lg font-semibold">{{reviewTitle}}</h5>

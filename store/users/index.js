@@ -1,8 +1,6 @@
 import Cookie from "js-cookie";
 import axios from "axios";
 
-import { productsByCategory } from "@/services/woocommerce";
-
 export const state = () => ({
   user: {},
   token: "",

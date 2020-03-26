@@ -6,12 +6,21 @@
     <div
       v-for="attribute in attributes"
       :key="attribute.id"
-      class="flex justify-between items-center py-3 border-t border-gray-300 text-gray-600 text-sm"
+      class="flex justify-start items-center py-3 border-t border-gray-300 text-gray-600 text-sm"
     >
       <div class="w-1/4">{{attribute.name}}</div>
-      <div v-for="option in attribute.options" :key="option">
-        <div v-if="attribute.options.length > 1"></div>
-        <div v-else>{{option}}</div>
+      <div v-for="option in attribute.options" :key="option" class="flex justify-end">
+        <div v-if="attribute.options.length > 1">
+          <div
+            class="bg-black p-2 ml-2 text-white rounded-lg text-xxs flex justify-center items-center"
+          >{{option}}</div>
+        </div>
+        <div v-else>
+          <div v-if="attribute.name === 'UK Made'">
+            <img class="w-8" src="~/assets/images/uk.svg" alt="Made in the UK" />
+          </div>
+          <div v-else>{{option}}</div>
+        </div>
       </div>
     </div>
   </div>

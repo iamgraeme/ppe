@@ -18,13 +18,13 @@
 
       <div>
         <div v-if="salePrice" class="flex">
-          <p class="text-lg mr-3 text-purple-800">£{{ salePrice }}</p>
-          <p class="text-lg text-gray-400 line-through">£{{ price }}</p>
+          <p class="text-lg mr-3 text-purple-800">{{ parseFloat(salePrice) | pound }}</p>
+          <p class="text-lg text-gray-400 line-through">{{ parseFloat(price) | pound }}</p>
         </div>
         <div v-else>
           <p class="text-lg text-gray-600">
             <span class="text-sm italic font-serif">From</span>
-            £{{ price }}
+            {{ parseFloat(price) | pound }}
           </p>
         </div>
       </div>

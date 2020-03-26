@@ -4,6 +4,7 @@
       <span class="rounded-md shadow-sm">
         <button
           @click="isOpen = !isOpen"
+          v-on-clickaway="away"
           type="button"
           class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:border-purple-300 focus:shadow-outline-purple active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
         >
@@ -40,8 +41,10 @@
 </template>
 
 <script>
+import { mixin as clickaway } from "vue-clickaway";
 export default {
   name: "SortBy",
+  mixins: [clickaway],
   data: () => ({
     isOpen: false
   }),
@@ -55,6 +58,9 @@ export default {
       await this.$store.dispatch("products/highToLow").catch(err => {
         console.log(err);
       });
+    },
+    away() {
+      this.isOpen = false;
     }
   }
 };
