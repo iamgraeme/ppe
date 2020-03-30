@@ -1,7 +1,26 @@
 <template>
   <div>
     <div v-if="isLoading">
-      <Loader />
+      <div class="relative">
+        <div class="absolute w-full bg-white h-image left-0 z-10">
+          <img class="banner" src="@/assets/images/banner-loader.jpg" />
+
+          <div
+            class="absolute bg-white w-9/12 h-32 bottom-0 left-0 z-10 rounded-tr-full hidden lg:flex items-center justify-start"
+          >
+            <div class="flex justify-evenly container mx-auto pl-16 pr-8">
+              <SliderInfoBlock
+                v-for="block in infoBlocks"
+                :key="block.id"
+                :title="block.title"
+                :subTitle="block.subTitle"
+                :image="block.image"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- <Loader class="relative z-30" /> -->
+      </div>
     </div>
     <div class="mb-6 md:mb-12 lg:mb-24 relative z-10" v-else>
       <no-ssr>
@@ -11,7 +30,7 @@
             :key="slide.id"
             class="relative z-10 flex items-center justify-start"
           >
-            <div class="absolute w-full h-full bg-black opacity-25"></div>
+            <div class="absolute w-full h-full bg-black opacity-10"></div>
             <img :src="slide.acf.image" :alt="slide.acf.banner_text" />
             <div class="hidden sm:block absolute lg:-mt-20 ml-16 lg:ml-32 z-50">
               <h2
@@ -103,3 +122,18 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.banner {
+  animation: 0.8s appear;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+</style>

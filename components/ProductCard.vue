@@ -6,9 +6,9 @@
       >Sale</div>
     </div>
 
-    <div class="mb-6 w-full">
+    <div class="relative mb-6 w-72 h-72 overflow-hidden">
       <nuxt-link :to="'/products/' + id + '/' + slug" class>
-        <img class="pr-1 sm:pr-3 w-full" :src="image" :alt="productName" />
+        <img class="absolute w-72 h-72 object-cover object-center" :src="image" :alt="productName" />
       </nuxt-link>
     </div>
     <div>

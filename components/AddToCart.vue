@@ -1,7 +1,7 @@
 <template>
-  <div class="flex mt-6">
+  <div class="flex my-6">
     <div
-      class="border border-gray-200 flex justify-center items-center rounded-full py-3 overflow-hidden mr-6"
+      class="border border-gray-500 bg-white flex justify-center items-center rounded-full py-3 overflow-hidden mr-6"
     >
       <button
         class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
@@ -19,7 +19,7 @@
     </div>
     <div class="flex flex-1">
       <input
-        class="w-full bg-purple-800 hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+        class="w-full bg-cta hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
         type="submit"
         value="Add to Cart"
       />

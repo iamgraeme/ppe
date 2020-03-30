@@ -1,52 +1,33 @@
 <template>
   <div>
-    <h4 class="text-lg font-light text-gray-600 mt-10 mb-6">Product Options & Information</h4>
-    {{getProductsAttributes}}
-    <div v-for="meh in getProductsAttributes" :key="meh.id">{{meh.id}}</div>
-    <div
-      v-for="attribute in attributes"
-      :key="attribute.id"
-      class="flex justify-start items-center py-3 border-t border-gray-300 text-gray-600 text-sm"
-    >
-      <div class="w-1/4">{{attribute.name}}</div>
-      <div v-for="option in attribute.options" :key="option" class="flex justify-end">
-        <div v-if="attribute.options.length > 1">
-          <div
-            class="bg-black p-2 ml-2 text-white rounded-lg text-xxs flex justify-center items-center"
-          >{{option}}</div>
-        </div>
-        <div v-else>
-          <div v-if="attribute.name === 'UK Made'">
-            <img class="w-8" src="~/assets/images/uk.svg" alt="Made in the UK" />
-          </div>
-          <div v-else>{{option}}</div>
-        </div>
+    <fieldset>
+      <div v-for="attribute in attributes" :key="attribute.id">
+        <label>
+          <input type="radio" name="size" :id="attribute.id" :value="attribute.price" />
+          <span v-html="attribute.description" />
+        </label>
       </div>
-    </div>
+    </fieldset>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { api } from "@/services/woocommerce";
 export default {
-  name: "AttributeSelector",
+  data: () => ({
+    attributes: {}
+  }),
   props: {
-    attributes: Object
+    productId: Number
   },
-  computed: {
-    ...mapGetters("produts", ["getProductsAttributes"])
-  },
+  methods: {},
   async mounted() {
-    const id = this.$route.params.id;
-    try {
-      await this.$store
-        .dispatch("products/getProductsAttributesById", id)
-        .catch(err => {
-          console.log(err);
-        });
-    } catch (error) {
-      throw error;
-    }
+    const productId = this.productId;
+
+    await api.get(`products/${productId}/variations`).then(response => {
+      console.log("from attributes selector", response.data);
+      this.attributes = response.data;
+    });
   }
 };
 </script>

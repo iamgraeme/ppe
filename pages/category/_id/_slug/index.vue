@@ -8,7 +8,7 @@
         </div>
       </div>
       <div>
-        <!-- <Breadcrumb /> -->
+        <Breadcrumb />
       </div>
       <div v-if="isLoading" class="h-64 w-full flex justify-center items-center">
         <Loader />

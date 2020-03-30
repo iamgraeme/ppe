@@ -46,7 +46,7 @@
 <script>
 import ProductCard from "@/components/ProductCard";
 export default {
-  name: "Product Slider",
+  name: "ProductSlider",
   components: {
     ProductCard
   },
