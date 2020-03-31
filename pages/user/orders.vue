@@ -1,7 +1,13 @@
 <template>
   <div class="w-full">
     <PageHeading title="Previous Orders" />
-    <div class="flex flex-col">
+    <div v-if="previousOrders.length === 0">
+      <p class="text-center mt-32 text-xl text-gray-500 font-light">
+        You havent placed any orders yet, please click
+        <nuxt-link class="text-purple-800 hover:text-purple-400" to="/">here to start shopping.</nuxt-link>
+      </p>
+    </div>
+    <div class="flex flex-col" v-else>
       <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-32">
         <div
           class="align-middle inline-block min-w-full overflow-hidden sm:rounded-lg border-b border-gray-200"
