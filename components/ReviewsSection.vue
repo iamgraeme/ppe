@@ -1,8 +1,7 @@
 <template>
-  <div class="bg-purple-100 border-b border-gray-300 pt-10 pb-10 mb-10">
+  <div class="bg-purple-100 py-10">
     <PageHeading title="Reviews" class="text-center" />
     <div class="container mx-auto">
-      {{productId}}
       <div class="flex">
         <div class="flex flex-wrap -mx-2 overflow-hidden p-6 sm:p-0 w-1/2">
           <div class="p-8 w-full">
