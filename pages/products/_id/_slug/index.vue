@@ -26,7 +26,7 @@
                   </div>
                   <div
                     v-html="product.description"
-                    class="text-sm text-gray-500 leading-loose pb-6 border-b border-gray-500 mb-6"
+                    class="text-sm text-gray-700 leading-loose pb-6 border-b border-gray-500 mb-6"
                   ></div>
                   <AttributeSelector :productId="product.id" />
                   <AddToCart />
@@ -38,7 +38,14 @@
             </div>
           </div>
         </div>
+        <Cta
+          :title="product.name"
+          :body="product.description"
+          :imageUrl="product.acf.mattress_cutout_image ? product.acf.mattress_cutout_image : null"
+        />
+        <ReviewsSection :productId="product.id" />
       </div>
+
       <div class="py-24 border-t border-gray-300">
         <ProductSlider title="Our Bestead Range" />
       </div>

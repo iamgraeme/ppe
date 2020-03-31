@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center w-full">
+    <h4 class="font-thin text-gray-600 mb-6 text-2xl text-center">Write a Review</h4>
     <input
       class="border w-full rounded border-gray-300 focus:outline-none focus:border-purple-800 p-3 mb-3"
       type="text"
@@ -10,7 +11,9 @@
       type="email"
       placeholder="Email"
     />
-    <div class="flex justify-start items-center border w-full rounded border-gray-300 p-3 mb-3">
+    <div
+      class="flex justify-start items-center border w-full rounded border-gray-300 p-3 mb-3 bg-white"
+    >
       <label class="text-gray-500 font-normal text-md mr-6" for="rating">Your rating:</label>
       <star-rating @rating-selected="setRating" active-color="#FFAE00" :star-size="24" :padding="2"></star-rating>
     </div>

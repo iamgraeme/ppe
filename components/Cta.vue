@@ -21,10 +21,6 @@
               cover and delivered rolled in a box for maximum convenience.
             </p>
           </div>
-          <nuxt-link
-            to="/category/19/mattresses"
-            class="border border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
-          >More Info</nuxt-link>
         </div>
         <div class="w-5/12 absolute right-0">
           <div v-if="imageUrl">

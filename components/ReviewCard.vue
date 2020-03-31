@@ -1,34 +1,31 @@
 <template>
-  <div class="my-2 px-2 w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/4">
-    <div class="bg-white flex flex-col rounded-lg p-3 shadow">
-      <div class="flex justify-between mb-3 items-center">
-        <h5 class="text-lg font-semibold">{{reviewTitle}}</h5>
-        <p class="text-xs font-semibold text-purple-800">{{reviewDate}}</p>
+  <div class="bg-white flex flex-col rounded-lg p-3 w-full mb-3">
+    <div class="flex justify-between mb-3 items-center">
+      <h5 class="text-lg font-semibold">{{reviewTitle}}</h5>
+      <p class="text-xs font-semibold text-purple-800">{{reviewDate}}</p>
+    </div>
+    <div class="flex mb-3">
+      <div class="flex-shrink-0 h-8 w-8 mr-3">
+        <v-gravatar email="graemehouston@gmail.com" :size="160" />
       </div>
-      <div class="flex mb-3">
-        <div class="flex-shrink-0 h-8 w-8 mr-3">
-          <div v-if="loggedInUser">
-            <v-gravatar :email="loggedInUser.email" :size="160" />
-          </div>
-        </div>
-        <p class="text-gray-600 text-xs">
-          <span class="italic font-serif">Review by</span>
-          <br />
-          {{customerName}}
-        </p>
-      </div>
-      <star-rating
-        :rating="reviewRating"
-        active-color="#FFAE00"
-        :star-size="17"
-        :show-rating="false"
-        :padding="2"
-        increment="0.5"
-        :read-only="true"
-      />
-      <div class="text-gray-600 mt-3 text-sm mb-3">
-        <p class="mb-3">{{body}}</p>
-      </div>
+      <p class="text-gray-700 text-xs">
+        <span class="italic font-serif">Review by</span>
+        <br />Soda Water
+      </p>
+    </div>
+    <star-rating
+      :rating="5"
+      active-color="#FFAE00"
+      :star-size="17"
+      :show-rating="false"
+      :padding="2"
+      increment="0.5"
+      :read-only="true"
+    />
+    <div class="text-gray-700 mt-3 text-sm mb-3">
+      <p
+        class="mb-3"
+      >I'm baby flannel migas cornhole kombucha celiac distillery 90's tousled. Lyft knausgaard iceland cred. Lo-fi quinoa plaid succulents flannel +1 literally truffaut. Hexagon waistcoat raw denim chillwave post-ironic etsy cliche tilde chia asymmetrical banjo woke franzen hoodie.</p>
     </div>
   </div>
 </template>

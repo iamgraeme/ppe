@@ -3,7 +3,7 @@
     <div v-if="product.rating_count === 0 && product.reviews_allowed">
       <a
         href="#"
-        class="text-sm text-gray-500 hover:text-purple-800"
+        class="text-sm text-gray-700 hover:text-purple-800"
         v-scroll-to="{
                         el: '#addReview',
                         duration: 300,
