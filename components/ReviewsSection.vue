@@ -1,6 +1,6 @@
 <template>
   <div class="bg-purple-100 py-10">
-    <PageHeading title="Reviews" class="text-center" />
+    <PageHeading title="Reviews" class="text-center" id="addReview" />
     <div class="container mx-auto">
       <div class="flex">
         <div class="flex flex-wrap -mx-2 overflow-hidden p-6 sm:p-0 w-1/2">

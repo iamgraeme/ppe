@@ -36,8 +36,9 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "~/plugins/owl.js", ssr: false },
-    { src: "~/plugins/snotify.js", ssr: false },
+    { src: "~/plugins/owl.js", mode: "client" },
+    { src: "~/plugins/drift.js", mode: "client" },
+    { src: "~/plugins/snotify.js", mode: "client" },
     "~/plugins/filters.js"
   ],
   /*
@@ -59,6 +60,7 @@ module.exports = {
     ],
     "@nuxtjs/pwa",
     "@nuxtjs/dotenv",
+    "@nuxtjs/moment",
     "vue-scrollto/nuxt"
   ],
   /*
@@ -71,6 +73,12 @@ module.exports = {
       common: {
         Accept: "application/json"
       }
+    }
+  },
+
+  moment: {
+    timezone: {
+      matchZones: /Europe\/(Belfast|London|Paris|Athens)/
     }
   },
 

@@ -34,7 +34,9 @@
                       <div
                         class="text-sm leading-5 font-medium text-gray-900"
                       >Order Number: {{order.number}}</div>
-                      <div class="text-sm leading-5 text-gray-500">{{order.billing.email}}</div>
+                      <div
+                        class="text-sm leading-5 text-gray-500"
+                      >Ordered: {{$moment(order.billing.date_created).format("DD/MM/YYYY")}}</div>
                     </div>
                   </div>
                 </td>
