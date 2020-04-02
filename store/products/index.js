@@ -3,10 +3,14 @@ import { api } from "@/services/woocommerce";
 export const state = () => ({
   products: {},
   isLoading: true,
-  productAttributes: {}
+  productAttributes: {},
+  product: {}
 });
 
 export const getters = {
+  currentProduct: state => {
+    return state.product;
+  },
   getProductsAttributes: state => {
     return state.productsAttributes;
   },
@@ -19,6 +23,9 @@ export const getters = {
 };
 
 export const mutations = {
+  SET_CURRENT_PRODUCT: (state, data) => {
+    state.product = data;
+  },
   SET_PRODUCTS_ATTRS_BY_ID: (state, data) => {
     state.productAttributes = data;
   },
@@ -62,12 +69,22 @@ export const actions = {
       .finally(() => {});
   },
 
-  stopLoading({ commit }) {
-    console.log("Stop Loading");
-    commit("STOP_LOADING");
+  getCurrentProduct({ commit }, id) {
+    api
+      .get(`products/${id}`)
+      .then(response => {
+        console.log(response.data);
+        commit("SET_CURRENT_PRODUCT", response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        commit("STOP_LOADING");
+      });
   },
 
-  getProductsAttributesById({ commit, dispatch }, id) {
+  getProductsAttributesById({ commit }, id) {
     api
       .get(`products/${id}/variations`)
       .then(response => {
