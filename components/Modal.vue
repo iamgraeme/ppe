@@ -29,7 +29,7 @@ export default {
       <section class="modal-body">
         <img
           style="max-width: 600px"
-          src="https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/03/image-040.png"
+          src="https://api.purplepeopleeater.co.uk/wp-content/uploads/2020/04/ottoman-size-diagram.jpg"
         />
       </section>
     </div>

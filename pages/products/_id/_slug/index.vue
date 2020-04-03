@@ -19,7 +19,8 @@
         <Cta
           :title="currentProduct.name"
           :body="currentProduct.description"
-          :imageUrl="currentProduct.acf.mattress_cutout_image ? currentProduct.acf.mattress_cutout_image : null"
+          :imageUrl="currentProduct.acf.mattress_cutout_image ? currentProduct.acf.mattress_cutout_image : currentProduct.images[1].src"
+          :imageUrlAlt="currentProduct.acf.mattress_cutout_image ? currentProduct.acf.mattress_cutout_image : currentProduct.images[2].src"
         />
         <ReviewsSection :productId="currentProduct.id" />
       </div>
@@ -73,12 +74,6 @@ export default {
     ProductInfo
   },
   methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    closeModal() {
-      this.isModalVisible = false;
-    },
     scrollTo(element) {
       window.scroll({
         behavior: "smooth",

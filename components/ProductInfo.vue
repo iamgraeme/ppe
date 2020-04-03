@@ -6,22 +6,22 @@
         <StockStatus :stockStatus="currentProduct.stock_status" />
       </div>
       <div>
-        <input
-          disabled="disabled"
+        <div
           class="text-2xl text-purple-400 mb-3 bg-transparent"
-          v-on:changePrice="updatePrice"
-          v-model="item.price"
-        />
+          v-html="currentProduct.price_html"
+        ></div>
       </div>
       <div>
         <div class="py-3 border-t border-b border-gray-500 mb-6">
           <ProductReviewIndicator :product="currentProduct" />
         </div>
-        <div
-          v-html="currentProduct.description"
-          class="text-sm text-gray-700 leading-loose pb-6 border-b border-gray-500 mb-6"
-        ></div>
-        <AttributeSelector :productId="currentProduct.id" />
+        <div class="short-description">
+          <div
+            v-html="currentProduct.short_description"
+            class="text-sm text-gray-700 leading-loose pb-6 border-b border-gray-500 mb-6"
+          ></div>
+        </div>
+        <!-- <AttributeSelector :productId="currentProduct.id" /> -->
         <AddToCart />
       </div>
     </div>
@@ -63,3 +63,12 @@ export default {
   }
 };
 </script>
+<style>
+.short-description li {
+  padding-left: 34px;
+  background: transparent
+    url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwIDEwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMCAxMWwyLTIgNSA1IDExLTExIDIgMiAtMTMgMTNaIiB0cmFuc2Zvcm09Im1hdHJpeCguNSAwIDAgLjUgMCAwKSIgZmlsbD0iIzdFRDMyMSI+PC9wYXRoPjwvc3ZnPg==)
+    no-repeat center left;
+  background-size: 16px;
+}
+</style>
