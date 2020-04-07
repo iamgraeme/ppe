@@ -7,84 +7,43 @@
     </div>
     <div v-else>
       <nuxt-link
-        class="text-purple-800 hover:text-purple-400 mr-3 lg:mr-10 text-sm lg:text-lg font-semibold"
-        v-for="category in categories"
+        class="text-purple-800 hover:text-purple-400 mx-3 lg:mx-5 text-sm lg:text-lg font-semibold"
+        v-for="category in getNavigationItems"
         :key="category.id"
         :to="'/category/' + category.id + '/' + category.slug"
-      >{{ category.name }}</nuxt-link>
+        >{{ category.name }}</nuxt-link
+      >
     </div>
   </nav>
 </template>
 
 <script>
-import axios from "axios";
-import OAuth from "oauth-1.0a";
-import CryptoJS from "crypto-js";
-import jQuery from "jquery";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Nav",
   data: () => ({
-    categories: [],
-    isLoading: true
+    isLoading: true,
   }),
-  async created() {
-    const ck = "ck_8d450139382c5dc8293107cd7e3710c80ef962c1";
-    const cs = "cs_40ab04189e95016e6b646d5ee5aae0a0801959e5";
-    const url =
-      "https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/categories";
-
-    const oauth = OAuth({
-      consumer: {
-        key: ck,
-        secret: cs
-      },
-      signature_method: "HMAC-SHA1",
-      hash_function: function(base_string, key) {
-        return CryptoJS.enc.Base64.stringify(
-          CryptoJS.HmacSHA1(base_string, key)
-        );
-      }
-    });
-    const requestData = {
-      url,
-      method: "GET",
-      qs: {
-        x_auth_access_type: "read_write"
-      }
-    };
-    const config = {
-      headers: {
-        Accept: "application/json"
-      }
-    };
-
+  computed: {
+    ...mapGetters("navigation", ["getNavigationItems"]),
+  },
+  async mounted() {
     try {
-      const response = await axios.get(
-        requestData.url +
-          "?" +
-          jQuery.param(oauth.authorize(requestData), config)
-      );
-
-      const { data } = response;
-
-      this.categories = data.filter(function(category) {
-        return category.id !== 15;
-      });
-
-      this.isLoading = false;
-
-      console.log(response.data);
+      await this.$store
+        .dispatch("navigation/navigationItems")
+        .then(() => {
+          this.isLoading = false;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
       throw error;
     }
   },
+
   methods: {},
-  filters: {
-    removeUncategoriesed(value) {
-      value === "Uncategorized" ? null : value;
-    }
-  }
 };
 </script>
 

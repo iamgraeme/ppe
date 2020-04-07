@@ -1,16 +1,16 @@
 <template>
-  <div class="relative mb-10">
+  <div class="relative">
     <div v-if="salePrice">
       <div
         class="absolute bg-purple-400 text-white rounded-full text-xxs uppercase top-10 left-25 font-semibold py-1 px-2"
       >Sale</div>
     </div>
-
-    <div class="relative mb-6 w-72 h-72 overflow-hidden">
-      <nuxt-link :to="'/products/' + id + '/' + slug" class>
-        <img class="absolute w-72 h-72 object-cover object-center" :src="image" :alt="productName" />
-      </nuxt-link>
-    </div>
+    <AspectRatio
+      ratio="4:3"
+      :link="'/products/' + id + '/' + slug"
+      :image="image"
+      :altText="productName"
+    />
     <div>
       <nuxt-link :to="'/products/' + id + '/' + slug">
         <h4 class="text-sm text-gray-600">{{ productName }}</h4>
@@ -33,8 +33,12 @@
 </template>
 
 <script>
+import AspectRatio from "@/components/AspectRatio";
 export default {
   name: "ProductCard",
+  components: {
+    AspectRatio
+  },
   props: {
     image: String,
     id: Number,

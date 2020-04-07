@@ -7,30 +7,29 @@
           <SortBy />
         </div>
       </div>
-      <div>
-        <Breadcrumb />
-      </div>
       <div v-if="isLoading" class="h-64 w-full flex justify-center items-center">
         <Loader />
       </div>
-      <div class="flex flex-wrap -mx-2 overflow-hidden px-3 sm:px-0" v-else>
-        <template v-for="product in getProducts">
-          <div
-            class="my-2 px-2 w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
-            :key="product.id"
-            v-if="product.catalog_visibility === 'visible'"
-          >
-            <ProductCard
-              :productName="product.name"
-              :image="product.images[0].src"
-              :price="product.price"
-              :id="product.id"
-              :salePrice="product.sale_price"
-              :slug="product.slug"
-              noCarousel
-            />
-          </div>
-        </template>
+      <div v-else>
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-24">
+          <template v-for="product in getProducts">
+            <div
+              class="w-full overflow-hidden"
+              :key="product.id"
+              v-if="product.catalog_visibility === 'visible'"
+            >
+              <ProductCard
+                :productName="product.name"
+                :image="product.images[0].src"
+                :price="product.price"
+                :id="product.id"
+                :salePrice="product.sale_price"
+                :slug="product.slug"
+                noCarousel
+              />
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -39,7 +38,6 @@
 <script>
 import PageHeading from "@/components/PageHeading";
 import ProductCard from "@/components/ProductCard";
-import Breadcrumb from "@/components/Breadcrumb";
 import Loader from "@/components/Loader";
 import SortBy from "@/components/SortBy";
 import { mapGetters } from "vuex";
@@ -48,7 +46,6 @@ export default {
   components: {
     PageHeading,
     ProductCard,
-    Breadcrumb,
     Loader,
     SortBy
   },

@@ -48,7 +48,7 @@
                   </svg>
                 </nuxt-link>
               </li>
-              <li class="px-4 hidden md:block">
+              <li class="pl-4 hidden md:block">
                 <AccountDropdown />
               </li>
               <li class="sm:block lg:hidden cursor-pointer" @click="menuIsOpen = !menuIsOpen">

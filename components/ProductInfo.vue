@@ -1,8 +1,10 @@
 <template>
-  <div class="w-full lg:w-1/2 absolute right-0 top-0 bg-gray-200 h-image opacity-75 z-10">
+  <div
+    class="w-full lg:w-5/12 absolute right-0 top-0 bg-gray-200 h-image opacity-75 z-10"
+  >
     <div class="px-16 pt-16 pb-32 w-full">
       <div class="flex items-center justify-between mb-3">
-        <h1 class="text-3xl">{{currentProduct.name}}</h1>
+        <h1 class="text-3xl">{{ currentProduct.name }}</h1>
         <StockStatus :stockStatus="currentProduct.stock_status" />
       </div>
       <div>
@@ -25,7 +27,11 @@
         <AddToCart />
       </div>
     </div>
-    <div class="w-full bg-purple-800 h-24 absolute bottom-0 left-0 px-16 flex items-center">Icons</div>
+    <div
+      class="w-full bg-purple-800 h-24 absolute bottom-0 left-0 px-16 flex items-center"
+    >
+      Icons
+    </div>
   </div>
 </template>
 
@@ -41,26 +47,26 @@ export default {
     item: {
       qty: 1,
       bedsize: "",
-      price: ""
-    }
+      price: "",
+    },
   }),
   async mounted() {
     this.item.price = this.currentProduct.price;
   },
   computed: {
-    ...mapGetters("products", ["currentProduct"])
+    ...mapGetters("products", ["currentProduct"]),
   },
   components: {
     StockStatus,
     AttributeSelector,
     AddToCart,
-    ProductReviewIndicator
+    ProductReviewIndicator,
   },
   methods: {
-    updatePrice: function(value) {
+    updatePrice: function (value) {
       alert(value);
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

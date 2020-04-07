@@ -6,7 +6,9 @@
       <button
         class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
         @click="item.qty > 1 ? item.qty-- : (item.qty = 1)"
-      >-</button>
+      >
+        -
+      </button>
       <input
         type="number"
         v-model="item.qty"
@@ -15,11 +17,13 @@
       <button
         class="text-gray-500 px-4 focus:outline-none hover:text-gray-700"
         @click="item.qty++"
-      >+</button>
+      >
+        +
+      </button>
     </div>
     <div class="flex flex-1">
       <input
-        class="w-full bg-cta hover:bg-purple-400 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+        class="w-full bg-cta hover:bg-gray-700 cursor-pointer rounded-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
         type="submit"
         value="Add to Cart"
       />
@@ -32,8 +36,8 @@ export default {
   name: "AddToCart",
   data: () => ({
     item: {
-      qty: 1
-    }
-  })
+      qty: 1,
+    },
+  }),
 };
 </script>

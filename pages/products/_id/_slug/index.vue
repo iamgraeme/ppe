@@ -6,23 +6,50 @@
       </div>
       <div v-else>
         <div class="relative h-image">
-          <div class="absolute w-1/2 overflow-hidden">
-            <img
-              :src="currentProduct.images[0].src"
-              class="w-full h-image object-cover object-center"
-            />
+          <div class="absolute w-7/12 overflow-hidden">
+            <div v-if="currentProduct.images.length > 0">
+              <div>
+                <no-ssr>
+                  <carousel :items="1" :nav="false" :dots="true">
+                    <img
+                      v-for="image in currentProduct.images"
+                      :key="image.id"
+                      :src="image.src"
+                      class="w-full h-image object-cover object-center"
+                    />
+                  </carousel>
+                </no-ssr>
+
+                <div></div>
+              </div>
+            </div>
+            <div v-else>
+              <div class="w-full h-image flex items-center justify-center">
+                <p>image coming soon</p>
+              </div>
+            </div>
           </div>
           <div>
             <ProductInfo />
           </div>
         </div>
-        <Cta
-          :title="currentProduct.name"
-          :body="currentProduct.description"
-          :imageUrl="currentProduct.acf.mattress_cutout_image ? currentProduct.acf.mattress_cutout_image : currentProduct.images[1].src"
-          :imageUrlAlt="currentProduct.acf.mattress_cutout_image ? currentProduct.acf.mattress_cutout_image : currentProduct.images[2].src"
-        />
-        <ReviewsSection :productId="currentProduct.id" />
+        <div v-if="currentProduct.images.length >= 1">
+          <Cta
+            :title="currentProduct.name"
+            :body="currentProduct.description"
+            :imageUrl="
+              currentProduct.acf.mattress_cutout_image
+                ? currentProduct.acf.mattress_cutout_image
+                : currentProduct.images[0].src
+            "
+            :imageUrlAlt="
+              currentProduct.acf.mattress_cutout_image
+                ? currentProduct.acf.mattress_cutout_image
+                : currentProduct.images[1].src
+            "
+          />
+          <ReviewsSection :productId="currentProduct.id" />
+        </div>
       </div>
 
       <div class="py-24 border-t border-gray-300">
@@ -53,14 +80,14 @@ export default {
     item: {
       qty: 1,
       bedsize: "",
-      price: ""
-    }
+      price: "",
+    },
   }),
   computed: {
-    ...mapGetters("products", ["isLoading", "currentProduct"])
+    ...mapGetters("products", ["isLoading", "currentProduct"]),
   },
   head: () => ({
-    title: "Purple People Eater"
+    title: "Purple People Eater",
   }),
   components: {
     PageHeading,
@@ -71,31 +98,30 @@ export default {
     Loader,
     ReviewForm,
     ReviewsSection,
-    ProductInfo
+    ProductInfo,
   },
   methods: {
     scrollTo(element) {
       window.scroll({
         behavior: "smooth",
         left: 0,
-        top: element.offsetTop
+        top: element.offsetTop,
       });
-    }
+    },
   },
   async mounted() {
     const id = this.$route.params.id;
     try {
       await this.$store
         .dispatch("products/getCurrentProduct", id)
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     } catch (error) {
       throw error;
     }
-  }
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

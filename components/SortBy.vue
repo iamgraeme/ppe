@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block text-left mr-3">
+  <div class="relative inline-block text-left">
     <div>
       <span class="rounded-md shadow-sm">
         <button
