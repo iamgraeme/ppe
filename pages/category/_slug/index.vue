@@ -18,7 +18,7 @@
               :key="product.id"
               v-if="product.catalog_visibility === 'visible'"
             >
-              <ProductCard :product="product" />
+              <ProductCard :product="product" ratio="4:3" />
             </div>
           </template>
         </div>

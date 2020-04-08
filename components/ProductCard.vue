@@ -6,7 +6,7 @@
       >Sale</div>
     </div>
     <AspectRatio
-      ratio="4:3"
+      :ratio="ratio"
       :image="product.images[0].src"
       :altText="product.name"
       :id="product.id"
@@ -46,7 +46,8 @@ export default {
     AspectRatio
   },
   props: {
-    product: Object
+    product: Object,
+    ratio: String
   }
 };
 </script>

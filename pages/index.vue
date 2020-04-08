@@ -4,7 +4,7 @@
     <ProductSlider title="Our Mattress Range" :catNumber="17" />
     <Cta />
     <SalePoints />
-    <ProductSlider title="Our Bedstead Range" :catNumber="18" />
+    <ProductSlider title="Our Ottoman Range" :catNumber="16" />
   </div>
 </template>
 
