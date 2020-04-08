@@ -34,7 +34,8 @@ export default {
   },
   props: {
     catNumber: Number,
-    title: String
+    title: String,
+    slug: String
   },
   data: () => ({
     products: [],

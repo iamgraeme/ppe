@@ -21,6 +21,9 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  generate: {
+    routes: ['/category/:slug', '/product/:slug']
+  },
   /*
    ** Customize the progress-bar color
    */

@@ -1,10 +1,10 @@
-import { api } from '@/services/woocommerce';
-export const state = {
+import { api } from '@/services/woocommerce'
+export const state = () => ({
   previousOrders: {}
-}
+})
 
 export const getters = {
-  previousOrders: (state) => {
+  previousOrders: state => {
     return state.previousOrders
   }
 }
@@ -19,11 +19,11 @@ export const actions = {
   async getCustomerPreviousOrders ({ commit }, customerId) {
     await api
       .get(`orders?customer=${customerId}&per_page=100`)
-      .then((response) => {
+      .then(response => {
         const { data } = response
         commit('SET_PREVIOUS_ORDERS', data)
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error)
       })
   }
