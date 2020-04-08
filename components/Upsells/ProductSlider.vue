@@ -1,14 +1,14 @@
 <template>
-  <div class="container mx-auto py-10">
+  <div class="container py-10 mx-auto">
     <div>
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center justify-between mb-6">
         <div>
-          <h3 class="text-lg lg:text-2xl text-gray-600">{{title}}</h3>
+          <h3 class="text-lg text-gray-600 lg:text-2xl">{{title}}</h3>
         </div>
         <div>
           <nuxt-link
             to="#"
-            class="border mr-4 border-gray-400 rounded-full text-gray-800 uppercase text-xs font-semibold py-2 px-4 hover:border-purple-400 hover:text-black"
+            class="px-4 py-2 mr-4 text-xs font-semibold text-gray-800 uppercase border border-gray-400 rounded-full hover:border-purple-400 hover:text-black"
           >Show All</nuxt-link>
         </div>
       </div>
@@ -25,17 +25,7 @@
                 767: { items: 4, nav: false }
               }"
           >
-            <ProductCard
-              v-for="product in products"
-              :key="product.id"
-              :id="product.id"
-              :slug="product.slug"
-              :productName="product.name"
-              :price="product.price"
-              :regularPrice="product.regular_price"
-              :salePrice="product.sale_price"
-              :image="product.images[0].src"
-            />
+            <ProductCard v-for="product in products" :key="product.id" :product="product" />
           </carousel>
         </no-ssr>
       </div>

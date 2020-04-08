@@ -1,32 +1,24 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <PageHeading :title="$route.params.slug" />
         <div class="flex items-center">
           <SortBy />
         </div>
       </div>
-      <div v-if="isLoading" class="h-64 w-full flex justify-center items-center">
+      <div v-if="isLoading" class="flex items-center justify-center w-full h-64">
         <Loader />
       </div>
       <div v-else>
-        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-24">
+        <div class="grid grid-cols-1 gap-6 mb-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <template v-for="product in getProducts">
             <div
               class="w-full overflow-hidden"
               :key="product.id"
               v-if="product.catalog_visibility === 'visible'"
             >
-              <ProductCard
-                :productName="product.name"
-                :image="product.images[0].src"
-                :price="product.price"
-                :id="product.id"
-                :salePrice="product.sale_price"
-                :slug="product.slug"
-                noCarousel
-              />
+              <ProductCard :product="product" />
             </div>
           </template>
         </div>

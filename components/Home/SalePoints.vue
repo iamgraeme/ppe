@@ -1,15 +1,15 @@
 <template>
-  <div class="py-10 md:py-24 bg-white border-b border-t border-gray-300 md:mb-10">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="py-10 bg-white border-t border-b border-gray-300 md:py-24 md:mb-10">
+    <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <p
-          class="text-base leading-6 text-purple-600 font-semibold tracking-wide uppercase"
+          class="text-base font-semibold leading-6 tracking-wide text-purple-600 uppercase"
         >Transactions</p>
         <h3
-          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+          class="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >A better way to send money</h3>
         <p
-          class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
+          class="max-w-2xl mt-4 text-xl leading-7 text-gray-500 lg:mx-auto"
         >Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
       </div>
 
@@ -19,9 +19,9 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white"
+                  class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cta"
                 >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -32,7 +32,7 @@
                 </div>
               </div>
               <div class="ml-4">
-                <h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5>
+                <h5 class="text-lg font-medium leading-6 text-gray-900">Competitive exchange rates</h5>
                 <p
                   class="mt-2 text-base leading-6 text-gray-500"
                 >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
@@ -43,9 +43,9 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white"
+                  class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cta"
                 >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -56,7 +56,7 @@
                 </div>
               </div>
               <div class="ml-4">
-                <h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5>
+                <h5 class="text-lg font-medium leading-6 text-gray-900">No hidden fees</h5>
                 <p
                   class="mt-2 text-base leading-6 text-gray-500"
                 >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
@@ -67,9 +67,9 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white"
+                  class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cta"
                 >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -80,7 +80,7 @@
                 </div>
               </div>
               <div class="ml-4">
-                <h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5>
+                <h5 class="text-lg font-medium leading-6 text-gray-900">Transfers are instant</h5>
                 <p
                   class="mt-2 text-base leading-6 text-gray-500"
                 >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
@@ -91,9 +91,9 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white"
+                  class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cta"
                 >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -104,7 +104,7 @@
                 </div>
               </div>
               <div class="ml-4">
-                <h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5>
+                <h5 class="text-lg font-medium leading-6 text-gray-900">Mobile notifications</h5>
                 <p
                   class="mt-2 text-base leading-6 text-gray-500"
                 >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>

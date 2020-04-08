@@ -1,6 +1,6 @@
 <template>
   <div class="relative w-full mb-3 overflow-hidden" :style="ratio | parseAspectRatio">
-    <nuxt-link :to="link">
+    <nuxt-link :to="{ name: 'product-slug', params: { slug: slug, id: id }}">
       <div class="absolute inset-0">
         <img class="object-cover w-full h-full" :src="image" :alt="altText" />
       </div>
@@ -13,9 +13,10 @@ export default {
   name: "AspectRatio",
   props: {
     ratio: String,
-    image: String,
+    id: Number,
     altText: String,
-    link: String
+    image: String,
+    slug: String
   },
   filters: {
     parseAspectRatio(value) {

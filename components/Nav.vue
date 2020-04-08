@@ -1,18 +1,17 @@
 <template>
   <nav class="flex items-center justify-between">
     <div v-if="isLoading">
-      <div class="item mr-3 lg:mr-10"></div>
-      <div class="item mr-3 lg:mr-10"></div>
-      <div class="item mr-3 lg:mr-10"></div>
+      <div class="mr-3 item lg:mr-10"></div>
+      <div class="mr-3 item lg:mr-10"></div>
+      <div class="mr-3 item lg:mr-10"></div>
     </div>
     <div v-else>
       <nuxt-link
-        class="text-purple-800 hover:text-purple-400 mx-3 lg:mx-5 text-sm lg:text-lg font-semibold"
+        class="mx-3 text-sm font-semibold text-purple-600 hover:text-purple-400 lg:mx-5 lg:text-lg"
         v-for="category in getNavigationItems"
         :key="category.id"
-        :to="'/category/' + category.id + '/' + category.slug"
-        >{{ category.name }}</nuxt-link
-      >
+        :to="{ name: 'category-slug', params: { slug: category.slug, id: category.id } }"
+      >{{ category.name }}</nuxt-link>
     </div>
   </nav>
 </template>
@@ -23,10 +22,10 @@ import { mapGetters } from "vuex";
 export default {
   name: "Nav",
   data: () => ({
-    isLoading: true,
+    isLoading: true
   }),
   computed: {
-    ...mapGetters("navigation", ["getNavigationItems"]),
+    ...mapGetters("navigation", ["getNavigationItems"])
   },
   async mounted() {
     try {
@@ -35,7 +34,7 @@ export default {
         .then(() => {
           this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     } catch (error) {
@@ -43,7 +42,7 @@ export default {
     }
   },
 
-  methods: {},
+  methods: {}
 };
 </script>
 

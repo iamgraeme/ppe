@@ -2,13 +2,13 @@
   <div>
     <div v-if="isLoading">
       <div class="relative">
-        <div class="absolute w-full bg-white h-image left-0 z-10">
+        <div class="absolute left-0 z-10 w-full bg-white h-image">
           <img class="banner" src="@/assets/images/banner-loader.jpg" />
 
           <div
-            class="absolute bg-white w-9/12 h-32 bottom-0 left-0 z-10 rounded-tr-full hidden lg:flex items-center justify-start"
+            class="absolute bottom-0 left-0 z-10 items-center justify-start hidden w-9/12 h-32 bg-white rounded-tr-full lg:flex"
           >
-            <div class="flex justify-evenly container mx-auto pl-16 pr-8">
+            <div class="container flex pl-16 pr-8 mx-auto justify-evenly">
               <SliderInfoBlock
                 v-for="block in infoBlocks"
                 :key="block.id"
@@ -22,7 +22,7 @@
         <!-- <Loader class="relative z-30" /> -->
       </div>
     </div>
-    <div class="mb-6 md:mb-12 lg:mb-24 relative z-10" v-else>
+    <div class="relative z-10 mb-6 md:mb-12 lg:mb-24" v-else>
       <no-ssr>
         <carousel items="1" :autoplay="true" :dots="false">
           <div
@@ -32,9 +32,9 @@
           >
             <div class="absolute w-full h-full bg-black opacity-10"></div>
             <img :src="slide.acf.image" :alt="slide.acf.banner_text" />
-            <div class="hidden sm:block absolute lg:-mt-20 ml-16 lg:ml-32 z-50">
+            <div class="absolute z-50 hidden ml-16 sm:block lg:-mt-20 lg:ml-32">
               <h2
-                class="text-white w-1/2 font-bold text-3xl md:text-4xl lg:text-5xl mb-6 xl:text-6xl"
+                class="w-1/2 mb-6 text-3xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl"
               >{{ slide.acf.banner_text }}</h2>
 
               <nuxt-link :to="slide.acf.banner_link">
@@ -45,13 +45,13 @@
                     width="39"
                     height="39"
                   >
-                    <circle data-name="Ellipse 48" cx="19.5" cy="19.5" r="19.5" fill="#dbc3fd" />
+                    <circle data-name="Ellipse 48" cx="19.5" cy="19.5" r="19.5" fill="#F7931E" />
                     <path
                       d="M20.337 13.321l5.556 5.561L27 19.989l-1.107 1.108-5.556 5.553-1.107-1.1L24 20.772H11.664v-1.565H24l-4.77-4.776z"
                       fill="#fff"
                     />
                   </svg>
-                  <p class="text-white hover:text-purple-400 uppercase font-semibold block">Shop Now</p>
+                  <p class="block font-semibold text-white uppercase hover:text-purple-400">Shop Now</p>
                 </span>
               </nuxt-link>
             </div>
@@ -59,9 +59,9 @@
         </carousel>
       </no-ssr>
       <div
-        class="absolute bg-white w-9/12 h-32 bottom-0 left-0 z-10 rounded-tr-full hidden lg:flex items-center justify-start"
+        class="absolute bottom-0 left-0 z-10 items-center justify-start hidden w-9/12 h-32 bg-white rounded-tr-full lg:flex"
       >
-        <div class="flex justify-evenly container mx-auto pl-16 pr-8">
+        <div class="container flex pl-16 pr-8 mx-auto justify-evenly">
           <SliderInfoBlock
             v-for="block in infoBlocks"
             :key="block.id"
