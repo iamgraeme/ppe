@@ -61,6 +61,15 @@ module.exports = {
         baseURL: 'https://api.purplepeopleeater.co.uk/wp-json'
       }
     ],
+    [
+      'nuxt-facebook-pixel-module',
+      {
+        /* module options */
+        track: 'PageView',
+        pixelId: 'FACEBOOK_PIXEL_ID',
+        disabled: false
+      }
+    ],
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/moment',
