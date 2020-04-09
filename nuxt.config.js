@@ -66,7 +66,7 @@ module.exports = {
       {
         /* module options */
         track: 'PageView',
-        pixelId: 'FACEBOOK_PIXEL_ID',
+        pixelId: process.env.FB_TRACKING_PIXEL,
         disabled: false
       }
     ],
