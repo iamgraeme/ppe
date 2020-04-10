@@ -1,10 +1,10 @@
 <template>
   <div>
     <BannerSlider />
-    <ProductSlider title="Our Mattress Range" :catNumber="17" />
+    <ProductSlider title="Our Bedstead Range" :catNumber="18" />
     <Cta />
     <SalePoints />
-    <ProductSlider title="Our Ottoman Range" :catNumber="16" />
+    <ProductSlider title="Our Mattress Range" :catNumber="17" />
   </div>
 </template>
 

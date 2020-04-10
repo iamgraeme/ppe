@@ -79,7 +79,8 @@ module.exports = {
     '@nuxtjs/dotenv',
     '@nuxtjs/moment',
     'vue-scrollto/nuxt',
-    ['nuxt-validate']
+    'nuxt-validate',
+    'nuxt-lazy-load'
   ],
   /*
    ** Axios module configuration
