@@ -1,30 +1,34 @@
 <template>
   <div>
     <div>
-      <div v-if="isLoading" class="h-64 flex justify-center items-center">
+      <div v-if="isLoading" class="flex items-center justify-center h-64">
         <Loader />
       </div>
       <div v-else>
         <div class="relative h-image">
           <div class="absolute w-7/12 overflow-hidden">
             <div v-if="currentProduct.images.length > 0">
-              <div>
-                <no-ssr>
-                  <carousel :items="1" :nav="false" :dots="true">
-                    <img
-                      v-for="image in currentProduct.images"
-                      :key="image.id"
-                      :src="image.src"
-                      class="w-full h-image object-cover object-center"
-                    />
-                  </carousel>
-                </no-ssr>
-
-                <div></div>
+              <div class="relative z-10">
+                <div class="flex flex-col flex-1">
+                  <img
+                    :src="currentProduct.images[0].src"
+                    class="object-cover object-center w-full h-image"
+                  />
+                </div>
+                <div
+                  class="relative z-50 items-center hidden grid-cols-8 gap-1 pt-1 -mt-24 bg-white md:grid"
+                >
+                  <img
+                    v-for="image in currentProduct.images"
+                    :key="image.id"
+                    :src="image.src"
+                    class="object-cover object-center"
+                  />
+                </div>
               </div>
             </div>
             <div v-else>
-              <div class="w-full h-image flex items-center justify-center">
+              <div class="flex items-center justify-center w-full h-image">
                 <p>image coming soon</p>
               </div>
             </div>
@@ -80,14 +84,14 @@ export default {
     item: {
       qty: 1,
       bedsize: "",
-      price: "",
-    },
+      price: ""
+    }
   }),
   computed: {
-    ...mapGetters("products", ["isLoading", "currentProduct"]),
+    ...mapGetters("products", ["isLoading", "currentProduct"])
   },
   head: () => ({
-    title: "Purple People Eater",
+    title: "Purple People Eater"
   }),
   components: {
     PageHeading,
@@ -98,29 +102,29 @@ export default {
     Loader,
     ReviewForm,
     ReviewsSection,
-    ProductInfo,
+    ProductInfo
   },
   methods: {
     scrollTo(element) {
       window.scroll({
         behavior: "smooth",
         left: 0,
-        top: element.offsetTop,
+        top: element.offsetTop
       });
-    },
+    }
   },
   async mounted() {
     const id = this.$route.params.id;
     try {
       await this.$store
         .dispatch("products/getCurrentProduct", id)
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     } catch (error) {
       throw error;
     }
-  },
+  }
 };
 </script>
 
