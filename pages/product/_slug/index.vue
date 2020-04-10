@@ -57,7 +57,7 @@
       </div>
 
       <div class="py-24 border-t border-gray-300">
-        <ProductSlider title="Our Bestead Range" />
+        <ProductSlider title="Our Bestead Range" catNumber="18" />
       </div>
     </div>
     <Modal productType="ottoman" v-show="isModalVisible" @close="closeModal" />
@@ -81,6 +81,7 @@ export default {
   data: () => ({
     isModalVisible: false,
     tempcart: [],
+    isLoading: true,
     item: {
       qty: 1,
       bedsize: "",
@@ -124,6 +125,9 @@ export default {
     } catch (error) {
       throw error;
     }
+    window.setInterval(() => {
+      this.isLoading = false;
+    }, 1500);
   }
 };
 </script>
