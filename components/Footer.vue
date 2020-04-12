@@ -1,17 +1,17 @@
 <template>
   <div class="border-t border-gray-300">
-    <div class="container mx-auto py-3 md:py-6">
+    <div class="container py-3 mx-auto md:py-6">
       <div
-        class="text-center flex sm:text-center sm:items-center flex-wrap md:flex-no-wrap md:flex-row md:text-left px-6 md:px-0 justify-between"
+        class="flex flex-wrap justify-between px-6 text-center sm:text-center sm:items-center md:flex-no-wrap md:flex-row md:text-left md:px-0"
       >
-        <div class="col col1 w-12/12 md:w-6/12 pr-3">
+        <div class="pr-3 col col1 w-12/12 md:w-6/12">
           <div class="w-48 mx-auto md:mx-0">
             <Logo />
           </div>
           <p
-            class="text-gray-500 my-5"
+            class="my-5 text-gray-500"
           >High quality beds and mattresses, designed to go easy on your wallet and give you the best nights sleep.</p>
-          <ul class="flex items-center justify-center md:justify-start mb-6 md:mb-0">
+          <ul class="flex items-center justify-center mb-6 md:justify-start md:mb-0">
             <li class="mr-3">
               <a href>
                 <svg
@@ -96,7 +96,7 @@
         </div>
 
         <div class="w-6/12 md:w-3/12">
-          <h6 class="font-semibold text-gray-600 text-lg">Shopping online</h6>
+          <h6 class="text-lg font-semibold text-gray-600">Shopping online</h6>
           <ul>
             <li>
               <a class="text-gray-500 hover:text-purple-800" href>Item</a>
@@ -116,40 +116,48 @@
           </ul>
         </div>
         <div class="w-6/12 md:w-3/12">
-          <h6 class="font-semibold text-gray-600 text-lg">Information</h6>
+          <h6 class="text-lg font-semibold text-gray-600">Information</h6>
           <ul>
-            <li>
-              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
-            </li>
-            <li>
-              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
-            </li>
-            <li>
-              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
-            </li>
-            <li>
-              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
-            </li>
-            <li>
-              <a class="text-gray-500 hover:text-purple-800" href>Item</a>
+            <li v-for="link in footerLinks" :key="link.id">
+              <nuxt-link
+                class="text-gray-500 hover:text-purple-800"
+                :to="{ name: 'information-slug', params: { slug: link.post_name, id: link.object_id }}"
+              >{{ link.post_title ? link.post_title : link.title }}</nuxt-link>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="bg-purple-400 text-white text-center">
-      <p class="text-sm py-2">&copy; Purple People Eater</p>
+    <div class="text-center text-white bg-purple-400">
+      <p class="py-2 text-sm">&copy; Purple People Eater</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Logo from "@/components/Logo";
 export default {
   name: "Footer",
+  data: () => ({
+    isLoading: true
+  }),
   components: {
     Logo
+  },
+  computed: {
+    ...mapGetters("navigation", ["footerLinks"])
+  },
+  async mounted() {
+    await this.$store
+      .dispatch("navigation/getFooterLinks")
+      .then(() => {
+        this.isLoading = false;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>

@@ -1,26 +1,26 @@
 <template>
-  <div class="bg-white rounded p-6 border border-gray-200 mb-6 relative">
+  <div class="relative p-6 mb-6 bg-white border border-gray-200 rounded">
     <span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
-        class="fill-current text-gray-300 absolute right-5 top-5 w-12 h-12"
+        class="absolute w-12 h-12 text-gray-300 fill-current right-5 top-5"
       >
         <path d="M12 34h6l4-8V14H10v12h6zm16 0h6l4-8V14H26v12h6z" />
         <path fill="none" d="M0 0h48v48H0z" />
       </svg>
     </span>
-    <div class="flex flex-col lg:flex-row text-center lg:text-left items-center">
-      <div class="rounded-full w-32 h-32 overflow-hidden mr-6 mb-6 lg:mb-0">
-        <img class="object-cover h-32 w-auto" :src="image" />
+    <div class="flex flex-col items-center text-center lg:flex-row lg:text-left">
+      <div class="w-32 h-32 mb-6 mr-6 overflow-hidden rounded-full lg:mb-0">
+        <img class="object-cover w-auto h-32" :src="image" />
       </div>
       <div class="flex flex-col flex-1 mb-3">
-        <h5 class="text-lg font-semibold mb-3 text-gray-600">{{name}}</h5>
+        <h5 class="mb-3 text-lg font-semibold text-gray-600">{{name}}</h5>
         <p class="text-sm text-gray-600">{{body}}</p>
-        <div class="flex items-center mt-3 mx-auto lg:mx-0">
+        <div class="flex items-center mx-auto mt-3 lg:mx-0">
           <span class="mr-1">
             <svg
-              class="fill-current text-purple-800 w-3 h-3"
+              class="w-3 h-3 text-purple-800 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
@@ -47,6 +47,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>
