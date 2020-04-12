@@ -26,6 +26,9 @@ export const mutations = {
   RESET_CURRENT_PRODUCT: state => {
     state.product = {}
   },
+  RESET_CATEGORY: state => {
+    state.products = {}
+  },
   SET_CURRENT_PRODUCT: (state, data) => {
     state.product = data
   },
@@ -86,7 +89,12 @@ export const actions = {
         commit('STOP_LOADING')
       })
   },
-
+  resetProduct ({ commit }) {
+    commit('RESET_CURRENT_PRODUCT')
+  },
+  resetCategory ({ commit }) {
+    commit('RESET_CATEGORY')
+  },
   getProductsAttributesById ({ commit }, id) {
     api
       .get(`products/${id}/variations`)

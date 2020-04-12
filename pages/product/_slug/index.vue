@@ -10,10 +10,16 @@
             <div v-if="currentProduct.images.length > 0">
               <div class="relative z-10">
                 <div class="flex flex-col flex-1">
-                  <img
-                    :src="currentProduct.images[0].src"
-                    class="object-cover object-center w-full h-image"
-                  />
+                  <no-ssr>
+                    <carousel items="1" autoplay="true" :dots="true" :nav="false">
+                      <img
+                        v-for="image in currentProduct.images"
+                        :key="image.id"
+                        :src="image.src"
+                        class="object-cover object-center w-full h-image"
+                      />
+                    </carousel>
+                  </no-ssr>
                 </div>
                 <div
                   class="relative z-50 items-center hidden grid-cols-8 gap-1 pt-1 -mt-24 bg-white md:grid"
@@ -128,6 +134,11 @@ export default {
     window.setInterval(() => {
       this.isLoading = false;
     }, 1500);
+  },
+  destroyed() {
+    this.$store.dispatch("products/resetProduct").catch(err => {
+      console.log("err");
+    });
   }
 };
 </script>
