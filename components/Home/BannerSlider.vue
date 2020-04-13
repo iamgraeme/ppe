@@ -2,9 +2,8 @@
   <div>
     <div v-if="isLoading">
       <div class="relative">
-        <div class="absolute left-0 z-10 w-full bg-white h-image">
-          <img class="banner" src="@/assets/images/banner-loader.jpg" />
-
+        <div class="absolute left-0 z-10 w-full g-white h-image">
+          <div class="w-full h-full bg-gray-100"></div>
           <div
             class="absolute bottom-0 left-0 z-10 items-center justify-start hidden w-9/12 h-32 bg-white rounded-tr-full lg:flex"
           >
@@ -19,7 +18,6 @@
             </div>
           </div>
         </div>
-        <!-- <Loader class="relative z-30" /> -->
       </div>
     </div>
     <div class="relative z-10 mb-6 md:mb-12 lg:mb-24" v-else>
@@ -125,6 +123,7 @@ export default {
 
 <style scoped>
 .banner {
+  min-width: 1440px;
   animation: 0.8s appear;
 }
 
@@ -133,7 +132,7 @@ export default {
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 0.5;
   }
 }
 </style>

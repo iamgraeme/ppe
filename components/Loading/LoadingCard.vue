@@ -21,18 +21,18 @@ export default {
 }
 .card .image {
   background: #e9ebee;
-  height: 200px;
+  height: 207px;
 }
 .card .bars .bar {
   background: #e9ebee;
 }
 .card .bars .bar1 {
   width: 80%;
-  height: 21px;
+  height: 18px;
 }
 .card .bars .bar2 {
   width: 30%;
-  height: 27px;
+  height: 20px;
 }
 .loading {
   position: relative;
@@ -47,7 +47,7 @@ export default {
   bottom: 0;
   width: 100%;
   transform: translateX(0);
-  animation: 1s loading-placeholder ease-in-out infinite;
+  animation: 1.5s loading-placeholder ease-in-out infinite;
 }
 @keyframes loading-placeholder {
   0% {

@@ -4,7 +4,9 @@
       <vue-snotify></vue-snotify>
     </no-ssr>
     <Header />
-    <nuxt />
+    <div class="px-6 mx-auto md:px-0">
+      <nuxt />
+    </div>
     <Footer />
   </div>
 </template>

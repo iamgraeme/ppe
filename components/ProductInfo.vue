@@ -1,37 +1,31 @@
 <template>
-  <div
-    class="w-full lg:w-5/12 absolute right-0 top-0 bg-gray-200 h-image opacity-75 z-10"
-  >
-    <div class="px-16 pt-16 pb-32 w-full">
+  <div class="relative z-10 w-full bg-gray-100 lg:w-5/12 h-image">
+    <div class="w-full px-16 pt-16 pb-32">
       <div class="flex items-center justify-between mb-3">
         <h1 class="text-3xl">{{ currentProduct.name }}</h1>
         <StockStatus :stockStatus="currentProduct.stock_status" />
       </div>
       <div>
         <div
-          class="text-2xl text-purple-400 mb-3 bg-transparent"
+          class="mb-3 text-2xl text-purple-400 bg-transparent"
           v-html="currentProduct.price_html"
         ></div>
       </div>
       <div>
-        <div class="py-3 border-t border-b border-gray-500 mb-6">
+        <div class="py-3 mb-6 border-t border-b border-gray-500">
           <ProductReviewIndicator :product="currentProduct" />
         </div>
         <div class="short-description">
           <div
             v-html="currentProduct.short_description"
-            class="text-sm text-gray-700 leading-loose pb-6 border-b border-gray-500 mb-6"
+            class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
         <!-- <AttributeSelector :productId="currentProduct.id" /> -->
         <AddToCart />
       </div>
     </div>
-    <div
-      class="w-full bg-purple-800 h-24 absolute bottom-0 left-0 px-16 flex items-center"
-    >
-      Icons
-    </div>
+    <div class="absolute bottom-0 left-0 flex items-center w-full h-24 px-16 bg-purple-800">Icons</div>
   </div>
 </template>
 
@@ -47,26 +41,26 @@ export default {
     item: {
       qty: 1,
       bedsize: "",
-      price: "",
-    },
+      price: ""
+    }
   }),
   async mounted() {
     this.item.price = this.currentProduct.price;
   },
   computed: {
-    ...mapGetters("products", ["currentProduct"]),
+    ...mapGetters("products", ["currentProduct"])
   },
   components: {
     StockStatus,
     AttributeSelector,
     AddToCart,
-    ProductReviewIndicator,
+    ProductReviewIndicator
   },
   methods: {
-    updatePrice: function (value) {
+    updatePrice: function(value) {
       alert(value);
-    },
-  },
+    }
+  }
 };
 </script>
 <style>

@@ -3,7 +3,7 @@
     <div class="relative z-20">
       <div class="h-1 bg-purple-500"></div>
       <div class="py-6 border-b border-gray-300">
-        <div class="container flex justify-between px-6 mx-auto item-center sm:px-0">
+        <div class="container flex justify-between px-6 mx-auto item-center md:px-0">
           <div>
             <nuxt-link to="/">
               <Logo />

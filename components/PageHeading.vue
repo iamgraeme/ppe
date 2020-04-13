@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="px-6 sm:px-0 font-thin text-gray-600 text-2xl lg:text-3xl my-2 sm:my-4 lg:my-10"
+    class="my-2 text-2xl font-thin text-gray-600 sm:px-0 lg:text-3xl sm:my-4 lg:my-10"
   >{{ title | transformUpperCase }}</h1>
 </template>
 

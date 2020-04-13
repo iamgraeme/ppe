@@ -6,21 +6,21 @@
       </div>
       <div v-else>
         <div class="relative h-image">
-          <div class="absolute w-7/12 overflow-hidden">
-            <div v-if="currentProduct.images.length > 0">
-              <div class="relative z-10">
-                <div class="flex flex-col flex-1">
-                  <no-ssr>
-                    <carousel items="1" autoplay="true" :dots="true" :nav="false">
-                      <img
-                        v-for="image in currentProduct.images"
-                        :key="image.id"
-                        :src="image.src"
-                        class="object-cover object-center w-full h-image"
-                      />
-                    </carousel>
-                  </no-ssr>
-                </div>
+          <div class="w-7/12 overflow-hidden">
+            <div class="parent" v-if="currentProduct.images.length > 0">
+              <div>
+                <no-ssr>
+                  <carousel items="1" autoplay="true" :dots="true" :nav="false">
+                    <img
+                      v-for="image in currentProduct.images"
+                      :key="image.id"
+                      :src="image.src"
+                      class="object-cover object-center w-full h-image"
+                    />
+                  </carousel>
+                </no-ssr>
+              </div>
+              <div>
                 <div
                   class="relative z-50 items-center hidden grid-cols-8 gap-1 pt-1 -mt-24 bg-white md:grid"
                 >
@@ -143,4 +143,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.parent {
+  display: grid;
+  grid-template-columns: 2fr 0;
+  grid-template-rows:
+    4fr
+    1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 15px;
+}
+</style>
