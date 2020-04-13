@@ -41,8 +41,7 @@
 import PageHeading from "@/components/PageHeading";
 import ReviewCard from "@/components/ReviewCard";
 import ReviewForm from "@/components/ReviewForm";
-import Quote from "@/components/checkout/Quote";
-import api from "@/services/woocommerce";
+import Quote from "@/components/Checkout/Quote";
 export default {
   name: "ReviewsSection",
   async mounted() {
