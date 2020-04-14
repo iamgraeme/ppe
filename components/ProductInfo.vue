@@ -21,7 +21,8 @@
             class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
-        <!-- <AttributeSelector :productId="currentProduct.id" /> -->
+        <!-- TODO ADD VARIATIONS -->
+        <AttributeSelector :productId="currentProduct.id" />
         <AddToCart />
       </div>
     </div>
@@ -44,9 +45,6 @@ export default {
       price: ""
     }
   }),
-  async mounted() {
-    this.item.price = this.currentProduct.price;
-  },
   computed: {
     ...mapGetters("products", ["currentProduct"])
   },
@@ -55,11 +53,6 @@ export default {
     AttributeSelector,
     AddToCart,
     ProductReviewIndicator
-  },
-  methods: {
-    updatePrice: function(value) {
-      alert(value);
-    }
   }
 };
 </script>

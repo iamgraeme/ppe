@@ -50,19 +50,34 @@ export const mutations = {
       (a, b) => parseFloat(a.price) - parseFloat(b.price)
     )
   },
+  SORT_ALPHABETICALLY: state => {
+    state.products = state.products.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1
+      }
+      return 0
+    })
+  },
   STOP_LOADING: state => {
     state.isLoading = false
   }
 }
 
 export const actions = {
+  // Sorter Functions
   highToLow ({ commit }) {
     commit('PRODUCT_HIGH_TO_LOW')
   },
   lowToHigh ({ commit }) {
     commit('PRODUCT_LOW_TO_HIGH')
   },
-
+  sortAlphabetically ({ commit }) {
+    commit('SORT_ALPHABETICALLY')
+  },
+  // Product Functions
   productsCategoryId ({ commit, dispatch }, id) {
     api
       .get(`products?category=${id}`)
@@ -89,22 +104,12 @@ export const actions = {
         commit('STOP_LOADING')
       })
   },
+
+  // Reset Functions
   resetProduct ({ commit }) {
     commit('RESET_CURRENT_PRODUCT')
   },
   resetCategory ({ commit }) {
     commit('RESET_CATEGORY')
-  },
-  getProductsAttributesById ({ commit }, id) {
-    api
-      .get(`products/${id}/variations`)
-      .then(response => {
-        // console.log(response.data)
-        commit('SET_PRODUCTS_ATTRS_BY_ID', response.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-      .finally(() => {})
   }
 }
