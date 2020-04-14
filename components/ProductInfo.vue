@@ -22,7 +22,7 @@
           ></div>
         </div>
         <!-- TODO ADD VARIATIONS -->
-
+        <AttributeSelector :productId="currentProduct.id" />
         <AddToCart />
       </div>
     </div>

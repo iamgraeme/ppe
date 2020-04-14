@@ -111,19 +111,5 @@ export const actions = {
   },
   resetCategory ({ commit }) {
     commit('RESET_CATEGORY')
-  },
-
-  // Attribute Functions
-  getProductsAttributesById ({ commit }, id) {
-    api
-      .get(`products/${id}/variations`)
-      .then(response => {
-        // console.log(response.data)
-        commit('SET_PRODUCTS_ATTRS_BY_ID', response.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-      .finally(() => {})
   }
 }
