@@ -1,72 +1,67 @@
 <template>
   <div>
-    <div>
-      <div v-if="isLoading" class="flex items-center justify-center h-64">
-        <Loader />
-      </div>
-      <div v-else>
-        <div class="relative h-image">
-          <div class="w-7/12 overflow-hidden">
-            <div class="parent" v-if="currentProduct.images.length > 0">
-              <div>
-                <no-ssr>
-                  <carousel items="1" autoplay="true" :dots="true" :nav="false">
-                    <img
-                      v-for="image in currentProduct.images"
-                      :key="image.id"
-                      :src="image.src"
-                      class="object-cover object-center w-full h-image"
-                    />
-                  </carousel>
-                </no-ssr>
-              </div>
-              <div>
-                <div
-                  class="relative z-50 items-center hidden grid-cols-8 gap-1 pt-1 -mt-24 bg-white md:grid"
-                >
+    <div v-if="isLoading" class="flex items-center justify-center h-64">
+      <Loader />
+    </div>
+    <div v-else>
+      <div class="grid-container">
+        <div class="photo">
+          <div v-if="currentProduct.images.length > 0">
+            <div>
+              <no-ssr>
+                <carousel items="1" autoplay="true" :dots="true" :nav="false">
                   <img
                     v-for="image in currentProduct.images"
                     :key="image.id"
                     :src="image.src"
-                    class="object-cover object-center"
+                    class="object-cover object-center w-full"
                   />
-                </div>
-              </div>
-            </div>
-            <div v-else>
-              <div class="flex items-center justify-center w-full h-image">
-                <p>image coming soon</p>
-              </div>
+                </carousel>
+              </no-ssr>
             </div>
           </div>
-          <div>
-            <ProductInfo />
+          <div v-else>
+            <div class="flex items-center justify-center w-full">
+              <p>image coming soon</p>
+            </div>
           </div>
         </div>
-        <div v-if="currentProduct.images.length >= 1">
-          <Cta
-            :title="currentProduct.name"
-            :body="currentProduct.description"
-            :imageUrl="
+        <div class="thumbs">
+          <div class="hidden bg-white md:grid">
+            <img
+              v-for="image in currentProduct.images"
+              class="object-cover object-center h-30"
+              :key="image.id"
+              :src="image.src"
+            />
+          </div>
+        </div>
+        <div class="product-info">
+          <ProductInfo />
+        </div>
+      </div>
+      <div v-if="currentProduct.images.length >= 1">
+        <Cta
+          :title="currentProduct.name"
+          :body="currentProduct.description"
+          :imageUrl="
               currentProduct.acf.mattress_cutout_image
                 ? currentProduct.acf.mattress_cutout_image
                 : currentProduct.images[0].src
             "
-            :imageUrlAlt="
+          :imageUrlAlt="
               currentProduct.acf.mattress_cutout_image
                 ? currentProduct.acf.mattress_cutout_image
                 : currentProduct.images[1].src
             "
-          />
-          <ReviewsSection :productId="currentProduct.id" />
-        </div>
-      </div>
-
-      <div class="py-24 border-t border-gray-300">
-        <ProductSlider title="Our Bestead Range" catNumber="18" />
+        />
+        <ReviewsSection :productId="currentProduct.id" />
       </div>
     </div>
-    <Modal productType="ottoman" v-show="isModalVisible" @close="closeModal" />
+
+    <div class="py-24 border-t border-gray-300">
+      <ProductSlider title="Our Bestead Range" catNumber="18" />
+    </div>
   </div>
 </template>
 
@@ -123,11 +118,7 @@ export default {
   async mounted() {
     const id = this.$route.params.id;
     try {
-      await this.$store
-        .dispatch("products/getCurrentProduct", id)
-        .catch(error => {
-          console.log(error);
-        });
+      await this.$store.dispatch("products/getCurrentProduct", id);
     } catch (error) {
       throw error;
     }
@@ -142,15 +133,24 @@ export default {
   }
 };
 </script>
-
-<style>
-.parent {
+<style scoped>
+.grid-container {
   display: grid;
-  grid-template-columns: 2fr 0;
-  grid-template-rows:
-    4fr
-    1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "Photo Photo Photo Product-Info Product-Info"
+    "Photo Photo Photo Product-Info Product-Info"
+    "thumbs thumbs thumbs Product-Info Product-Info";
+}
+.photo {
+  grid-area: Photo;
+}
+.thumbs {
+  grid-area: thumbs;
+}
+.product-info {
+  background: #000;
+  grid-area: Product-Info;
 }
 </style>

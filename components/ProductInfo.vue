@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-10 w-full bg-gray-100 lg:w-5/12 h-image">
+  <div class="relative z-10 w-full bg-gray-100">
     <div class="w-full px-16 pt-16 pb-32">
       <div class="flex items-center justify-between mb-3">
         <h1 class="text-3xl">{{ currentProduct.name }}</h1>
@@ -21,18 +21,16 @@
             class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
-        <!-- TODO ADD VARIATIONS -->
-        <AttributeSelector :productId="currentProduct.id" />
         <AddToCart />
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 flex items-center w-full h-24 px-16 bg-purple-800">Icons</div>
+    <div class="absolute bottom-0 left-0 flex items-center w-full px-16 bg-purple-800">Icons</div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import AttributeSelector from "@/components/AttributeSelector";
+//import AttributeSelector from "@/components/AttributeSelector";
 import AddToCart from "@/components/AddToCart";
 import ProductReviewIndicator from "@/components/ProductReviewIndicator";
 import StockStatus from "@/components/StockStatus";
@@ -50,7 +48,7 @@ export default {
   },
   components: {
     StockStatus,
-    AttributeSelector,
+    //AttributeSelector,
     AddToCart,
     ProductReviewIndicator
   }

@@ -47,7 +47,10 @@ export default {
     Loader
   },
   props: {
-    productId: Number
+    productId: Number,
+    variations,
+    attributes,
+    onMatchFound
   },
   methods: {
     getAttributes() {
@@ -162,6 +165,9 @@ export default {
       return false;
     }
   },
-  async mounted() {}
+  async mounted() {
+    const response = await api.get(`products/${this.productId}/variations`);
+    this.variations = response.data;
+  }
 };
 </script>
