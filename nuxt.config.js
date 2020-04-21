@@ -40,7 +40,6 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/owl.js', mode: 'client' },
-    { src: '~/plugins/drift.js', mode: 'client' },
     { src: '~/plugins/snotify.js', mode: 'client' },
     '~/plugins/filters.js'
   ],
