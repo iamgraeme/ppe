@@ -5,22 +5,24 @@
     </div>
     <div v-else>
       <div class="parent">
-        <div class="div1">
-          <div class>
-            <div class="h-40 mb-3" v-for="image in currentProduct.images" :key="image.id">
+        <div class="flex flex-col items-center div1">
+          <div class="grid grid-rows-4 gap-5">
+            <div
+              class="w-48 h-48 bg-red-600"
+              v-for="image in currentProduct.images.slice(0,4)"
+              :key="image.id"
+            >
               <img class="object-cover object-center h-full" :src="image.src" />
             </div>
           </div>
         </div>
         <div class="div2">
           <div v-if="currentProduct.images.length > 0">
-            <div class="relative w-full h-full">
-              <img
-                :src="currentProduct.images[0].src"
-                :alt="currentProduct.name"
-                class="object-cover object-center w-full"
-              />
-            </div>
+            <AspectRatioNoLink
+              :image="currentProduct.images[0].src"
+              :altText="currentProduct.name"
+              ratio="1:1"
+            />
           </div>
           <div v-else>
             <div class="flex items-center justify-center w-full">
@@ -58,6 +60,7 @@
 
 <script>
 import Loader from "@/components/Loader";
+import AspectRatioNoLink from "@/components/AspectRatioNoLink";
 import ProductInfo from "@/components/ProductInfo";
 import ProductSlider from "@/components/Upsells/ProductSlider";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -67,6 +70,7 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     ProductInfo,
+    AspectRatioNoLink,
     Loader,
     Cta,
     ReviewsSection,
@@ -102,6 +106,8 @@ export default {
 
 <style>
 .parent {
+  height: 820px;
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(5, 1fr);
