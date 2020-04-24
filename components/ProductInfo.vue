@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-10 w-full bg-gray-100">
+  <div class="relative z-10 w-full h-full bg-gray-100">
     <div class="w-full px-16 pt-16 pb-32">
       <div class="flex items-center justify-between mb-3">
         <h1 class="text-3xl">{{ currentProduct.name }}</h1>

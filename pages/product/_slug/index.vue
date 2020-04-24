@@ -4,20 +4,22 @@
       <Loader />
     </div>
     <div v-else>
-      <div class="grid-container">
-        <div class="photo">
+      <div class="parent">
+        <div class="div1">
+          <div class>
+            <div class="h-40 mb-3" v-for="image in currentProduct.images" :key="image.id">
+              <img class="object-cover object-center h-full" :src="image.src" />
+            </div>
+          </div>
+        </div>
+        <div class="div2">
           <div v-if="currentProduct.images.length > 0">
-            <div>
-              <no-ssr>
-                <carousel items="1" autoplay="true" :dots="true" :nav="false">
-                  <img
-                    v-for="image in currentProduct.images"
-                    :key="image.id"
-                    :src="image.src"
-                    class="object-cover object-center w-full"
-                  />
-                </carousel>
-              </no-ssr>
+            <div class="relative w-full h-full">
+              <img
+                :src="currentProduct.images[0].src"
+                :alt="currentProduct.name"
+                class="object-cover object-center w-full"
+              />
             </div>
           </div>
           <div v-else>
@@ -26,17 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="thumbs">
-          <div class="hidden bg-white md:grid">
-            <img
-              v-for="image in currentProduct.images"
-              class="object-cover object-center h-30"
-              :key="image.id"
-              :src="image.src"
-            />
-          </div>
-        </div>
-        <div class="product-info">
+        <div class="div3">
           <ProductInfo />
         </div>
       </div>
@@ -55,66 +47,40 @@
                 : currentProduct.images[1].src
             "
         />
-        <ReviewsSection :productId="currentProduct.id" />
       </div>
-    </div>
-
-    <div class="py-24 border-t border-gray-300">
-      <ProductSlider title="Our Bestead Range" catNumber="18" />
+      <ReviewsSection :productId="currentProduct.id" />
+      <div class="py-24 border-t border-gray-300">
+        <ProductSlider title="Our Bestead Range" catNumber="18" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import PageHeading from "@/components/PageHeading";
-import SocialIcons from "@/components/SocialIcons";
 import Loader from "@/components/Loader";
-import ReviewForm from "@/components/ReviewForm";
-import Modal from "@/components/Modal";
+import ProductInfo from "@/components/ProductInfo";
 import ProductSlider from "@/components/Upsells/ProductSlider";
 import ReviewsSection from "@/components/ReviewsSection";
 import Cta from "@/components/Cta";
-import ProductInfo from "@/components/ProductInfo";
 
 import { mapGetters } from "vuex";
 export default {
+  components: {
+    ProductInfo,
+    Loader,
+    Cta,
+    ReviewsSection,
+    ProductSlider
+  },
   transition: "slide-fade",
   data: () => ({
     isModalVisible: false,
     tempcart: [],
     isLoading: true,
-    item: {
-      qty: 1,
-      bedsize: "",
-      price: ""
-    }
+    item: { qty: 1, bedsize: "", price: "" }
   }),
-  computed: {
-    ...mapGetters("products", ["isLoading", "currentProduct"])
-  },
-  head: () => ({
-    title: "Purple People Eater"
-  }),
-  components: {
-    PageHeading,
-    Modal,
-    ProductSlider,
-    SocialIcons,
-    Cta,
-    Loader,
-    ReviewForm,
-    ReviewsSection,
-    ProductInfo
-  },
-  methods: {
-    scrollTo(element) {
-      window.scroll({
-        behavior: "smooth",
-        left: 0,
-        top: element.offsetTop
-      });
-    }
-  },
+  computed: { ...mapGetters("products", ["isLoading", "currentProduct"]) },
+  head: () => ({ title: "Purple People Eater" }),
   async mounted() {
     const id = this.$route.params.id;
     try {
@@ -133,24 +99,23 @@ export default {
   }
 };
 </script>
-<style scoped>
-.grid-container {
+
+<style>
+.parent {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas:
-    "Photo Photo Photo Product-Info Product-Info"
-    "Photo Photo Photo Product-Info Product-Info"
-    "thumbs thumbs thumbs Product-Info Product-Info";
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
-.photo {
-  grid-area: Photo;
+.div1 {
+  grid-area: 1 / 1 / 6 / 2;
 }
-.thumbs {
-  grid-area: thumbs;
+.div2 {
+  grid-area: 1 / 2 / 6 / 6;
+  margin-right: 8px;
 }
-.product-info {
-  background: #000;
-  grid-area: Product-Info;
+.div3 {
+  grid-area: 1 / 6 / 6 / 9;
 }
 </style>
