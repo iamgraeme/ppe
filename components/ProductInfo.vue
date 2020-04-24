@@ -21,7 +21,7 @@
             class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
-        <AddToCart />
+        <AddToCart :product="currentProduct" />
       </div>
     </div>
     <div class="absolute bottom-0 left-0 flex items-center w-full px-16 bg-purple-800">Icons</div>
