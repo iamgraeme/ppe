@@ -1,15 +1,4 @@
-import axios from 'axios'
-const dynamicRoutes = () => {
-  return axios
-    .get(
-      'https://api.purplepeopleeater.co.uk/wp-json/wc/v3/products/?per_page=100'
-    )
-    .then(res => {
-      return res.data.map(product => `/product/${product.slug}`)
-    })
-}
-
-export default {
+module.exports = {
   mode: 'universal',
 
   env: {
@@ -33,7 +22,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: dynamicRoutes
+    routes: ['/category/:slug', '/product/:slug']
   },
   /*
    ** Customize the progress-bar color

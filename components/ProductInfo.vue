@@ -21,10 +21,7 @@
             class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
-        <AttributeSelector
-          :variations="currentProduct.variations"
-          :attributes="currentProduct.attributes"
-        />
+        <AttributeSelector :variations="currentProduct.variations" :productId="currentProduct.id" />
         <AddToCart :product="currentProduct" />
       </div>
     </div>
