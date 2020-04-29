@@ -1,93 +1,78 @@
 <template>
   <div class="container mx-auto">
-    <div class="flex justify-between px-6 sm:px-0 mt-6 md:hidden">
+    <div class="flex justify-between px-6 mt-6 sm:px-0 md:hidden">
       <button
         @click="isOpen = !isOpen"
-        class="bg-purple-800 hover:bg-purple-400 rounded-full text-white px-3 md:hidden text-sm py-1 focus:outline-none"
-      >
-        Show Cart
-      </button>
+        class="px-3 py-1 text-sm text-white bg-purple-800 rounded-full hover:bg-purple-400 md:hidden focus:outline-none"
+      >Show Cart</button>
     </div>
 
-    <div class="flex flex-col md:flex-row-reverse px-6 sm:px-0">
+    <div class="flex flex-col px-6 md:flex-row-reverse sm:px-0">
       <div
         :class="{ 'hidden ': !isOpen }"
-        class="md:block mt-6 md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 h-full bg-gray-200 md:sticky md:top-0"
+        class="h-full mt-6 bg-gray-200 md:block md:mt-0 w-12/12 md:w-6/12 lg:w-5/12 md:sticky md:top-0"
       >
         <div v-if="cart.length > 0">
-          <div class="md:px-10 pt-6 md:pt-10">
+          <div class="pt-6 md:px-10 md:pt-10">
             <h3
-              class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
-            >
-              Order Summary
-            </h3>
+              class="mb-6 text-lg font-thin text-center text-gray-600 sm:text-left lg:text-3xl"
+            >Order Summary</h3>
+            <p class="text-gray-600">{{cartCount | pluralizeCart }}</p>
           </div>
           <div>
             <div v-for="item in cart" :key="item.id">
               <CartItem :item="item" />
             </div>
           </div>
-          <div class="px-10 md:px-10 md:py-10 pb-6">
+          <div class="px-10 pb-6 md:px-10 md:py-10">
             <div class="flex justify-between">
-              <h6 class="text-gray-500 text-sm lg:text-lg">Subtotal</h6>
-              <p class="text-gray-500 text-sm lg:text-lg">
-                {{ cartTotal | VatAmountFromNet }}
-              </p>
+              <h6 class="text-sm text-gray-500 lg:text-lg">Subtotal</h6>
+              <p class="text-sm text-gray-500 lg:text-lg">{{ cartTotal | VatAmountFromNet }}</p>
             </div>
             <div class="flex justify-between">
-              <h6 class="text-gray-500 text-sm lg:text-lg">Shipping</h6>
-              <p class="text-gray-500 text-sm lg:text-lg">Free</p>
+              <h6 class="text-sm text-gray-500 lg:text-lg">Shipping</h6>
+              <p class="text-sm text-gray-500 lg:text-lg">Free</p>
             </div>
             <div class="flex justify-between">
-              <h6 class="text-gray-500 text-sm lg:text-lg">Tax</h6>
-              <p class="text-gray-500 text-sm lg:text-lg">
-                {{ cartTotal | VatAmountFromGross }}
-              </p>
+              <h6 class="text-sm text-gray-500 lg:text-lg">Tax</h6>
+              <p class="text-sm text-gray-500 lg:text-lg">{{ cartTotal | VatAmountFromGross }}</p>
             </div>
             <div class="flex justify-between my-6">
-              <h6 class="text-gray-700 text-2xl font-semibold">Total</h6>
-              <p class="text-gray-700 text-2xl font-semibold">
-                {{ cartTotal | pound }}
-              </p>
+              <h6 class="text-2xl font-semibold text-gray-700">Total</h6>
+              <p class="text-2xl font-semibold text-gray-700">{{ cartTotal | pound }}</p>
             </div>
             <button
               @click="clearCart"
-              class="bg-purple-800 text-white w-full hover:bg-purple-400 py-3 rounded-full focus:outline-none"
-            >
-              Clear Cart
-            </button>
+              class="w-full py-3 text-white bg-purple-800 rounded-full hover:bg-purple-400 focus:outline-none"
+            >Clear Cart</button>
           </div>
         </div>
         <div v-else>
-          <div class="md:px-10 pt-6 md:pt-10">
+          <div class="pt-6 md:px-10 md:pt-10">
             <h3
-              class="text-center sm:text-left text-lg lg:text-3xl font-thin text-gray-600"
-            >
-              Cart is Empty
-            </h3>
-            <p class="text-gray-600 my-10">
+              class="text-lg font-thin text-center text-gray-600 sm:text-left lg:text-3xl"
+            >Cart is Empty</h3>
+            <p class="my-10 text-gray-600">
               Please contine shopping by clicking
-              <nuxt-link class="text-purple-800 hover:text-purple-400" to="/"
-                >here.</nuxt-link
-              >
+              <nuxt-link class="text-purple-800 hover:text-purple-400" to="/">here.</nuxt-link>
             </p>
           </div>
         </div>
         <div class="border-t border-gray-400">
           <div class="p-10">
-            <p class="mb-6 font-thin text-gray-600 text-lg">Discount Code</p>
+            <p class="mb-6 text-lg font-thin text-gray-600">Discount Code</p>
             <div class="flex-flex-col">
               <div class="flex">
                 <input
                   type="text"
                   id="payment"
-                  class="w-4/6 flex-1 text-xs lg:text-sm bg-white text-purple-800 rounded-l border border-grey-400 py-3 pl-3 focus:outline-none"
+                  class="flex-1 w-4/6 py-3 pl-3 text-xs text-purple-800 bg-white border rounded-l lg:text-sm border-grey-400 focus:outline-none"
                   placeholder="Enter your Discount Code"
                 />
                 <input
                   type="submit"
                   id="coupon-submit"
-                  class="w-2/6 inline-block text-xs lg:text-sm bg-purple-800 text-white hover:bg-purple-400 cursor-pointer rounded-r text-center py-3 focus:outline-none"
+                  class="inline-block w-2/6 py-3 text-xs text-center text-white bg-purple-800 rounded-r cursor-pointer lg:text-sm hover:bg-purple-400 focus:outline-none"
                   value="Add Discount"
                 />
               </div>
@@ -96,27 +81,25 @@
         </div>
       </div>
       <div class="w-12/12 md:w-6/12 lg:w-7/12 md:pr-10">
-        <h1 class="text-lg lg:text-3xl font-thin text-gray-600 mt-6 mb-6">
-          Checkout
-        </h1>
+        <h1 class="mt-6 mb-6 text-lg font-thin text-gray-600 lg:text-3xl">Checkout</h1>
         <div class="md:mb-6">
           <SectionHeading number="1" title="Personal Details" />
           <div class="flex-flex-col">
             <div class="flex">
               <input
                 type="text"
-                class="mr-2 mb-3 border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400 border-b"
+                class="w-full py-3 mb-3 mr-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="First Name"
               />
               <input
                 type="text"
-                class="ml-2 mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+                class="w-full py-3 mb-3 ml-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="Last Name"
               />
             </div>
             <input
               type="email"
-              class="mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+              class="w-full py-3 mb-3 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
               placeholder="Email Address"
             />
           </div>
@@ -127,46 +110,46 @@
             <div class="flex">
               <input
                 type="text"
-                class="mr-2 mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+                class="w-full py-3 mb-3 mr-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="First Name"
               />
               <input
                 type="text"
-                class="ml-2 mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+                class="w-full py-3 mb-3 ml-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="Last Name"
               />
             </div>
             <input
               type="text"
-              class="mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+              class="w-full py-3 mb-3 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
               placeholder="Address Line 1"
             />
             <input
               type="text"
-              class="mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+              class="w-full py-3 mb-3 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
               placeholder="Address Line 2"
             />
             <div class="flex">
               <input
                 type="text"
-                class="mr-2 mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+                class="w-full py-3 mb-3 mr-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="City"
               />
               <input
                 type="text"
-                class="ml-2 mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+                class="w-full py-3 mb-3 ml-2 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
                 placeholder="State"
               />
             </div>
             <input
               type="text"
-              class="mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+              class="w-full py-3 mb-3 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
               placeholder="Post Code"
             />
             <CountrySelect />
             <input
               type="text"
-              class="mb-3 border-b border-gray-400 w-full py-3 focus:outline-none text-purple-800 text-sm focus:border-purple-400"
+              class="w-full py-3 mb-3 text-sm text-purple-800 border-b border-gray-400 focus:outline-none focus:border-purple-400"
               placeholder="Phone"
             />
           </div>
@@ -178,19 +161,19 @@
               <input
                 type="text"
                 id="payment"
-                class="w-5/6 flex-1 text-sm bg-white text-purple-800 rounded-l border-b border-grey-400 py-3 focus:outline-none text-sm"
+                class="flex-1 w-5/6 py-3 text-sm text-purple-800 bg-white border-b rounded-l border-grey-400 focus:outline-none"
                 placeholder="Card Number"
               />
               <input
                 type="text"
                 id="payment"
-                class="w-1/6 inline-block text-sm bg-white text-purple-800 border-b border-grey-400 py-3 focus:outline-none text-sm"
+                class="inline-block w-1/6 py-3 text-sm text-purple-800 bg-white border-b border-grey-400 focus:outline-none"
                 placeholder="MM / YY"
               />
               <input
                 type="text"
                 id="payment"
-                class="w-1/6 inline-block text-sm bg-white text-purple-800 rounded-r border-b border-grey-400 py-3 focus:outline-none text-sm"
+                class="inline-block w-1/6 py-3 text-sm text-purple-800 bg-white border-b rounded-r border-grey-400 focus:outline-none"
                 placeholder="CVC"
               />
             </div>
@@ -200,7 +183,7 @@
         <div class="md:mb-6 md:border-b md:border-gray-400">
           <div>
             <button
-              class="bg-purple-800 mb-10 flex justify-center hover:bg-purple-400 rounded-full w-full py-3 px-6 text-white focus:outline-none text-sm focus:shadow-outline"
+              class="flex justify-center w-full px-6 py-3 mb-10 text-sm text-white bg-purple-800 rounded-full hover:bg-purple-400 focus:outline-none focus:shadow-outline"
               type="submit"
               @click="addingToCart = !addingToCart"
             >
@@ -212,9 +195,7 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <h1 class="text-xl lg:text-3xl font-thin text-gray-600 my-8">
-            What Our Customers Say...
-          </h1>
+          <h1 class="my-8 text-xl font-thin text-gray-600 lg:text-3xl">What Our Customers Say...</h1>
 
           <no-ssr>
             <carousel items="1" autoplay="true" :dots="true" :nav="false">
@@ -268,9 +249,16 @@ export default {
       });
     }
   },
+  filters: {
+    pluralizeCart(count) {
+      return count > 1
+        ? `There is ${count} items in your basket.`
+        : `There is ${count} item in your basket.`;
+    }
+  },
   computed: {
     ...mapState(["cart"]),
-    ...mapGetters(["cartTotal"])
+    ...mapGetters(["cartTotal", "cartCount"])
   },
   components: {
     PageHeading,
