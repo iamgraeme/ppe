@@ -8,7 +8,7 @@
         <div class="flex flex-col items-center div1">
           <div class="grid grid-rows-4 gap-5">
             <div
-              class="w-48 h-48 bg-red-600"
+              class="w-48 h-48"
               v-for="image in currentProduct.images.slice(0,4)"
               :key="image.id"
             >
@@ -106,7 +106,7 @@ export default {
 
 <style>
 .parent {
-  height: 820px;
+  min-height: 820px;
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
