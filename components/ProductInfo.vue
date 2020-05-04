@@ -1,24 +1,24 @@
 <template>
   <div class="relative z-10 w-full h-full bg-gray-100">
-    <div class="w-full px-16 pt-6 pb-24">
-      <div class="flex items-center justify-between mb-3">
+    <div class="w-full px-16 pt-3 pb-12">
+      <div class="flex items-center justify-between mb-2">
         <h1 class="text-3xl">{{ currentProduct.name }}</h1>
         <StockStatus :stockStatus="currentProduct.stock_status" />
       </div>
       <div>
         <div
-          class="mb-3 text-2xl text-purple-400 bg-transparent"
+          class="mb-2 text-2xl text-purple-400 bg-transparent"
           v-html="currentProduct.price_html"
         ></div>
       </div>
       <div>
-        <div class="py-3 mb-6 border-t border-b border-gray-500">
+        <div class="py-3 mb-2 border-t border-b border-gray-500">
           <ProductReviewIndicator :product="currentProduct" />
         </div>
         <div class="short-description">
           <div
             v-html="currentProduct.short_description"
-            class="pb-6 mb-6 text-sm leading-loose text-gray-700 border-b border-gray-500"
+            class="pb-3 mb-3 text-sm leading-loose text-gray-700 border-b border-gray-500"
           ></div>
         </div>
         <AttributeSelector :variations="currentProduct.variations" :productId="currentProduct.id" />

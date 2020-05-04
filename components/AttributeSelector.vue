@@ -6,9 +6,19 @@
     <div v-else>
       <div>
         <div>
+          <div class="mb-2" v-if="filters.length > 0">
+            <p class="mb-2 text-lg text-gray-600">Your Choices:</p>
+            <ul class="option-list">
+              <li
+                v-for="item in filters"
+                :key="item.key"
+                class="mr-3 text-sm text-gray-600"
+              >{{item.key + " : " + item.value}}</li>
+            </ul>
+          </div>
           <div>
-            <fieldset v-for="attribute in attributes" :key="attribute.id" class="mb-3">
-              <div class="mb-3 text-lg text-gray-600">{{ attribute }}</div>
+            <fieldset v-for="attribute in attributes" :key="attribute.id" class="mb-2">
+              <div class="mb-2 text-lg text-gray-600">{{ attribute }}</div>
               <div class="flex flex-wrap">
                 <div v-for="option in options" :key="option.id" class="attributes">
                   <label v-if="option.key === attribute">
@@ -20,7 +30,13 @@
                       :disabled="isDisabled(option)"
                       @change="onVariationChange(option.key, option.value)"
                     />
-                    <div class="relative w-8 h-8 mb-3 mr-3 bg-gray-400 hover:bg-gray-500 option">
+                    <div
+                      class="relative flex items-center justify-center w-8 h-8 mb-3 mr-3 bg-gray-400 hover:bg-gray-500 option"
+                    >
+                      <span
+                        v-if="option.key === 'Bed Size'"
+                        class="text-xs"
+                      >{{option.value | getAcronym}}</span>
                       <span class="tooltiptext">{{option.value}}</span>
                     </div>
                   </label>
@@ -163,6 +179,15 @@ export default {
       return false;
     }
   },
+  filters: {
+    getAcronym(value) {
+      const matches = value.match(/\b(\w)/g); // ['J','S','O','N']
+      const acronym = matches.join(""); // JSON
+      const stripNos = acronym.replace(/[0-9]/g, "");
+
+      return stripNos;
+    }
+  },
   async mounted() {
     const id = this.productId;
     try {
@@ -197,13 +222,13 @@ STYLES */
   cursor: pointer;
 } /* CHECKED STYLES */
 [type="radio"]:checked + .option {
-  outline: 1px solid #000;
+  outline: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .option .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -216,19 +241,27 @@ STYLES */
   position: absolute;
   z-index: 1;
 }
+
 .option .tooltiptext::after {
   content: " ";
   position: absolute;
-  top: 100%; /* At the
-bottom of the tooltip */
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
 }
 
 .option:hover .tooltiptext {
   visibility: visible;
+}
+
+.option-list li {
+  padding-left: 34px;
+  background: transparent
+    url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwIDEwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMCAxMWwyLTIgNSA1IDExLTExIDIgMiAtMTMgMTNaIiB0cmFuc2Zvcm09Im1hdHJpeCguNSAwIDAgLjUgMCAwKSIgZmlsbD0iIzdFRDMyMSI+PC9wYXRoPjwvc3ZnPg==)
+    no-repeat center left;
+  background-size: 16px;
 }
 </style>
