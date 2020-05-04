@@ -6,20 +6,23 @@
     <div v-else>
       <div>
         <div>
-          {{ filters }}
-          <div class="item__variations variation__table">
-            <fieldset v-for="attribute in attributes" :key="attribute.id">
-              <div class="text-lg text-gray-600">{{ attribute }}</div>
+          <div>
+            <fieldset v-for="attribute in attributes" :key="attribute.id" class="mb-3">
+              <div class="mb-3 text-lg text-gray-600">{{ attribute }}</div>
               <div class="flex flex-wrap">
-                <div v-for="option in options" :key="option.id">
+                <div v-for="option in options" :key="option.id" class="attributes">
                   <label v-if="option.key === attribute">
                     <input
                       type="radio"
                       :name="attribute | slugify"
                       :id="option.value | slugify"
+                      :selected="isSelected(option)"
+                      :disabled="isDisabled(option)"
                       @change="onVariationChange(option.key, option.value)"
                     />
-                    <span class="text-xs text-gray-600">{{option.value}}</span>
+                    <div class="relative w-8 h-8 mb-3 mr-3 bg-gray-400 hover:bg-gray-500 option">
+                      <span class="tooltiptext">{{option.value}}</span>
+                    </div>
                   </label>
                 </div>
               </div>
@@ -181,3 +184,51 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+} /* IMAGE
+STYLES */
+[type="radio"] + .option {
+  cursor: pointer;
+} /* CHECKED STYLES */
+[type="radio"]:checked + .option {
+  outline: 1px solid #000;
+}
+
+.option .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 13px;
+  width: 130px;
+  bottom: 120%;
+  padding: 3px 5px;
+  left: 50%;
+  margin-left: -65px;
+  position: absolute;
+  z-index: 1;
+}
+.option .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the
+bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.option:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
