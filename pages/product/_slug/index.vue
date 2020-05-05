@@ -124,4 +124,13 @@ export default {
 .div3 {
   grid-area: 1 / 6 / 6 / 9;
 }
+@media (max-width: 1024px) {
+  .parent {
+    display: flex;
+    flex-direction: column;
+  }
+  .div1 {
+    display: none;
+  }
+}
 </style>

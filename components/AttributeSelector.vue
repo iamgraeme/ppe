@@ -31,13 +31,18 @@
                       @change="onVariationChange(option.key, option.value)"
                     />
                     <div
-                      class="relative flex items-center justify-center w-8 h-8 mb-3 mr-3 bg-gray-400 hover:bg-gray-500 option"
+                      class="relative flex items-center justify-center w-10 h-10 mb-3 mr-3 bg-gray-400 hover:bg-gray-500 option"
                     >
                       <span
                         v-if="option.key === 'Bed Size'"
-                        class="text-xs"
+                        class="text-sm font-semibold"
                       >{{option.value | getAcronym}}</span>
                       <span class="tooltiptext">{{option.value}}</span>
+                      <img
+                        v-if="option.key === 'Fabric'"
+                        :src="require(`../assets/images/colors/${option.value.replace(/\s+/g, '').toLowerCase()}.jpg`)"
+                        :alt="option.value"
+                      />
                     </div>
                   </label>
                 </div>
@@ -183,9 +188,8 @@ export default {
     getAcronym(value) {
       const matches = value.match(/\b(\w)/g); // ['J','S','O','N']
       const acronym = matches.join(""); // JSON
-      const stripNos = acronym.replace(/[0-9]/g, "");
-
-      return stripNos;
+      const stripped = acronym.replace(/[0-9]/g, "");
+      return stripped;
     }
   },
   async mounted() {
@@ -194,12 +198,10 @@ export default {
       const pageOne = await api.get(
         `products/${id}/variations?per_page=100&page=1`
       );
-
       const pageTwo = await api.get(
         `products/${id}/variations?per_page=100&page=2`
       );
       this.variations = [...pageOne.data, ...pageTwo.data];
-
       this.isLoading = false;
     } catch (error) {
       throw error;
