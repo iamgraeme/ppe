@@ -37,7 +37,7 @@
                         v-if="option.key === 'Bed Size'"
                         class="text-sm font-semibold"
                       >{{option.value | getAcronym}}</span>
-                      <span class="tooltiptext">{{option.value}}</span>
+                      <span class="text-xs tooltiptext">{{option.value}}</span>
                       <img
                         v-if="option.key === 'Fabric'"
                         :src="require(`../assets/images/colors/${option.value.replace(/\s+/g, '').toLowerCase()}.jpg`)"
@@ -224,7 +224,7 @@ STYLES */
   cursor: pointer;
 } /* CHECKED STYLES */
 [type="radio"]:checked + .option {
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  outline: 2px solid #4385f5;
 }
 
 .option .tooltiptext {
