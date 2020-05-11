@@ -1,19 +1,19 @@
 <template>
-  <div class="hidden lg:flex cta items-center border-t border-b border-gray-300 relative">
+  <div class="relative items-center hidden border-t border-b border-gray-300 lg:flex cta">
     <div class="container mx-auto">
       <div class="flex items-center">
         <div class="w-6/12 pr-16">
           <div v-if="title">
-            <h2 class="text-3xl font-thin text-gray-600 mb-10">{{title}}</h2>
+            <h2 class="mb-10 text-3xl font-thin text-gray-600">{{title}}</h2>
           </div>
           <div v-else>
-            <h2 class="text-3xl font-thin text-gray-600 mb-10">Our Super Relief Mattress</h2>
+            <h2 class="mb-10 text-3xl font-thin text-gray-600">Our Coolmax Total Support Mattress</h2>
           </div>
           <div v-if="body">
-            <div class="text-sm leading-loose text-gray-600 mb-10 description-cta" v-html="body"></div>
+            <div class="mb-10 text-sm leading-loose text-gray-600 description-cta" v-html="body"></div>
           </div>
           <div v-else>
-            <p class="leading-loose text-gray-600 mb-10 text-sm">
+            <p class="mb-10 text-sm leading-loose text-gray-600">
               A gorgeous thick layer of reflex foam with a layer of HD memory foam
               allowing the body to sink into the mattress. Relieving pressure on
               bones, joints and muscles whilst maximising life span of the
@@ -23,23 +23,23 @@
           </div>
           <button
             @click="showModal"
-            class="text-white bg-gray-600 cursor-pointer hover:bg-purple-400 rounded-full focus:outline-none px-4 h-6"
+            class="h-6 px-4 text-white bg-gray-600 rounded-full cursor-pointer hover:bg-purple-400 focus:outline-none"
           >Size Guide</button>
         </div>
-        <div class="w-6/12 m-auto relative -top-20">
+        <div class="relative w-6/12 m-auto -top-20">
           <div v-if="imageUrl">
             <div>
               <img
                 :src="imageUrl"
                 :alt="title"
-                class="cta-image object-cover object-center shadow-md"
+                class="object-cover object-center shadow-md cta-image"
               />
             </div>
             <div>
               <img
                 :src="imageUrlAlt"
                 :alt="title"
-                class="cta-image-alt object-cover object-center shadow-md absolute w-64"
+                class="absolute object-cover object-center w-64 shadow-md cta-image-alt"
               />
             </div>
           </div>
@@ -75,7 +75,8 @@ export default {
     title: String,
     body: String,
     imageUrl: String,
-    imageUrlAlt: String
+    imageUrlAlt: String,
+    category: String
   }
 };
 </script>

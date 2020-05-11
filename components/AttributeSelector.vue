@@ -218,11 +218,10 @@ export default {
   opacity: 0;
   width: 0;
   height: 0;
-} /* IMAGE
-STYLES */
+}
 [type="radio"] + .option {
   cursor: pointer;
-} /* CHECKED STYLES */
+}
 [type="radio"]:checked + .option {
   outline: 2px solid #4385f5;
 }
