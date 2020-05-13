@@ -17,6 +17,7 @@
             </ul>
           </div>
           <div>
+            {{matches}}
             <fieldset v-for="attribute in attributes" :key="attribute.id" class="mb-2">
               <div class="mb-2 text-lg text-gray-600">{{ attribute }}</div>
               <div class="flex flex-wrap">
@@ -96,7 +97,8 @@ export default {
           if (options.length == 0) {
             newOptions.push({
               key: variation_attribute.name,
-              value: variation_attribute.option
+              value: variation_attribute.option,
+              id: variation.id
             });
           }
         });
