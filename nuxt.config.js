@@ -1,6 +1,11 @@
+const { api } = require('./services/woocommerce')
+const dynamicRoutes = () => {
+  return api.get('products?per_page=100').then(res => {
+    return res.data.map(product => `/product/${product.slug}`)
+  })
+}
 module.exports = {
   mode: 'universal',
-
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000'
   },
@@ -22,7 +27,7 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: ['/category/:slug', '/product/:slug']
+    routes: dynamicRoutes
   },
   /*
    ** Customize the progress-bar color
