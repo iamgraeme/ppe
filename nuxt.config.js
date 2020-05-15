@@ -1,9 +1,9 @@
-// const { api } = require('./services/woocommerce')
-// const dynamicRoutes = () => {
-//   return api.get('products?per_page=100').then(res => {
-//     return res.data.map(product => `/product/${product.slug}`)
-//   })
-// }
+const { api } = require('./services/woocommerce')
+const productRoutes = () => {
+  return api.get('products?per_page=100').then(res => {
+    return res.data.map(product => `/product/${product.slug}`)
+  })
+}
 module.exports = {
   mode: 'universal',
   env: {
@@ -26,9 +26,9 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  // generate: {
-  //   routes: dynamicRoutes
-  // },
+  generate: {
+    routes: productRoutes
+  },
   /*
    ** Customize the progress-bar color
    */
