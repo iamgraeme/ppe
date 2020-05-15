@@ -78,18 +78,29 @@ export const actions = {
     commit('SORT_ALPHABETICALLY')
   },
   // Product Functions
-  productsCategoryId ({ commit, dispatch }, id) {
+  productsCategorySlug ({ commit, dispatch }, slug) {
+    api
+      .get(`products/categories?slug=${slug}`)
+      .then(response => {
+        console.log(response)
+        dispatch('getProductsByCategoryId', response.data[0].id)
+      })
+      .then(() => {})
+      .catch(error => {
+        console.log('Response Data:', error.response.data)
+      })
+  },
+  getProductsByCategoryId ({ commit }, id) {
     api
       .get(`products?category=${id}`)
       .then(response => {
+        console.log('it runs')
         commit('SET_PRODUCTS_BY_ID', response.data)
       })
       .catch(error => {
         console.log('Response Data:', error.response.data)
       })
-      .finally(() => {})
   },
-
   getCurrentProduct ({ commit }, slug) {
     api
       .get(`products/?slug=${slug}`)

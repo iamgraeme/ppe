@@ -75,10 +75,10 @@ export default {
     isLoading: true
   }),
   async mounted() {
-    const id = this.$route.params.id;
+    const slug = this.$route.params.slug;
     try {
       await this.$store
-        .dispatch("products/productsCategoryId", id)
+        .dispatch("products/productsCategorySlug", slug)
         .catch(err => {
           console.log(err);
         });
