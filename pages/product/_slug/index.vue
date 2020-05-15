@@ -83,12 +83,12 @@ export default {
     isLoading: true,
     item: { qty: 1, bedsize: "", price: "" }
   }),
-  computed: { ...mapGetters("products", ["isLoading", "currentProduct"]) },
+  computed: { ...mapGetters("products", ["currentProduct"]) },
   head: () => ({ title: "Purple People Eater" }),
   async mounted() {
-    const id = this.$route.params.id;
+    const slug = this.$route.params.slug;
     try {
-      await this.$store.dispatch("products/getCurrentProduct", id);
+      await this.$store.dispatch("products/getCurrentProduct", slug);
     } catch (error) {
       throw error;
     }

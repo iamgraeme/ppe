@@ -90,12 +90,12 @@ export const actions = {
       .finally(() => {})
   },
 
-  getCurrentProduct ({ commit }, id) {
+  getCurrentProduct ({ commit }, slug) {
     api
-      .get(`products/${id}`)
+      .get(`products/?slug=${slug}`)
       .then(response => {
-        // console.log(response.data)
-        commit('SET_CURRENT_PRODUCT', response.data)
+        console.log(response.data[0])
+        commit('SET_CURRENT_PRODUCT', response.data[0])
       })
       .catch(error => {
         console.log(error)
