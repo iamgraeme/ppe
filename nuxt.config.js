@@ -1,9 +1,4 @@
 const { api } = require('./services/woocommerce')
-const productRoutes = () => {
-  return api.get('products?per_page=100').then(res => {
-    return res.data.map(product => `/product/${product.slug}`)
-  })
-}
 module.exports = {
   mode: 'universal',
   env: {
@@ -27,7 +22,21 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: productRoutes
+    routes: function () {
+      const products = api.get('products?per_page=100').then(res => {
+        return res.data.map(product => `/product/${product.slug}`)
+      })
+
+      const categories = api
+        .get('products/categories?per_page=100')
+        .then(res => {
+          return res.data.map(category => `/category/${category.slug}`)
+        })
+
+      return Promise.all([products, categories]).then(values => {
+        return values.join().split(',')
+      })
+    }
   },
   /*
    ** Customize the progress-bar color
